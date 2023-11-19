@@ -5,6 +5,10 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wealth-Eco-Invest", "Wealth-Eco-Invest\Wealth-Eco-Invest.csproj", "{5CED5E3C-7039-41E1-B77F-A05C32E1E00D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wealth-Eco-Invest.Data", "Wealth-Eco-Invest.Data\Wealth-Eco-Invest.Data.csproj", "{98AC9404-D66D-4AA5-9FE4-497AD4A5D9B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wealth-Eco-Invest.Common", "Wealth-Eco-Invest.Common\Wealth-Eco-Invest.Common.csproj", "{5A3590DE-48EB-491B-AD06-E8F117D4DDD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{5CED5E3C-7039-41E1-B77F-A05C32E1E00D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CED5E3C-7039-41E1-B77F-A05C32E1E00D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CED5E3C-7039-41E1-B77F-A05C32E1E00D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98AC9404-D66D-4AA5-9FE4-497AD4A5D9B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98AC9404-D66D-4AA5-9FE4-497AD4A5D9B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98AC9404-D66D-4AA5-9FE4-497AD4A5D9B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98AC9404-D66D-4AA5-9FE4-497AD4A5D9B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A3590DE-48EB-491B-AD06-E8F117D4DDD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A3590DE-48EB-491B-AD06-E8F117D4DDD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A3590DE-48EB-491B-AD06-E8F117D4DDD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A3590DE-48EB-491B-AD06-E8F117D4DDD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
