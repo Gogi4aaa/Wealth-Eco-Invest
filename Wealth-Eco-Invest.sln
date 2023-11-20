@@ -3,11 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wealth-Eco-Invest", "Wealth-Eco-Invest\Wealth-Eco-Invest.csproj", "{5CED5E3C-7039-41E1-B77F-A05C32E1E00D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wealth-Eco-Invest", "Wealth-Eco-Invest\Wealth-Eco-Invest.csproj", "{5CED5E3C-7039-41E1-B77F-A05C32E1E00D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wealth-Eco-Invest.Data", "Wealth-Eco-Invest.Data\Wealth-Eco-Invest.Data.csproj", "{98AC9404-D66D-4AA5-9FE4-497AD4A5D9B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wealth-Eco-Invest.Data", "Wealth-Eco-Invest.Data\Wealth-Eco-Invest.Data.csproj", "{98AC9404-D66D-4AA5-9FE4-497AD4A5D9B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wealth-Eco-Invest.Common", "Wealth-Eco-Invest.Common\Wealth-Eco-Invest.Common.csproj", "{5A3590DE-48EB-491B-AD06-E8F117D4DDD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wealth-Eco-Invest.Common", "Wealth-Eco-Invest.Common\Wealth-Eco-Invest.Common.csproj", "{5A3590DE-48EB-491B-AD06-E8F117D4DDD7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{D6B16DE2-F772-44DD-9A6B-0FA7996DFEB7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{D6D83C48-F807-4309-89FB-CF7FADC823E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{CFA2C9C8-5174-4993-B33E-5A670FF97058}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wealth-Eco-Invest.Services.Data", "Wealth-Eco-Invest.Services.Data\Wealth-Eco-Invest.Services.Data.csproj", "{E7255AE0-578D-4989-A7ED-84EF1C2E9C80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wealth-Eco-Invest.Data.Models", "Wealth-Eco-Invest.Data.Models\Wealth-Eco-Invest.Data.Models.csproj", "{4F777755-2FF3-4704-8B7D-5E90DE52C371}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,9 +37,23 @@ Global
 		{5A3590DE-48EB-491B-AD06-E8F117D4DDD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A3590DE-48EB-491B-AD06-E8F117D4DDD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A3590DE-48EB-491B-AD06-E8F117D4DDD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7255AE0-578D-4989-A7ED-84EF1C2E9C80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7255AE0-578D-4989-A7ED-84EF1C2E9C80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7255AE0-578D-4989-A7ED-84EF1C2E9C80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7255AE0-578D-4989-A7ED-84EF1C2E9C80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F777755-2FF3-4704-8B7D-5E90DE52C371}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F777755-2FF3-4704-8B7D-5E90DE52C371}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F777755-2FF3-4704-8B7D-5E90DE52C371}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F777755-2FF3-4704-8B7D-5E90DE52C371}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5CED5E3C-7039-41E1-B77F-A05C32E1E00D} = {D6B16DE2-F772-44DD-9A6B-0FA7996DFEB7}
+		{98AC9404-D66D-4AA5-9FE4-497AD4A5D9B6} = {D6D83C48-F807-4309-89FB-CF7FADC823E2}
+		{E7255AE0-578D-4989-A7ED-84EF1C2E9C80} = {CFA2C9C8-5174-4993-B33E-5A670FF97058}
+		{4F777755-2FF3-4704-8B7D-5E90DE52C371} = {D6D83C48-F807-4309-89FB-CF7FADC823E2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B111A1AD-743A-4EF2-9C11-B0856A33A94F}
