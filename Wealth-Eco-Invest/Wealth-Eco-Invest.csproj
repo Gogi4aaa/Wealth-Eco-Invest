@@ -22,7 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Wealth-Eco-Invest.Common\Wealth-Eco-Invest.Common.csproj" />
     <ProjectReference Include="..\Wealth-Eco-Invest.Data\Wealth-Eco-Invest.Data.csproj" />
+    <ProjectReference Include="..\Wealth-Eco-Invest.Web.Infrastructure\Wealth-Eco-Invest.Web.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

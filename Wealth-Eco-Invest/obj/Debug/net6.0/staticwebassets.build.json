@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "y6EMjK4Wh+muhxFsNHiuqWo86r5XN4XumMldPmqa078=",
+  "Hash": "oqI1APWw/E+RdQNMc9PdEN3EeOccRdr4eF6nYj1Q61I=",
   "Source": "Wealth-Eco-Invest",
   "BasePath": "_content/Wealth-Eco-Invest",
   "Mode": "Default",
@@ -1069,6 +1069,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Wealth-Eco-Invest.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\387451757_636760738629670_6251918314014004869_n.png",
+      "SourceId": "Wealth-Eco-Invest",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\",
+      "BasePath": "_content/Wealth-Eco-Invest",
+      "RelativePath": "387451757_636760738629670_6251918314014004869_n.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\387451757_636760738629670_6251918314014004869_n.png"
     },
     {
       "Identity": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\css\\site.css",

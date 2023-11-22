@@ -288,3 +288,7 @@ D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\runtim
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\runtimes\win-arm64\native\e_sqlite3.dll
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\runtimes\win-x64\native\e_sqlite3.dll
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\runtimes\win-x86\native\e_sqlite3.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Wealth-Eco-Invest.Data.Models.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Wealth-Eco-Invest.Web.Infrastructure.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Wealth-Eco-Invest.Web.Infrastructure.pdb
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Wealth-Eco-Invest.Data.Models.pdb

@@ -829,6 +829,20 @@
         "runtime": {
           "bin/placeholder/Wealth-Eco-Invest.Common.dll": {}
         }
+      },
+      "Wealth-Eco-Invest.Data.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.Extensions.Identity.Stores": "6.0.22",
+          "Wealth-Eco-Invest.Common": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Wealth-Eco-Invest.Data.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Wealth-Eco-Invest.Data.Models.dll": {}
+        }
       }
     }
   },
@@ -2090,13 +2104,19 @@
       "type": "project",
       "path": "../Wealth-Eco-Invest.Common/Wealth-Eco-Invest.Common.csproj",
       "msbuildProject": "../Wealth-Eco-Invest.Common/Wealth-Eco-Invest.Common.csproj"
+    },
+    "Wealth-Eco-Invest.Data.Models/1.0.0": {
+      "type": "project",
+      "path": "../Wealth-Eco-Invest.Data.Models/Wealth-Eco-Invest.Data.Models.csproj",
+      "msbuildProject": "../Wealth-Eco-Invest.Data.Models/Wealth-Eco-Invest.Data.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.22",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.22",
-      "Wealth-Eco-Invest.Common >= 1.0.0"
+      "Wealth-Eco-Invest.Common >= 1.0.0",
+      "Wealth-Eco-Invest.Data.Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2133,6 +2153,9 @@
           "projectReferences": {
             "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj": {
               "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj"
+            },
+            "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj": {
+              "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj"
             }
           }
         }

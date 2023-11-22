@@ -13,3 +13,5 @@ D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Data\obj\Debug\net6.0\r
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Data\bin\Debug\net6.0\Wealth-Eco-Invest.Common.dll
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Data\bin\Debug\net6.0\Wealth-Eco-Invest.Common.pdb
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Data\obj\Debug\net6.0\Wealth-Eco-Invest.Data.csproj.CopyComplete
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Data\bin\Debug\net6.0\Wealth-Eco-Invest.Data.Models.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Data\bin\Debug\net6.0\Wealth-Eco-Invest.Data.Models.pdb

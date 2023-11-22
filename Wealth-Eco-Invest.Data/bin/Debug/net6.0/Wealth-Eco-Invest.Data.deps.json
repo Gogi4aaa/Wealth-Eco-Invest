@@ -10,7 +10,8 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.22",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.22",
-          "Wealth-Eco-Invest.Common": "1.0.0"
+          "Wealth-Eco-Invest.Common": "1.0.0",
+          "Wealth-Eco-Invest.Data.Models": "1.0.0"
         },
         "runtime": {
           "Wealth-Eco-Invest.Data.dll": {}
@@ -525,6 +526,15 @@
         "runtime": {
           "Wealth-Eco-Invest.Common.dll": {}
         }
+      },
+      "Wealth-Eco-Invest.Data.Models/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Identity.Stores": "6.0.22",
+          "Wealth-Eco-Invest.Common": "1.0.0"
+        },
+        "runtime": {
+          "Wealth-Eco-Invest.Data.Models.dll": {}
+        }
       }
     }
   },
@@ -850,6 +860,11 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "Wealth-Eco-Invest.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Wealth-Eco-Invest.Data.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
