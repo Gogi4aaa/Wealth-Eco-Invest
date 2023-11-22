@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Wealth_Eco_Invest.Data;
-
+using Wealth_Eco_Invest.Data.Models;
+using Wealth_Eco_Invest.Services.Data.Interfaces;
+using Wealth_Eco_Invest.Web.Infrastructure.Extensions;
+using static Wealth_Eco_Invest.Common.GeneralApplicationConstants;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -16,6 +19,8 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 })
 	.AddRoles<IdentityRole<Guid>>()
 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddApplicationServices(typeof(IAnnounceService));
 
 builder.Services.AddControllersWithViews();
 
@@ -41,6 +46,11 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+if (app.Environment.IsDevelopment())
+{
+    app.SeedAdministrator(DevelopmentAdminEmail);
+}
 
 app.MapControllerRoute(
 	name: "default",

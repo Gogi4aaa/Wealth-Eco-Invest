@@ -15,7 +15,12 @@
           "Microsoft.EntityFrameworkCore.Sqlite": "6.0.23",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.23",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.16",
-          "Wealth-Eco-Invest.Data": "1.0.0"
+          "Wealth-Eco-Invest.Common": "1.0.0",
+          "Wealth-Eco-Invest.Data": "1.0.0",
+          "Wealth-Eco-Invest.Data.Models": "1.0.0",
+          "Wealth-Eco-Invest.Services.Data": "1.0.0",
+          "Wealth-Eco-Invest.Web.Infrastructure": "1.0.0",
+          "Wealth-Eco-Invest.Web.ViewModels": "1.0.0"
         },
         "runtime": {
           "Wealth-Eco-Invest.dll": {}
@@ -2765,10 +2770,48 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.23",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.23",
-          "Wealth-Eco-Invest.Common": "1.0.0"
+          "Wealth-Eco-Invest.Common": "1.0.0",
+          "Wealth-Eco-Invest.Data.Models": "1.0.0"
         },
         "runtime": {
           "Wealth-Eco-Invest.Data.dll": {}
+        }
+      },
+      "Wealth-Eco-Invest.Data.Models/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Identity.Stores": "6.0.23",
+          "Wealth-Eco-Invest.Common": "1.0.0"
+        },
+        "runtime": {
+          "Wealth-Eco-Invest.Data.Models.dll": {}
+        }
+      },
+      "Wealth-Eco-Invest.Services.Data/1.0.0": {
+        "dependencies": {
+          "Wealth-Eco-Invest.Data": "1.0.0",
+          "Wealth-Eco-Invest.Data.Models": "1.0.0",
+          "Wealth-Eco-Invest.Web.ViewModels": "1.0.0"
+        },
+        "runtime": {
+          "Wealth-Eco-Invest.Services.Data.dll": {}
+        }
+      },
+      "Wealth-Eco-Invest.Web.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.23",
+          "Microsoft.AspNetCore.Identity.UI": "6.0.23",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Wealth-Eco-Invest.Common": "1.0.0",
+          "Wealth-Eco-Invest.Data": "1.0.0",
+          "Wealth-Eco-Invest.Data.Models": "1.0.0"
+        },
+        "runtime": {
+          "Wealth-Eco-Invest.Web.Infrastructure.dll": {}
+        }
+      },
+      "Wealth-Eco-Invest.Web.ViewModels/1.0.0": {
+        "runtime": {
+          "Wealth-Eco-Invest.Web.ViewModels.dll": {}
         }
       }
     }
@@ -4409,6 +4452,26 @@
       "sha512": ""
     },
     "Wealth-Eco-Invest.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Wealth-Eco-Invest.Data.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Wealth-Eco-Invest.Services.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Wealth-Eco-Invest.Web.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Wealth-Eco-Invest.Web.ViewModels/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

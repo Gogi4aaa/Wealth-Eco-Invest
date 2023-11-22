@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Wealth_Eco_Invest.Web.Infrastructure</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.23" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.23" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Wealth-Eco-Invest.Common\Wealth-Eco-Invest.Common.csproj" />
+    <ProjectReference Include="..\Wealth-Eco-Invest.Data.Models\Wealth-Eco-Invest.Data.Models.csproj" />
+    <ProjectReference Include="..\Wealth-Eco-Invest.Data\Wealth-Eco-Invest.Data.csproj" />
+  </ItemGroup>
+
+</Project>

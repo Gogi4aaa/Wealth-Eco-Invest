@@ -11,9 +11,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account
 {
-	using Data;
+    using Data.Models;
 
-	public class LogoutModel : PageModel
+    public class LogoutModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LogoutModel> _logger;

@@ -14,8 +14,7 @@ namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account
     using Microsoft.AspNetCore.Mvc.RazorPages;
     using Microsoft.AspNetCore.WebUtilities;
 
-    using Data;
-
+    using Data.Models;
     using static Common.ValidationConstants.User;
     public class RegisterModel : PageModel
     {
@@ -67,7 +66,7 @@ namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [StringLength(UserUsernameMaxLength, MinimumLength = UserUsernameMinLength)]
+            [StringLength(UsernameMaxLength, MinimumLength = UsernameMinLength)]
             public string Username { get; set; }
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used

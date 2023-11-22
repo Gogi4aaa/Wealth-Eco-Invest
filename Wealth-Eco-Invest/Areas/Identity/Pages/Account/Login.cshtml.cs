@@ -13,9 +13,9 @@ namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account
 	using Microsoft.AspNetCore.Mvc;
 	using Microsoft.AspNetCore.Mvc.RazorPages;
 
-	using Data;
+    using Data.Models;
 
-	public class LoginModel : PageModel
+    public class LoginModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
