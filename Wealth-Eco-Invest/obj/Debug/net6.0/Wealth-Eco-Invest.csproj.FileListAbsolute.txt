@@ -292,3 +292,7 @@ D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Wealth
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Wealth-Eco-Invest.Web.Infrastructure.dll
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Wealth-Eco-Invest.Web.Infrastructure.pdb
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Wealth-Eco-Invest.Data.Models.pdb
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Wealth-Eco-Invest.Web.ViewModels.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Wealth-Eco-Invest.Web.ViewModels.pdb
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Wealth-Eco-Invest.Services.Data.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Wealth-Eco-Invest.Services.Data.pdb

@@ -23,8 +23,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Wealth-Eco-Invest.Common\Wealth-Eco-Invest.Common.csproj" />
+    <ProjectReference Include="..\Wealth-Eco-Invest.Data.Models\Wealth-Eco-Invest.Data.Models.csproj" />
     <ProjectReference Include="..\Wealth-Eco-Invest.Data\Wealth-Eco-Invest.Data.csproj" />
+    <ProjectReference Include="..\Wealth-Eco-Invest.Services.Data\Wealth-Eco-Invest.Services.Data.csproj" />
     <ProjectReference Include="..\Wealth-Eco-Invest.Web.Infrastructure\Wealth-Eco-Invest.Web.Infrastructure.csproj" />
+    <ProjectReference Include="..\Wealth-Eco-Invest.Web.ViewModels\Wealth-Eco-Invest.Web.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

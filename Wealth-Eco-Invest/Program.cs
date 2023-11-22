@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Wealth_Eco_Invest.Data;
 using Wealth_Eco_Invest.Data.Models;
+using Wealth_Eco_Invest.Services.Data.Interfaces;
 using Wealth_Eco_Invest.Web.Infrastructure.Extensions;
 using static Wealth_Eco_Invest.Common.GeneralApplicationConstants;
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,8 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 })
 	.AddRoles<IdentityRole<Guid>>()
 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddApplicationServices(typeof(IAnnounceService));
 
 builder.Services.AddControllersWithViews();
 

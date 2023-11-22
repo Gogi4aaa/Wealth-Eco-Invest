@@ -4137,6 +4137,21 @@
           "bin/placeholder/Wealth-Eco-Invest.Data.Models.dll": {}
         }
       },
+      "Wealth-Eco-Invest.Services.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Wealth-Eco-Invest.Data": "1.0.0",
+          "Wealth-Eco-Invest.Data.Models": "1.0.0",
+          "Wealth-Eco-Invest.Web.ViewModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Wealth-Eco-Invest.Services.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Wealth-Eco-Invest.Services.Data.dll": {}
+        }
+      },
       "Wealth-Eco-Invest.Web.Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -4153,6 +4168,16 @@
         },
         "runtime": {
           "bin/placeholder/Wealth-Eco-Invest.Web.Infrastructure.dll": {}
+        }
+      },
+      "Wealth-Eco-Invest.Web.ViewModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Wealth-Eco-Invest.Web.ViewModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Wealth-Eco-Invest.Web.ViewModels.dll": {}
         }
       }
     }
@@ -11555,10 +11580,20 @@
       "path": "../Wealth-Eco-Invest.Data.Models/Wealth-Eco-Invest.Data.Models.csproj",
       "msbuildProject": "../Wealth-Eco-Invest.Data.Models/Wealth-Eco-Invest.Data.Models.csproj"
     },
+    "Wealth-Eco-Invest.Services.Data/1.0.0": {
+      "type": "project",
+      "path": "../Wealth-Eco-Invest.Services.Data/Wealth-Eco-Invest.Services.Data.csproj",
+      "msbuildProject": "../Wealth-Eco-Invest.Services.Data/Wealth-Eco-Invest.Services.Data.csproj"
+    },
     "Wealth-Eco-Invest.Web.Infrastructure/1.0.0": {
       "type": "project",
       "path": "../Wealth-Eco-Invest.Web.Infrastructure/Wealth-Eco-Invest.Web.Infrastructure.csproj",
       "msbuildProject": "../Wealth-Eco-Invest.Web.Infrastructure/Wealth-Eco-Invest.Web.Infrastructure.csproj"
+    },
+    "Wealth-Eco-Invest.Web.ViewModels/1.0.0": {
+      "type": "project",
+      "path": "../Wealth-Eco-Invest.Web.ViewModels/Wealth-Eco-Invest.Web.ViewModels.csproj",
+      "msbuildProject": "../Wealth-Eco-Invest.Web.ViewModels/Wealth-Eco-Invest.Web.ViewModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -11572,7 +11607,10 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.16",
       "Wealth-Eco-Invest.Common >= 1.0.0",
       "Wealth-Eco-Invest.Data >= 1.0.0",
-      "Wealth-Eco-Invest.Web.Infrastructure >= 1.0.0"
+      "Wealth-Eco-Invest.Data.Models >= 1.0.0",
+      "Wealth-Eco-Invest.Services.Data >= 1.0.0",
+      "Wealth-Eco-Invest.Web.Infrastructure >= 1.0.0",
+      "Wealth-Eco-Invest.Web.ViewModels >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -11610,11 +11648,20 @@
             "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj": {
               "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj"
             },
+            "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj": {
+              "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj"
+            },
             "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data\\Wealth-Eco-Invest.Data.csproj": {
               "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data\\Wealth-Eco-Invest.Data.csproj"
             },
+            "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data\\Wealth-Eco-Invest.Services.Data.csproj": {
+              "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data\\Wealth-Eco-Invest.Services.Data.csproj"
+            },
             "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Web.Infrastructure\\Wealth-Eco-Invest.Web.Infrastructure.csproj": {
               "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Web.Infrastructure\\Wealth-Eco-Invest.Web.Infrastructure.csproj"
+            },
+            "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Web.ViewModels\\Wealth-Eco-Invest.Web.ViewModels.csproj": {
+              "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Web.ViewModels\\Wealth-Eco-Invest.Web.ViewModels.csproj"
             }
           }
         }
