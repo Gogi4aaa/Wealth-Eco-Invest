@@ -1,0 +1,11 @@
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data\bin\Debug\net6.0\Wealth-Eco-Invest.Services.Data.deps.json
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data\bin\Debug\net6.0\Wealth-Eco-Invest.Services.Data.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data\bin\Debug\net6.0\Wealth-Eco-Invest.Services.Data.pdb
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Data.AssemblyInfoInputs.cache
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Data.AssemblyInfo.cs
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Data.csproj.CoreCompileInputs.cache
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Data.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data\obj\Debug\net6.0\refint\Wealth-Eco-Invest.Services.Data.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Data.pdb
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data\obj\Debug\net6.0\ref\Wealth-Eco-Invest.Services.Data.dll

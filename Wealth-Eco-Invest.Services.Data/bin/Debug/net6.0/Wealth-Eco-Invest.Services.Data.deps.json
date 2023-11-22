@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Wealth-Eco-Invest.Services.Data/1.0.0": {
+        "runtime": {
+          "Wealth-Eco-Invest.Services.Data.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Wealth-Eco-Invest.Services.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
