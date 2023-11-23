@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Wealth_Eco_Invest.Services.Data.Models</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Wealth-Eco-Invest.Web.ViewModels\Wealth-Eco-Invest.Web.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

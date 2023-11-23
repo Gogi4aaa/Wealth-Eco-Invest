@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Wealth-Eco-Invest.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Wealth-Eco-Invest.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Wealth-Eco-Invest.Common.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Wealth-Eco-Invest.Common/1.0.0": {
+      "type": "project",
+      "path": "../Wealth-Eco-Invest.Common/Wealth-Eco-Invest.Common.csproj",
+      "msbuildProject": "../Wealth-Eco-Invest.Common/Wealth-Eco-Invest.Common.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Wealth-Eco-Invest.Common >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Georgi\\.nuget\\packages\\": {},
@@ -38,7 +57,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj": {
+              "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

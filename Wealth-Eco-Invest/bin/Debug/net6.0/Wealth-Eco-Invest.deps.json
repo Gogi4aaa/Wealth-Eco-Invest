@@ -2790,10 +2790,19 @@
         "dependencies": {
           "Wealth-Eco-Invest.Data": "1.0.0",
           "Wealth-Eco-Invest.Data.Models": "1.0.0",
+          "Wealth-Eco-Invest.Services.Data.Models": "1.0.0",
           "Wealth-Eco-Invest.Web.ViewModels": "1.0.0"
         },
         "runtime": {
           "Wealth-Eco-Invest.Services.Data.dll": {}
+        }
+      },
+      "Wealth-Eco-Invest.Services.Data.Models/1.0.0": {
+        "dependencies": {
+          "Wealth-Eco-Invest.Web.ViewModels": "1.0.0"
+        },
+        "runtime": {
+          "Wealth-Eco-Invest.Services.Data.Models.dll": {}
         }
       },
       "Wealth-Eco-Invest.Web.Infrastructure/1.0.0": {
@@ -2810,6 +2819,9 @@
         }
       },
       "Wealth-Eco-Invest.Web.ViewModels/1.0.0": {
+        "dependencies": {
+          "Wealth-Eco-Invest.Common": "1.0.0"
+        },
         "runtime": {
           "Wealth-Eco-Invest.Web.ViewModels.dll": {}
         }
@@ -4462,6 +4474,11 @@
       "sha512": ""
     },
     "Wealth-Eco-Invest.Services.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Wealth-Eco-Invest.Services.Data.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
