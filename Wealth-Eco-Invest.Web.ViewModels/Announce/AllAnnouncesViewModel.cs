@@ -15,7 +15,5 @@
 
         public decimal Price { get; set; }
 
-        [Display(Name = "Is Rented")]
-        public bool IsRented { get; set; }
     }
 }
