@@ -9,3 +9,7 @@ D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\obj\Debu
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\obj\Debug\net6.0\refint\Wealth-Eco-Invest.Web.ViewModels.dll
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\obj\Debug\net6.0\Wealth-Eco-Invest.Web.ViewModels.pdb
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\obj\Debug\net6.0\ref\Wealth-Eco-Invest.Web.ViewModels.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\bin\Debug\net6.0\Wealth-Eco-Invest.Common.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\bin\Debug\net6.0\Wealth-Eco-Invest.Common.pdb
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\obj\Debug\net6.0\Wealth-Eco-Invest.Web.ViewModels.csproj.AssemblyReference.cache
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\obj\Debug\net6.0\Wealth-Eco-Invest.Web.ViewModels.csproj.CopyComplete

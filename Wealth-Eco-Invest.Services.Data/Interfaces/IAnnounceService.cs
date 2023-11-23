@@ -1,10 +1,13 @@
 ﻿namespace Wealth_Eco_Invest.Services.Data.Interfaces
 {
-    using Web.ViewModels.Announce;
+	using Models;
+	using Wealth_Eco_Invest.Web.ViewModels.Announce;
 
-    public interface IAnnounceService
+	public interface IAnnounceService
     {
-        Task<IEnumerable<AllAnnouncesViewModel>> AllAnnounces();
+        Task<AllAnnouncesFilteredAndPagedServiceModel> GetAllAnnouncesAsync(AnnounceQueryViewModel queryModel);
+
+        Task AddAsync(AnnounceFormModel model);
 
     }
 }
