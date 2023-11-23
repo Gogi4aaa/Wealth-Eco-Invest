@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Wealth_Eco_Invest.Data;
 using Wealth_Eco_Invest.Data.Models;
 using Wealth_Eco_Invest.Services.Data.Interfaces;
 using Wealth_Eco_Invest.Web.Infrastructure.Extensions;
+using Wealth_Eco_Invest.Web.Infrastructure.ModelBinders;
 using static Wealth_Eco_Invest.Common.GeneralApplicationConstants;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +24,12 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 
 builder.Services.AddApplicationServices(typeof(IAnnounceService));
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+	.AddMvcOptions(options =>
+	{
+		options.ModelBinderProviders.Insert(0,new DecimalModelBinderProvider());
+		options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
+	});
 
 var app = builder.Build();
 
