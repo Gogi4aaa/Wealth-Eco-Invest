@@ -1,0 +1,44 @@
+﻿@model AnnounceFormModel
+@{
+	ViewData["Title"] = "Add Announce";
+}
+<div class="text-center d-flex flex-column justify-content-center align-items-center" style=" width: 100%">
+	<div class="mb-5">
+		<h1 class="text-dark">Create Product</h1>
+	</div>
+	<form asp-action="Add" asp-controller="Announce" class="w-50" enctype="multipart/form-data" method="post">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+		<div class="form-floating">
+			<input asp-for="Title" class="form-control" type="text" placeholder="Title" id="floatingTitle" />
+			<label asp-for="Title" for="floatingTitle"></label>
+			<span asp-validation-for="Title" class="text-danger fs-5"></span>
+		</div>
+		<div class="form-floating">
+			<input asp-for="Price" class="form-control mt-3" type="text" placeholder="price" id="floatingPrice" />
+			<label asp-for="Price" for="floatingPrice"></label>
+			<span asp-validation-for="Price" class="text-danger fs-5"></span>
+		</div>
+		<div>
+			<label class="form-control mt-3 mb-2">Categories</label>
+			<select asp-for="CategoryId" class="form-control">
+				@foreach (var category in Model.Categories)
+				{
+					<option value="@category.Id">@category.Name</option>
+				}
+			</select>
+		</div>
+		<div class="form-floating">
+			<input asp-for="ImageUrl" class="form-control mt-3" type="text" placeholder="imageUrl" id="floatingImageUrl" />
+			<label asp-for="ImageUrl" for="floatingImageUrl"></label>
+			<span asp-validation-for="ImageUrl" class="text-danger fs-5"></span>
+		</div>
+		<div class="form-floating">
+			<textarea asp-for="Description" class="form-control mt-3" style="height: 200px;" placeholder="description" id="floatingDescription"></textarea>
+			<label asp-for="Description" for="floatingDescription"></label>
+			<span asp-validation-for="Description" class="text-danger fs-5"></span>
+		</div>
+		<div class="mt-4">
+			<button class="btn btn-primary" style="width: 60%" type="submit">Submit</button>
+		</div>
+	</form>
+</div>

@@ -17,7 +17,7 @@
             this.dbContext = dbContext;
         }
 
-        public async Task<AllAnnouncesFilteredAndPagedServiceModel> GetAllAnnounces(AnnounceQueryViewModel queryModel)
+        public async Task<AllAnnouncesFilteredAndPagedServiceModel> GetAllAnnouncesAsync(AnnounceQueryViewModel queryModel)
         {
 	        IQueryable<Announce> announcesQuery =
 		        this.dbContext
@@ -73,6 +73,24 @@
 		        TotalAnnouncesCount = totalAnnounces
 	        };
 
+        }
+
+        public async Task AddAsync(AnnounceFormModel model)
+        {
+	        Announce announce = new Announce()
+	        {
+		        Title = model.Title,
+				Price = model.Price,
+				Description = model.Description,
+				ImageUrl = model.ImageUrl,
+				IsActive = true,
+				CategoryId = model.CategoryId,
+				CreatedOn = DateTime.UtcNow,
+				UserId = model.UserId,
+	        };
+
+	        await this.dbContext.AddAsync(announce);
+	        await this.dbContext.SaveChangesAsync();
         }
     }
 }

@@ -5,7 +5,9 @@
 
 	public interface IAnnounceService
     {
-        Task<AllAnnouncesFilteredAndPagedServiceModel> GetAllAnnounces(AnnounceQueryViewModel queryModel);
+        Task<AllAnnouncesFilteredAndPagedServiceModel> GetAllAnnouncesAsync(AnnounceQueryViewModel queryModel);
+
+        Task AddAsync(AnnounceFormModel model);
 
     }
 }

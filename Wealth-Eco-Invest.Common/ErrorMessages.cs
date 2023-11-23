@@ -1,0 +1,11 @@
+﻿namespace Wealth_Eco_Invest.Common
+{
+	public static class ErrorMessages
+	{
+		public static class Announce
+		{
+			public const string TitleErrorMessage = "Title must be from 5 to 30 symbols!";
+			public const string DescriptionErrorMessage = "Description must be from 5 to 90 symbols!";
+		}
+	}
+}
