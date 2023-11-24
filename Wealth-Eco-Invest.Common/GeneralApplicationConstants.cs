@@ -9,6 +9,6 @@
 
         //Announces
         public const int DefaultPage = 1;
-        public const int MaxAnnouncesPerPage = 5;
+        public const int MaxAnnouncesPerPage = 4;
     }
 }

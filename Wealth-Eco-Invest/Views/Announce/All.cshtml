@@ -90,6 +90,7 @@
 	</div>
 </div>
 
+<a asp-action="Add" asp-controller="Announce" class="btn btn-primary">Add Announce</a>
 <h1 class="fw-bold text-center">@ViewData["Title"]</h1>
 <div class="d-flex">
 @if (!Model.Announces.Any())
@@ -106,7 +107,7 @@ else
 				<h5 class="card-title">@announce.Title</h5>
 				<p class="card-text">@announce.Description</p>
 				<p class="card-text">Price: <span class="fw-bold">@announce.Price</span></p>
-				<a href="#" class="btn btn-warning">Details</a>
+				<a asp-action="Details" asp-controller="Announce" asp-route-id="@announce.Id" class="btn btn-warning">Details</a>
 			</div>
 		</div>
 	}

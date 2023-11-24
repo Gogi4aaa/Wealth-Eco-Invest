@@ -3,6 +3,7 @@
 namespace Wealth_Eco_Invest.Controllers
 {
 	using Microsoft.AspNetCore.Authorization;
+	using Microsoft.AspNetCore.Mvc.Infrastructure;
 	using Services.Data.Interfaces;
     using Services.Data.Models;
 	using Web.Infrastructure.Extensions;
@@ -49,8 +50,45 @@ namespace Wealth_Eco_Invest.Controllers
 				return View(formModel);
 	        }
 	        formModel.UserId = Guid.Parse(this.User.GetId()!);
-			await this.announceService.AddAsync(formModel);
+			await this.announceService.AddAnnounceAsync(formModel);
 	        return RedirectToAction("All", "Announce");
         }
-    }
+        [HttpGet]
+		public async Task<IActionResult> Details(Guid id)
+		{
+			AnnounceDetailsViewModel announce = await this.announceService.GetAnnounceForDetailsByIdAsync(id);
+
+            return View(announce);
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> Delete(Guid id)
+		{
+			await this.announceService.DeleteAnnounceByIdAsync(id);
+
+			return RedirectToAction("All", "Announce");
+		}
+
+		[HttpGet]
+		public async Task<IActionResult> Edit(Guid id)
+		{
+			AnnounceFormModel announceForEdit = await this.announceService.GetAnnounceForEditAsync(id);
+			announceForEdit.Categories = await this.categoryService.AllCategoriesAsync();
+			return View(announceForEdit);
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> Edit(Guid id, AnnounceFormModel model)
+		{
+			if (!ModelState.IsValid)
+			{
+				model.Categories = await this.categoryService.AllCategoriesAsync();
+				return View(model);
+			}
+
+			await this.announceService.EditAnnounceByIdAndFormModelAsync(id, model);
+
+			return RedirectToAction("All", "Announce");
+		}
+	}
 }

@@ -75,7 +75,7 @@
 
         }
 
-        public async Task AddAsync(AnnounceFormModel model)
+        public async Task AddAnnounceAsync(AnnounceFormModel model)
         {
 	        Announce announce = new Announce()
 	        {
@@ -91,6 +91,68 @@
 
 	        await this.dbContext.AddAsync(announce);
 	        await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task<AnnounceDetailsViewModel> GetAnnounceForDetailsByIdAsync(Guid announceId)
+        {
+	        return await this.dbContext
+		        .Announces
+		        .Where(x => x.Id == announceId && x.IsActive)
+		        .Select(model => new AnnounceDetailsViewModel()
+		        {
+					Id = model.Id,
+			        Title = model.Title,
+			        Price = model.Price,
+			        Description = model.Description,
+			        ImageUrl = model.ImageUrl,
+					Owner = model.User.UserName
+		        })
+		        .FirstAsync();
+        }
+
+        public async Task DeleteAnnounceByIdAsync(Guid announceId)
+        {
+	        Announce itemToDelete = await this.dbContext
+		        .Announces
+		        .Where(x => x.IsActive)
+		        .FirstAsync(x=> x.Id == announceId);
+
+	        itemToDelete.IsActive = false;
+
+	        await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task EditAnnounceByIdAndFormModelAsync(Guid announceId, AnnounceFormModel model)
+        {
+	        Announce announce = await this.dbContext
+		        .Announces
+		        .Where(a => a.IsActive)
+		        .FirstAsync(x => x.Id == announceId);
+
+			announce.Title = model.Title;
+			announce.Description = model.Description;
+			announce.ImageUrl = model.ImageUrl;
+			announce.Price = model.Price;
+			announce.CategoryId = model.CategoryId;
+
+			await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task<AnnounceFormModel> GetAnnounceForEditAsync(Guid announceId)
+        {
+	        Announce announce = await this.dbContext
+		        .Announces
+		        .Where(x => x.IsActive)
+		        .FirstAsync(x => x.Id == announceId);
+
+	        return new AnnounceFormModel()
+	        {
+		        Title = announce.Title,
+				Description = announce.Description,
+				ImageUrl = announce.ImageUrl,
+				Price = announce.Price,
+				CategoryId = announce.CategoryId,
+	        };
         }
     }
 }

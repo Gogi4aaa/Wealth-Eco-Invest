@@ -7,7 +7,14 @@
     {
         Task<AllAnnouncesFilteredAndPagedServiceModel> GetAllAnnouncesAsync(AnnounceQueryViewModel queryModel);
 
-        Task AddAsync(AnnounceFormModel model);
+        Task AddAnnounceAsync(AnnounceFormModel model);
 
+        Task<AnnounceDetailsViewModel> GetAnnounceForDetailsByIdAsync(Guid announceId);
+
+        Task DeleteAnnounceByIdAsync(Guid announceId);
+
+        Task EditAnnounceByIdAndFormModelAsync(Guid announceId, AnnounceFormModel model);
+
+        Task<AnnounceFormModel> GetAnnounceForEditAsync(Guid announceId);
     }
 }
