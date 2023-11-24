@@ -9,5 +9,7 @@
 
         Task AddAsync(AnnounceFormModel model);
 
+        Task<AnnounceDetailsViewModel> GetAnnounceForDetailsByIdAsync(Guid id);
+
     }
 }

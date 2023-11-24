@@ -3,6 +3,7 @@
 namespace Wealth_Eco_Invest.Controllers
 {
 	using Microsoft.AspNetCore.Authorization;
+	using Microsoft.AspNetCore.Mvc.Infrastructure;
 	using Services.Data.Interfaces;
     using Services.Data.Models;
 	using Web.Infrastructure.Extensions;
@@ -52,5 +53,12 @@ namespace Wealth_Eco_Invest.Controllers
 			await this.announceService.AddAsync(formModel);
 	        return RedirectToAction("All", "Announce");
         }
+        [HttpGet]
+		public async Task<IActionResult> Details(Guid id)
+		{
+			AnnounceDetailsViewModel announce = await this.announceService.GetAnnounceForDetailsByIdAsync(id);
+
+            return View(announce);
+		}
     }
 }

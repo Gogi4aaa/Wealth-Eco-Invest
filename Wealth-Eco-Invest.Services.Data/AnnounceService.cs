@@ -92,5 +92,22 @@
 	        await this.dbContext.AddAsync(announce);
 	        await this.dbContext.SaveChangesAsync();
         }
+
+        public async Task<AnnounceDetailsViewModel> GetAnnounceForDetailsByIdAsync(Guid id)
+        {
+	        return await this.dbContext
+		        .Announces
+		        .Where(x => x.Id == id && x.IsActive)
+		        .Select(model => new AnnounceDetailsViewModel()
+		        {
+					Id = model.Id,
+			        Title = model.Title,
+			        Price = model.Price,
+			        Description = model.Description,
+			        ImageUrl = model.ImageUrl,
+					Owner = model.User.UserName
+		        })
+		        .FirstOrDefaultAsync();
+        }
     }
 }
