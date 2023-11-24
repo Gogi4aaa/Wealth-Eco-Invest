@@ -75,7 +75,7 @@
 
         }
 
-        public async Task AddAsync(AnnounceFormModel model)
+        public async Task AddAnnounceAsync(AnnounceFormModel model)
         {
 	        Announce announce = new Announce()
 	        {
@@ -107,7 +107,19 @@
 			        ImageUrl = model.ImageUrl,
 					Owner = model.User.UserName
 		        })
-		        .FirstOrDefaultAsync();
+		        .FirstAsync();
+        }
+
+        public async Task DeleteAnnounceByIdAsync(Guid id)
+        {
+	        Announce itemToDelete = await this.dbContext
+		        .Announces
+		        .Where(x => x.IsActive)
+		        .FirstAsync(x=> x.Id == id);
+
+	        itemToDelete.IsActive = false;
+
+	        await this.dbContext.SaveChangesAsync();
         }
     }
 }

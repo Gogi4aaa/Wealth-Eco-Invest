@@ -50,7 +50,7 @@ namespace Wealth_Eco_Invest.Controllers
 				return View(formModel);
 	        }
 	        formModel.UserId = Guid.Parse(this.User.GetId()!);
-			await this.announceService.AddAsync(formModel);
+			await this.announceService.AddAnnounceAsync(formModel);
 	        return RedirectToAction("All", "Announce");
         }
         [HttpGet]
@@ -59,6 +59,14 @@ namespace Wealth_Eco_Invest.Controllers
 			AnnounceDetailsViewModel announce = await this.announceService.GetAnnounceForDetailsByIdAsync(id);
 
             return View(announce);
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> Delete(Guid id)
+		{
+			await this.announceService.DeleteAnnounceByIdAsync(id);
+
+			return RedirectToAction("All", "Announce");
 		}
     }
 }
