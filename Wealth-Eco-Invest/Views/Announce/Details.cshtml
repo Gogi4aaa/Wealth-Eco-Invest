@@ -49,8 +49,7 @@
 				@if (Model.Owner == User.Identity.Name)
 				{
 					<div>
-						@* asp-action="UpdateForm" asp-controller="Event" *@
-						<a asp-route-id="@Model.Id" class="btn btn-primary" style="width: 22%">Edit</a>
+						<a asp-action="Edit" asp-controller="Announce" asp-route-id="@Model.Id" class="btn btn-primary" style="width: 22%">Edit</a>
 						<a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-danger" style="width: 22%">Delete</a>
 					</div>
 				}

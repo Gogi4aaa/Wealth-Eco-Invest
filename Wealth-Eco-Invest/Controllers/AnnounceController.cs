@@ -68,5 +68,27 @@ namespace Wealth_Eco_Invest.Controllers
 
 			return RedirectToAction("All", "Announce");
 		}
-    }
+
+		[HttpGet]
+		public async Task<IActionResult> Edit(Guid id)
+		{
+			AnnounceFormModel announceForEdit = await this.announceService.GetAnnounceForEditAsync(id);
+			announceForEdit.Categories = await this.categoryService.AllCategoriesAsync();
+			return View(announceForEdit);
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> Edit(Guid id, AnnounceFormModel model)
+		{
+			if (!ModelState.IsValid)
+			{
+				model.Categories = await this.categoryService.AllCategoriesAsync();
+				return View(model);
+			}
+
+			await this.announceService.EditAnnounceByIdAndFormModelAsync(id, model);
+
+			return RedirectToAction("All", "Announce");
+		}
+	}
 }

@@ -1,12 +1,12 @@
 ﻿@model AnnounceFormModel
 @{
-	ViewData["Title"] = "Add Announce";
+	ViewData["Title"] = "Edit Announce";
 }
 <div class="text-center d-flex flex-column justify-content-center align-items-center" style=" width: 100%">
 	<div class="mb-5">
 		<h1 class="text-dark">Create Product</h1>
 	</div>
-	<form asp-action="Add" asp-controller="Announce" class="w-50" enctype="multipart/form-data" method="post">
+	<form asp-action="Edit" asp-controller="Announce" class="w-50" enctype="multipart/form-data" method="post">
 		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 		<div class="form-floating">
 			<input asp-for="Title" class="form-control" type="text" placeholder="Title" id="floatingTitle" />

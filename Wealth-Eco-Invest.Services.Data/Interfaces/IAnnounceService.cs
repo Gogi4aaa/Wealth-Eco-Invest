@@ -9,8 +9,12 @@
 
         Task AddAnnounceAsync(AnnounceFormModel model);
 
-        Task<AnnounceDetailsViewModel> GetAnnounceForDetailsByIdAsync(Guid id);
+        Task<AnnounceDetailsViewModel> GetAnnounceForDetailsByIdAsync(Guid announceId);
 
-        Task DeleteAnnounceByIdAsync(Guid id);
+        Task DeleteAnnounceByIdAsync(Guid announceId);
+
+        Task EditAnnounceByIdAndFormModelAsync(Guid announceId, AnnounceFormModel model);
+
+        Task<AnnounceFormModel> GetAnnounceForEditAsync(Guid announceId);
     }
 }
