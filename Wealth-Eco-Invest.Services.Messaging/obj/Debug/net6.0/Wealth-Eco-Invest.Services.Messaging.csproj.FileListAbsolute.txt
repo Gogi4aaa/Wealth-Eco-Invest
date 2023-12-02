@@ -1,0 +1,15 @@
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Messaging\bin\Debug\net6.0\Wealth-Eco-Invest.Services.Messaging.deps.json
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Messaging\bin\Debug\net6.0\Wealth-Eco-Invest.Services.Messaging.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Messaging\bin\Debug\net6.0\Wealth-Eco-Invest.Services.Messaging.pdb
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Messaging\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Messaging.GeneratedMSBuildEditorConfig.editorconfig
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Messaging\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Messaging.AssemblyInfoInputs.cache
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Messaging\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Messaging.AssemblyInfo.cs
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Messaging\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Messaging.csproj.CoreCompileInputs.cache
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Messaging\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Messaging.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Messaging\obj\Debug\net6.0\refint\Wealth-Eco-Invest.Services.Messaging.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Messaging\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Messaging.pdb
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Messaging\obj\Debug\net6.0\ref\Wealth-Eco-Invest.Services.Messaging.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Messaging\bin\Debug\net6.0\Wealth-Eco-Invest.Common.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Messaging\bin\Debug\net6.0\Wealth-Eco-Invest.Common.pdb
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Messaging\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Messaging.csproj.AssemblyReference.cache
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Messaging\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Messaging.csproj.CopyComplete

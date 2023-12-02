@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Wealth-Eco-Invest.Services.Messaging/1.0.0": {
+        "dependencies": {
+          "Wealth-Eco-Invest.Common": "1.0.0"
+        },
+        "runtime": {
+          "Wealth-Eco-Invest.Services.Messaging.dll": {}
+        }
+      },
+      "Wealth-Eco-Invest.Common/1.0.0": {
+        "runtime": {
+          "Wealth-Eco-Invest.Common.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Wealth-Eco-Invest.Services.Messaging/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Wealth-Eco-Invest.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

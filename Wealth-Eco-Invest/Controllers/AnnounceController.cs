@@ -2,22 +2,29 @@
 
 namespace Wealth_Eco_Invest.Controllers
 {
+	using System.Security.Claims;
+	using Data.Models;
 	using Microsoft.AspNetCore.Authorization;
+	using Microsoft.AspNetCore.Identity.UI.Services;
 	using Microsoft.AspNetCore.Mvc.Infrastructure;
 	using Services.Data.Interfaces;
     using Services.Data.Models;
 	using Web.Infrastructure.Extensions;
 	using Web.ViewModels.Announce;
+	using IEmailSender = Services.Messaging.IEmailSender;
+	using static Common.EmailSendTemplate;
 
-    [Authorize]
+	[Authorize]
 	public class AnnounceController : Controller
     {
         private readonly IAnnounceService announceService;
         private readonly ICategoryService categoryService;
-        public AnnounceController(IAnnounceService announceService, ICategoryService categoryService)
+		private readonly IEmailSender emailSender;
+        public AnnounceController(IAnnounceService announceService, ICategoryService categoryService,IEmailSender emailSender)
         {
             this.announceService = announceService;
             this.categoryService = categoryService;
+			this.emailSender = emailSender;
         }
 
         [HttpGet]
@@ -87,6 +94,14 @@ namespace Wealth_Eco_Invest.Controllers
 			}
 
 			await this.announceService.EditAnnounceByIdAndFormModelAsync(id, model);
+
+			return RedirectToAction("All", "Announce");
+		}
+
+		[HttpGet]
+		public async Task<IActionResult> Buy()
+		{
+			await this.emailSender.SendEmailAsync(this.User.GetEmail()!, "We just testing", EmailMessage);
 
 			return RedirectToAction("All", "Announce");
 		}

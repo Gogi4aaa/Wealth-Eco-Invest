@@ -154,5 +154,17 @@
 				CategoryId = announce.CategoryId,
 	        };
         }
+
+        public async Task<ApplicationUser> GetUserByAnnounceId(Guid announceId)
+        {
+	        Announce announce = await this.dbContext
+		        .Announces
+		        .Where(x=> x.IsActive)
+		        .FirstAsync(x => x.Id == announceId);
+
+	        var user = await this.dbContext.Users.FindAsync(announce!.UserId);
+
+	        return user!;
+        }
     }
 }

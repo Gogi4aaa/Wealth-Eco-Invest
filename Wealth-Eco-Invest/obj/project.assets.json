@@ -4166,6 +4166,19 @@
           "bin/placeholder/Wealth-Eco-Invest.Services.Data.Models.dll": {}
         }
       },
+      "Wealth-Eco-Invest.Services.Messaging/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Wealth-Eco-Invest.Common": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Wealth-Eco-Invest.Services.Messaging.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Wealth-Eco-Invest.Services.Messaging.dll": {}
+        }
+      },
       "Wealth-Eco-Invest.Web.Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -11607,6 +11620,11 @@
       "path": "../Wealth-Eco-Invest.Services.Data.Models/Wealth-Eco-Invest.Services.Data.Models.csproj",
       "msbuildProject": "../Wealth-Eco-Invest.Services.Data.Models/Wealth-Eco-Invest.Services.Data.Models.csproj"
     },
+    "Wealth-Eco-Invest.Services.Messaging/1.0.0": {
+      "type": "project",
+      "path": "../Wealth-Eco-Invest.Services.Messaging/Wealth-Eco-Invest.Services.Messaging.csproj",
+      "msbuildProject": "../Wealth-Eco-Invest.Services.Messaging/Wealth-Eco-Invest.Services.Messaging.csproj"
+    },
     "Wealth-Eco-Invest.Web.Infrastructure/1.0.0": {
       "type": "project",
       "path": "../Wealth-Eco-Invest.Web.Infrastructure/Wealth-Eco-Invest.Web.Infrastructure.csproj",
@@ -11631,6 +11649,7 @@
       "Wealth-Eco-Invest.Data >= 1.0.0",
       "Wealth-Eco-Invest.Data.Models >= 1.0.0",
       "Wealth-Eco-Invest.Services.Data >= 1.0.0",
+      "Wealth-Eco-Invest.Services.Messaging >= 1.0.0",
       "Wealth-Eco-Invest.Web.Infrastructure >= 1.0.0",
       "Wealth-Eco-Invest.Web.ViewModels >= 1.0.0"
     ]
@@ -11678,6 +11697,9 @@
             },
             "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data\\Wealth-Eco-Invest.Services.Data.csproj": {
               "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data\\Wealth-Eco-Invest.Services.Data.csproj"
+            },
+            "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Messaging\\Wealth-Eco-Invest.Services.Messaging.csproj": {
+              "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Messaging\\Wealth-Eco-Invest.Services.Messaging.csproj"
             },
             "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Web.Infrastructure\\Wealth-Eco-Invest.Web.Infrastructure.csproj": {
               "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Web.Infrastructure\\Wealth-Eco-Invest.Web.Infrastructure.csproj"

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Wealth_Eco_Invest.Data;
 using Wealth_Eco_Invest.Data.Models;
 using Wealth_Eco_Invest.Services.Data.Interfaces;
+using Wealth_Eco_Invest.Services.Messaging;
 using Wealth_Eco_Invest.Web.Infrastructure.Extensions;
 using Wealth_Eco_Invest.Web.Infrastructure.ModelBinders;
 using static Wealth_Eco_Invest.Common.GeneralApplicationConstants;
@@ -23,7 +24,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddApplicationServices(typeof(IAnnounceService));
-
+builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.AddControllersWithViews()
 	.AddMvcOptions(options =>
 	{
