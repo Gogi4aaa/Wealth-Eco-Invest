@@ -15,6 +15,16 @@
 		}
 
 		/// <summary>
+		/// Get logged user email
+		/// </summary>
+		/// <param name="user"></param>
+		/// <returns></returns>
+		public static string? GetEmail(this ClaimsPrincipal user)
+		{
+			return user.FindFirstValue(ClaimTypes.Email);
+		}
+
+		/// <summary>
 		/// Check is logged user is admin
 		/// </summary>
 		/// <param name="user"></param>
