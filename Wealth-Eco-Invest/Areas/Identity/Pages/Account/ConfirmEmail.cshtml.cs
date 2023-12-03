@@ -14,13 +14,17 @@ using Microsoft.AspNetCore.WebUtilities;
 
 namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account
 {
-    public class ConfirmEmailModel : PageModel
-    {
-        private readonly UserManager<IdentityUser> _userManager;
+	using System.Security.Principal;
+	using Data.Models;
 
-        public ConfirmEmailModel(UserManager<IdentityUser> userManager)
+	public class ConfirmEmailModel : PageModel
+    {
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        public ConfirmEmailModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         /// <summary>
@@ -41,11 +45,13 @@ namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account
             {
                 return NotFound($"Unable to load user with ID '{userId}'.");
             }
-
-            code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));
-            var result = await _userManager.ConfirmEmailAsync(user, code);
+            string newCode = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));
+            var result = await _userManager.ConfirmEmailAsync(user, newCode);
             StatusMessage = result.Succeeded ? "Thank you for confirming your email." : "Error confirming your email.";
+            await _signInManager.SignInAsync(user, false);
+
             return Page();
+            
         }
-    }
+	}
 }

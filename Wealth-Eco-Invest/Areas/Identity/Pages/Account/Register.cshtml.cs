@@ -16,6 +16,8 @@ namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account
 
     using Data.Models;
     using static Common.ValidationConstants.User;
+    using IEmailSender = Services.Messaging.IEmailSender;
+
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -129,8 +131,8 @@ namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    await _emailSender.SendEmailAsync(Input.Email, "Account confirmation",
+                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}' target='_blank' >clicking here</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {

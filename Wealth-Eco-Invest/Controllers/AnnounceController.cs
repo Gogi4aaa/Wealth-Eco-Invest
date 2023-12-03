@@ -101,7 +101,7 @@ namespace Wealth_Eco_Invest.Controllers
 		[HttpGet]
 		public async Task<IActionResult> Buy()
 		{
-			await this.emailSender.SendEmailAsync(this.User.GetEmail()!, "We just testing", EmailMessage);
+			await this.emailSender.SendEmailAsync(this.User.GetEmail()!, "Announce buying", EmailMessage);
 
 			return RedirectToAction("All", "Announce");
 		}
