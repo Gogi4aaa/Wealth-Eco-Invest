@@ -15,6 +15,7 @@ namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account
     using Microsoft.AspNetCore.WebUtilities;
 
     using Data.Models;
+    using Services.Messaging.Templates;
     using static Common.ValidationConstants.User;
     using IEmailSender = Services.Messaging.IEmailSender;
 
@@ -132,7 +133,7 @@ namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account
                         protocol: Request.Scheme);
 
                     await _emailSender.SendEmailAsync(Input.Email, "Account confirmation",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}' target='_blank' >clicking here</a>.");
+                        EmailConfirmationTemplate.Message(callbackUrl!,user.UserName));
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {

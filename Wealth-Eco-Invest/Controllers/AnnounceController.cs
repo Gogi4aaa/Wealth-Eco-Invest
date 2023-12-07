@@ -3,6 +3,7 @@
 namespace Wealth_Eco_Invest.Controllers
 {
 	using System.Security.Claims;
+	using Common;
 	using Data.Models;
 	using Microsoft.AspNetCore.Authorization;
 	using Microsoft.AspNetCore.Identity.UI.Services;
@@ -13,7 +14,7 @@ namespace Wealth_Eco_Invest.Controllers
 	using Web.ViewModels.Announce;
 	using IEmailSender = Services.Messaging.IEmailSender;
 	using static Common.EmailSendTemplate;
-
+	using static Common.NotificationMessagesConstants;
 	[Authorize]
 	public class AnnounceController : Controller
     {
@@ -102,6 +103,8 @@ namespace Wealth_Eco_Invest.Controllers
 		public async Task<IActionResult> Buy()
 		{
 			await this.emailSender.SendEmailAsync(this.User.GetEmail()!, "Announce buying", EmailMessage);
+
+			TempData[SuccessMessage] = "You successfully bought this announce!";
 
 			return RedirectToAction("All", "Announce");
 		}
