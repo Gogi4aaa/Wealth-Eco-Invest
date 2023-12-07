@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "JdezuT1ri8w+LA51+Bex30kSGaEE9w9aTpXP+CaN7TB0mUyNps0wWxC65K0cxqDnSUHYR+psMRyu2+Om3P/UrQ==",
+  "dgSpecHash": "38K88qy6lRKNF7nUZSRHPhtYbXVpUJrVQnMy/4cEpX0Zz4/zD3zrM9NBJQ5SINQrcNN/uG+9fTJJVreoec8+qg==",
   "success": true,
   "projectFilePath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Messaging\\Wealth-Eco-Invest.Services.Messaging.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\system.security.accesscontrol\\6.0.0\\system.security.accesscontrol.6.0.0.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\system.security.permissions\\6.0.0\\system.security.permissions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
