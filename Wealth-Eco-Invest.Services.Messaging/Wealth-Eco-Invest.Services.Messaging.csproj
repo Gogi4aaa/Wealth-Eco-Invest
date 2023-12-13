@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Security.Permissions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Wealth-Eco-Invest.Common\Wealth-Eco-Invest.Common.csproj" />
   </ItemGroup>
 

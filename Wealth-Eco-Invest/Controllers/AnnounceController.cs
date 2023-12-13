@@ -3,17 +3,19 @@
 namespace Wealth_Eco_Invest.Controllers
 {
 	using System.Security.Claims;
+	using Common;
 	using Data.Models;
 	using Microsoft.AspNetCore.Authorization;
 	using Microsoft.AspNetCore.Identity.UI.Services;
 	using Microsoft.AspNetCore.Mvc.Infrastructure;
 	using Services.Data.Interfaces;
     using Services.Data.Models;
+	using Services.Messaging.Templates;
 	using Web.Infrastructure.Extensions;
 	using Web.ViewModels.Announce;
 	using IEmailSender = Services.Messaging.IEmailSender;
 	using static Common.EmailSendTemplate;
-
+	using static Common.NotificationMessagesConstants;
 	[Authorize]
 	public class AnnounceController : Controller
     {
@@ -57,7 +59,16 @@ namespace Wealth_Eco_Invest.Controllers
 				return View(formModel);
 	        }
 	        formModel.UserId = Guid.Parse(this.User.GetId()!);
-			await this.announceService.AddAnnounceAsync(formModel);
+	        try
+	        {
+				await this.announceService.AddAnnounceAsync(formModel);
+				TempData[SuccessMessage] = "You successfully added your announce!";
+	        }
+	        catch (Exception e)
+	        {
+		        TempData[ErrorMessage] = "Unexpected message occurred";
+	        }
+			
 	        return RedirectToAction("All", "Announce");
         }
         [HttpGet]
@@ -71,8 +82,17 @@ namespace Wealth_Eco_Invest.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Delete(Guid id)
 		{
-			await this.announceService.DeleteAnnounceByIdAsync(id);
+			try
+			{
+				await this.announceService.DeleteAnnounceByIdAsync(id);
 
+				TempData[SuccessMessage] = "You successfully delete your announce!";
+			}
+			catch (Exception)
+			{
+				TempData[ErrorMessage] = "Unexpected message occurred";
+			}
+			
 			return RedirectToAction("All", "Announce");
 		}
 
@@ -95,13 +115,21 @@ namespace Wealth_Eco_Invest.Controllers
 
 			await this.announceService.EditAnnounceByIdAndFormModelAsync(id, model);
 
+			TempData[SuccessMessage] = "Your announce was updated!";
+
 			return RedirectToAction("All", "Announce");
 		}
 
 		[HttpGet]
 		public async Task<IActionResult> Buy()
 		{
-			await this.emailSender.SendEmailAsync(this.User.GetEmail()!, "We just testing", EmailMessage);
+			var callbackUrl = Url.Page(
+				"/",
+				pageHandler: null,
+				values: new { area = ""},
+				protocol: Request.Scheme);
+
+			await this.emailSender.SendEmailAsync(this.User.GetEmail()!, "Announce buying", AnnounceBuyingTemplate.Message(this.User.Identity!.Name!, callbackUrl));
 
 			return RedirectToAction("All", "Announce");
 		}
