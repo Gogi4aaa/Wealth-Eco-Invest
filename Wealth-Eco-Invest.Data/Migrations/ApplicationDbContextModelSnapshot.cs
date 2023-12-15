@@ -208,7 +208,7 @@ namespace Wealth_Eco_Invest.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e74c99e9-d167-42d7-9cf9-dd5ef0df3eee"),
+                            Id = new Guid("66f9e150-6505-4512-8b26-49e10dc3cb38"),
                             CategoryId = 3,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "This rubbish pollutes the environment.You need to throw it in the trash bins!",
@@ -220,7 +220,7 @@ namespace Wealth_Eco_Invest.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ed54c82b-7ce6-4cba-bc73-756c4bb13a95"),
+                            Id = new Guid("549c0ea1-f577-43df-80a3-8f1292fc7d91"),
                             CategoryId = 1,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "The pollution is the worst thing ever.We need to stop it!",
@@ -232,7 +232,7 @@ namespace Wealth_Eco_Invest.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("be0dec4b-1a89-469e-844d-6b0c7f2c9185"),
+                            Id = new Guid("a0afae63-429b-414d-a722-beae31fe3ea5"),
                             CategoryId = 2,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Water pollution destroy our beaches and oceans.We need to stop it fast!",
@@ -308,6 +308,28 @@ namespace Wealth_Eco_Invest.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("Wealth_Eco_Invest.Data.Models.Cart", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AnnounceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BuyerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AnnounceId");
+
+                    b.ToTable("Carts");
                 });
 
             modelBuilder.Entity("Wealth_Eco_Invest.Data.Models.Category", b =>
@@ -413,6 +435,17 @@ namespace Wealth_Eco_Invest.Data.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Wealth_Eco_Invest.Data.Models.Cart", b =>
+                {
+                    b.HasOne("Wealth_Eco_Invest.Data.Models.Announce", "Announce")
+                        .WithMany()
+                        .HasForeignKey("AnnounceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Announce");
                 });
 
             modelBuilder.Entity("Wealth_Eco_Invest.Data.Models.ApplicationUser", b =>

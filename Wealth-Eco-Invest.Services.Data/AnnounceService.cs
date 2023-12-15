@@ -166,5 +166,24 @@
 
 	        return user!;
         }
+
+        public async Task<IEnumerable<AllAnnouncesViewModel>> GetAllByUserIdAsync(Guid userId)
+        {
+            var allAnnounces = await this.dbContext
+                .Announces
+                .Where(x => x.IsActive &&
+                            x.UserId == userId)
+                .Select(x => new AllAnnouncesViewModel()
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    Description = x.Description,
+                    ImageUrl = x.ImageUrl,
+                    Price = x.Price,
+                })
+                .ToArrayAsync();
+
+            return allAnnounces;
+        }
     }
 }

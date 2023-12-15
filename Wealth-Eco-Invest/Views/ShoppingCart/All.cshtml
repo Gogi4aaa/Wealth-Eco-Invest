@@ -1,0 +1,18 @@
+﻿@model ShoppingCartViewModel
+@{
+	ViewData["Title"] = "Announce History";
+}
+<div class="d-flex">
+@foreach (var announce in Model.Announces)
+{
+	<div class="card ms-2 me-2" style="width: 18rem;">
+		<img style="height: 220px;" src="@announce.ImageUrl" class="card-img-top" alt="Cannot load this Image!">
+		<div class="card-body">
+			<h5 class="card-title">@announce.Title</h5>
+			<p class="card-text">@announce.Description</p>
+			<p class="card-text">Price: <span class="fw-bold">@announce.Price</span></p>
+			<a asp-action="Details" asp-controller="Announce" asp-route-id="@announce.Id" class="btn btn-warning">Details</a>
+		</div>
+	</div>
+}
+</div>

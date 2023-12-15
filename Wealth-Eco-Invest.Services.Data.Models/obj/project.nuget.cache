@@ -1,8 +1,22 @@
 {
   "version": 2,
-  "dgSpecHash": "JjrQcxHxTH3C2b326rEf6Lp6g5J0Deho6vl+MJDESl2wH6aVulddK9Sfu4fkcL8PSTLJFayTzv7FP3olJ0bALg==",
+  "dgSpecHash": "oyCByadUnahpO86VZgH+8aXVTbIRpP01u2GHKkXPi7COAuYcbE2PT/4HEgILYr4b3zE/uJceC8i0uw1iT0cJFA==",
   "success": true,
   "projectFilePath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data.Models\\Wealth-Eco-Invest.Services.Data.Models.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.22\\microsoft.aspnetcore.cryptography.internal.6.0.22.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.22\\microsoft.aspnetcore.cryptography.keyderivation.6.0.22.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.extensions.identity.core\\6.0.22\\microsoft.extensions.identity.core.6.0.22.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.extensions.identity.stores\\6.0.22\\microsoft.extensions.identity.stores.6.0.22.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.extensions.logging\\6.0.0\\microsoft.extensions.logging.6.0.0.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

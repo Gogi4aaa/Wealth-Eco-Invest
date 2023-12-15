@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Wealth-Eco-Invest.Common\Wealth-Eco-Invest.Common.csproj" />
+    <ProjectReference Include="..\Wealth-Eco-Invest.Data.Models\Wealth-Eco-Invest.Data.Models.csproj" />
   </ItemGroup>
 
 </Project>

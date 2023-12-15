@@ -2830,7 +2830,8 @@
       },
       "Wealth-Eco-Invest.Web.ViewModels/1.0.0": {
         "dependencies": {
-          "Wealth-Eco-Invest.Common": "1.0.0"
+          "Wealth-Eco-Invest.Common": "1.0.0",
+          "Wealth-Eco-Invest.Data.Models": "1.0.0"
         },
         "runtime": {
           "Wealth-Eco-Invest.Web.ViewModels.dll": {}

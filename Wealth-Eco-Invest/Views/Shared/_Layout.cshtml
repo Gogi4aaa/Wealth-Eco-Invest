@@ -5,6 +5,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>@ViewData["Title"] - Wealth_Eco_Invest</title>
+	<link href="~/font-awesome/css/all.css" rel="stylesheet"/>
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -24,12 +25,15 @@
 						<a class="nav-link"><img src="387451757_636760738629670_6251918314014004869_n.png" class="img-fluid" /></a>
 					</li> *@
 					<li class="nav-item">
-						<a class="nav-link text-white fs-5" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+							<a class="nav-link text-white menu-hover fs-5" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-white fs-5" asp-area="" asp-controller="Announce" asp-action="All">Announces</a>
+							<a class="nav-link text-white menu-hover fs-5" asp-area="" asp-controller="Announce" asp-action="All">Announces</a>
 					</li>
 				</ul>
+				<div class="fs-4 me-2 text-white">
+						<a class="text-white" asp-action="All" asp-controller="ShoppingCart"><i class="fa-solid fa-cart-shopping cursor-pointer menu-hover"></i></a>
+				</div>
 				<partial name="_LoginPartial"/>
 			</div>
 		</div>
