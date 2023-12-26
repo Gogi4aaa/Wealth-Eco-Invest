@@ -10,6 +10,8 @@
 
         public string Description { get; set; } = null!;
 
+        public DateTime CreatedOn { get; set; }
+
         [Display(Name = "Image Link")]
         public string ImageUrl { get; set; } = null!;
 

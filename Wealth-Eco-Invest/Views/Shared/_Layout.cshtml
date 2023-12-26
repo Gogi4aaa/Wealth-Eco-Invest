@@ -17,20 +17,23 @@
 <body style="background: #e8e8e8; height: 50vh;">
 	<partial name="_NotificationsPartial" />
 <header>
-	<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background: #8fa678; height: 70px;">
+	<nav class="navbar navbar-expand-sm  navbar-light border-bottom box-shadow mb-3" style="background: #8fa678; height: 70px;">
 		<div class="container-fluid">
-			<div class="navbar-collapse collapse d-sm-inline-flex justify-content-center align-items-center">
+			<div class="navbar-collapse collapse d-flex justify-content-center align-items-center">
 				<ul class="navbar-nav flex-grow-1">
 					@* <li class ="nav-item" style="width: 200px; height: 70px;">
 						<a class="nav-link"><img src="387451757_636760738629670_6251918314014004869_n.png" class="img-fluid" /></a>
 					</li> *@
 					<li class="nav-item">
-							<a class="nav-link text-white menu-hover fs-5" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+						<a class="nav-link text-white menu-hover fs-5" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
 					</li>
 					<li class="nav-item">
-							<a class="nav-link text-white menu-hover fs-5" asp-area="" asp-controller="Announce" asp-action="All">Announces</a>
+						<a class="nav-link text-white menu-hover fs-5" asp-area="" asp-controller="Announce" asp-action="All">Announces</a>
 					</li>
 				</ul>
+				<div class="fs-4 me-2 text-white">
+						<a class="text-white" asp-action="EventCalendar" asp-controller="Calendar"><i class="fa-regular fa-calendar-days cursor-pointer menu-hover"></i></a>
+				</div>
 				<div class="fs-4 me-2 text-white">
 						<a class="text-white" asp-action="All" asp-controller="ShoppingCart"><i class="fa-solid fa-cart-shopping cursor-pointer menu-hover"></i></a>
 				</div>

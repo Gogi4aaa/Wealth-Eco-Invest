@@ -27,6 +27,7 @@
                     Description = x.Announce.Description,
                     ImageUrl = x.Announce.ImageUrl,
                     Title = x.Announce.Title,
+                    CreatedOn = x.Announce.CreatedOn,
 		        })
 		        .ToArrayAsync();
 
