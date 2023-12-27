@@ -2,10 +2,13 @@
 
 namespace Wealth_Eco_Invest.Controllers
 {
+	using System.Globalization;
 	using Microsoft.AspNetCore.Authorization;
+	using Newtonsoft.Json;
 	using Services.Data.Interfaces;
 	using Web.Infrastructure.Extensions;
 	using Web.ViewModels.Calendar;
+	using JsonSerializer = System.Text.Json.JsonSerializer;
 
 	[Authorize]
 	public class CalendarController : Controller
@@ -15,7 +18,13 @@ namespace Wealth_Eco_Invest.Controllers
 		{
 			this.shoppingCartService = shoppingCartService;
 		}
-		public async Task<IActionResult> EventCalendar()
+		public IActionResult EventCalendar()
+		{
+			return View();
+		}
+
+		[HttpGet]
+		public async Task<JsonResult> GetAll()
 		{
 			var elements = await this.shoppingCartService.GetAllAnnouncesForUser(Guid.Parse(this.User.GetId()!));
 			List<CalendarViewModel> allElements = new List<CalendarViewModel>();
@@ -24,12 +33,11 @@ namespace Wealth_Eco_Invest.Controllers
 				CalendarViewModel calendar = new CalendarViewModel()
 				{
 					Title = element.Title,
-					Start = DateTime.Now
-				};
+					Start = DateTime.Now.Date.ToString("yyyy-MM-dd"),
+			};
 				allElements.Add(calendar);
 			}
-
-			return View(allElements.ToArray());
+			return Json(allElements.ToArray());
 		}
 	}
 }
