@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jzq9aMUYm/6Z5MUWG7Y+fFnT1Ei+1zrSDvLr8p/N7/U=",
+  "Hash": "mX+CEAuN6Igj1KcLc2ueOLHiNU63tiJTR55ygx8Gz5M=",
   "Source": "Wealth-Eco-Invest",
   "BasePath": "_content/Wealth-Eco-Invest",
   "Mode": "Default",
@@ -1851,23 +1851,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\font-awesome\\webfonts\\fa-v4compatibility.woff2"
-    },
-    {
-      "Identity": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\js\\Calendar.js",
-      "SourceId": "Wealth-Eco-Invest",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\",
-      "BasePath": "_content/Wealth-Eco-Invest",
-      "RelativePath": "js/Calendar.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Calendar.js"
     },
     {
       "Identity": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\js\\site.js",

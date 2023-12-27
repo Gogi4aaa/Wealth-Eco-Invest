@@ -8,5 +8,9 @@
         Task<ShoppingCartViewModel> GetAllAnnouncesForUser(Guid id);
 
         Task AddAnnounceToUser(Guid announceId, Guid userId);
+
+        Task UpdateAnnounceToUser(Guid announceId, Guid userId, int announceCount);
+
+        Task DeleteAnnounceToUser(Guid announceId, Guid userId);
     }
 }

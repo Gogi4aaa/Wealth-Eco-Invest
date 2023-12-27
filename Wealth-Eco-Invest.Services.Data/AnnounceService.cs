@@ -185,5 +185,25 @@
 
             return allAnnounces;
         }
+
+        public async Task<AllAnnouncesViewModel> GetAnnounceByAnnounceIdForShoppingCart(Guid announceId, Guid userId)
+        {
+	        var announce = await this.dbContext
+		        .Carts
+		        .Where(x => x.AnnounceId == announceId && x.BuyerId == userId)
+		        .Select(announce => new AllAnnouncesViewModel()
+		        {
+			        Id = announce.AnnounceId,
+			        Title = announce.Announce.Title,
+			        Description = announce.Announce.Description,
+			        ImageUrl = announce.Announce.ImageUrl,
+			        Price = announce.Announce.Price,
+			        CreatedOn = announce.Announce.CreatedOn,
+			        Count = announce.Quantity
+		        })
+		        .ToArrayAsync();
+
+	        return announce.First();
+        }
     }
 }

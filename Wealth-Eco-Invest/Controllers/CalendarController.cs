@@ -33,7 +33,7 @@ namespace Wealth_Eco_Invest.Controllers
 				CalendarViewModel calendar = new CalendarViewModel()
 				{
 					Title = element.Title,
-					Start = DateTime.Now.Date.ToString("yyyy-MM-dd"),
+					Start = DateTime.Now.Date.ToString("yyyy-MM-dd"),//TODO i need to change that to not be DateTime.Now.Date (must be the announce startDate)
 			};
 				allElements.Add(calendar);
 			}

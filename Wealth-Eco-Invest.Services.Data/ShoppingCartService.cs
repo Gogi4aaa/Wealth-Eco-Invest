@@ -28,6 +28,7 @@
                     ImageUrl = x.Announce.ImageUrl,
                     Title = x.Announce.Title,
                     CreatedOn = x.Announce.CreatedOn,
+                    Count = x.Quantity,
 		        })
 		        .ToArrayAsync();
 
@@ -39,17 +40,50 @@
 
         public async Task AddAnnounceToUser(Guid announceId, Guid userId)
         {
+	        
             Announce? announce = await this.dbContext.Announces.FirstAsync(a => a.Id == announceId);
+            
+	            var user = await this.dbContext.Users.FindAsync(userId!);
+	            var cart = new Cart()
+	            {
+		            AnnounceId = announce.Id,
+		            BuyerId = user.Id,
+		            Quantity = 1,//TODO must be edited
+	            };
 
-            var user = await this.dbContext.Users.FindAsync(userId!);
-            var cart = new Cart()
-            {
-	            AnnounceId = announce.Id,
-	            BuyerId = user.Id,
-	            Quantity = 1,//TODO must be edited
-            };
-            this.dbContext.Carts.Add(cart);
-            await this.dbContext.SaveChangesAsync();
+				var all = await this.GetAllAnnouncesForUser(userId);
+				foreach (var currAnnounce in all.Announces)
+				{
+		            if (currAnnounce.Id == announceId)
+		            {
+			            cart.Quantity = currAnnounce.Count + 1;
+			            await this.UpdateAnnounceToUser(announceId, userId, cart.Quantity);
+			            return;
+		            }
+				}
+	            this.dbContext.Carts.Add(cart);
+	            await this.dbContext.SaveChangesAsync();
+	            
+	    }
+
+        public async Task UpdateAnnounceToUser(Guid announceId, Guid userId, int announceCount)
+        {
+	        var cart = await this.dbContext
+				.Carts
+				.FirstAsync(x => x.AnnounceId == announceId && x.BuyerId == userId);
+			cart.Quantity = announceCount;
+
+			await this.dbContext.SaveChangesAsync();
+		}
+
+        public async Task DeleteAnnounceToUser(Guid announceId, Guid userId)
+        {
+	        var cartItem = await this.dbContext
+		        .Carts
+		        .FirstAsync(x => x.AnnounceId == announceId && x.BuyerId == userId);
+
+	        this.dbContext.Remove(cartItem);
+	        await this.dbContext.SaveChangesAsync();
         }
     }
 }

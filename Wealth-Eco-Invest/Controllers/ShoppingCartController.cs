@@ -38,6 +38,7 @@ namespace Wealth_Eco_Invest.Controllers
                 await this.shoppingCartService.AddAnnounceToUser(id, Guid.Parse(this.User.GetId()!));
                 
                 TempData[SuccessMessage] = "Announce was added to cart!";
+                TempData[InformationMessage] = "Check your calendar for more info!";
             }
             catch (Exception e)
             {
@@ -48,5 +49,31 @@ namespace Wealth_Eco_Invest.Controllers
 
             return RedirectToAction("All", "ShoppingCart");
         }
-    }
+
+        [HttpGet]
+        public async Task<IActionResult> IncreaseCount(Guid id)
+        {
+	        var announce = await this.announceService.GetAnnounceByAnnounceIdForShoppingCart(id,Guid.Parse(this.User.GetId()!));
+	        announce.Count += 1;
+	        await this.shoppingCartService.UpdateAnnounceToUser(announce.Id, Guid.Parse(this.User.GetId()!),announce.Count);
+	        return RedirectToAction("All", "ShoppingCart");
+		}
+
+        [HttpGet]
+        public async Task<IActionResult> DecreaseCount(Guid id)
+        {
+	        var announce = await this.announceService.GetAnnounceByAnnounceIdForShoppingCart(id, Guid.Parse(this.User.GetId()!));
+	        announce.Count-= 1;
+	        if (announce.Count <= 0)
+	        {
+		        TempData[ErrorMessage] = "The minimum quantity is 1!";
+	        }
+	        else
+	        {
+				await this.shoppingCartService.UpdateAnnounceToUser(announce.Id,Guid.Parse(this.User.GetId()!), announce.Count);
+	        }
+	        
+			return RedirectToAction("All", "ShoppingCart");
+		}
+	}
 }

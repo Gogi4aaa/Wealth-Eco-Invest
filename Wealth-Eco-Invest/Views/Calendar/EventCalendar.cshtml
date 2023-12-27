@@ -47,7 +47,6 @@
 			url: "@Url.Action("GetAll", "Calendar")",
 			contentType: "application/json; charset=utf-8",
 			success: function(data) {
-				console.log(data);
 				if (data.length > 0) {
 					calendarRending(data);
 				} else {
@@ -71,4 +70,3 @@
 
 
 </script>
-<script src="~/js/Calendar.js"></script>
