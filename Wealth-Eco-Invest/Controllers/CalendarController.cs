@@ -39,5 +39,11 @@ namespace Wealth_Eco_Invest.Controllers
 			}
 			return Json(allElements.ToArray());
 		}
+
+
+		//public async Task<IActionResult> DeleteEvent(Guid id)
+		//{
+		//	this.shoppingCartService.DeleteAnnounceToUser()
+		//}
 	}
 }
