@@ -16,3 +16,10 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.menu-hover:hover {
+    color: #607d43!important;
+}
+.cursor-pointer {
+    cursor: pointer;
+}

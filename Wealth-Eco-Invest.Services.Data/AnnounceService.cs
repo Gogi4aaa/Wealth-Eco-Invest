@@ -166,5 +166,44 @@
 
 	        return user!;
         }
+
+        public async Task<IEnumerable<AllAnnouncesViewModel>> GetAllByUserIdAsync(Guid userId)
+        {
+            var allAnnounces = await this.dbContext
+                .Announces
+                .Where(x => x.IsActive &&
+                            x.UserId == userId)
+                .Select(x => new AllAnnouncesViewModel()
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    Description = x.Description,
+                    ImageUrl = x.ImageUrl,
+                    Price = x.Price,
+                })
+                .ToArrayAsync();
+
+            return allAnnounces;
+        }
+
+        public async Task<AllAnnouncesViewModel> GetAnnounceByAnnounceIdForShoppingCart(Guid announceId, Guid userId)
+        {
+	        var announce = await this.dbContext
+		        .Carts
+		        .Where(x => x.AnnounceId == announceId && x.BuyerId == userId)
+		        .Select(announce => new AllAnnouncesViewModel()
+		        {
+			        Id = announce.AnnounceId,
+			        Title = announce.Announce.Title,
+			        Description = announce.Announce.Description,
+			        ImageUrl = announce.Announce.ImageUrl,
+			        Price = announce.Announce.Price,
+			        CreatedOn = announce.Announce.CreatedOn,
+			        Count = announce.Quantity
+		        })
+		        .ToArrayAsync();
+
+	        return announce.First();
+        }
     }
 }

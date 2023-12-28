@@ -19,5 +19,9 @@
         Task<AnnounceFormModel> GetAnnounceForEditAsync(Guid announceId);
 
         Task<ApplicationUser> GetUserByAnnounceId(Guid announceId);
+
+        Task<IEnumerable<AllAnnouncesViewModel>> GetAllByUserIdAsync(Guid userId);
+
+        Task<AllAnnouncesViewModel> GetAnnounceByAnnounceIdForShoppingCart(Guid announceId, Guid userId);
     }
 }

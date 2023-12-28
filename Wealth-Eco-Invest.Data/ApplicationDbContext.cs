@@ -16,7 +16,7 @@
 
         public DbSet<Category> Categories { get; set; } = null!;
         public DbSet<Announce> Announces { get; set; } = null!;
-
+        public DbSet<Cart> Carts { get; set; } = null!;
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new AnnounceEntityConfiguration());
