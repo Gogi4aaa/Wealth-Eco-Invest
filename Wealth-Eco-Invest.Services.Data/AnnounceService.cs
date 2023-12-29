@@ -60,6 +60,7 @@
 			        Id = a.Id,
 			        Title = a.Title,
 			        Price = a.Price,
+					StartDate = a.StartDate,
 			        Description = a.Description,
 			        ImageUrl = a.ImageUrl,
 		        })
@@ -82,6 +83,7 @@
 		        Title = model.Title,
 				Price = model.Price,
 				Description = model.Description,
+				StartDate = model.StartDate,
 				ImageUrl = model.ImageUrl,
 				IsActive = true,
 				CategoryId = model.CategoryId,
@@ -130,6 +132,7 @@
 		        .FirstAsync(x => x.Id == announceId);
 
 			announce.Title = model.Title;
+			announce.StartDate = model.StartDate;
 			announce.Description = model.Description;
 			announce.ImageUrl = model.ImageUrl;
 			announce.Price = model.Price;
@@ -178,6 +181,7 @@
                     Id = x.Id,
                     Title = x.Title,
                     Description = x.Description,
+					StartDate = x.StartDate,
                     ImageUrl = x.ImageUrl,
                     Price = x.Price,
                 })
@@ -186,24 +190,6 @@
             return allAnnounces;
         }
 
-        public async Task<AllAnnouncesViewModel> GetAnnounceByAnnounceIdForShoppingCart(Guid announceId, Guid userId)
-        {
-	        var announce = await this.dbContext
-		        .Carts
-		        .Where(x => x.AnnounceId == announceId && x.BuyerId == userId)
-		        .Select(announce => new AllAnnouncesViewModel()
-		        {
-			        Id = announce.AnnounceId,
-			        Title = announce.Announce.Title,
-			        Description = announce.Announce.Description,
-			        ImageUrl = announce.Announce.ImageUrl,
-			        Price = announce.Announce.Price,
-			        CreatedOn = announce.Announce.CreatedOn,
-			        Count = announce.Quantity
-		        })
-		        .ToArrayAsync();
-
-	        return announce.First();
-        }
+        
     }
 }

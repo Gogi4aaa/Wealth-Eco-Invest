@@ -132,6 +132,165 @@
         }
       }
     },
+    "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data\\Wealth-Eco-Invest.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data\\Wealth-Eco-Invest.Data.csproj",
+        "projectName": "Wealth-Eco-Invest.Data",
+        "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data\\Wealth-Eco-Invest.Data.csproj",
+        "packagesPath": "C:\\Users\\Georgi\\.nuget\\packages\\",
+        "outputPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Georgi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj": {
+                "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj"
+              },
+              "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj": {
+                "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.22, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.22, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Web.Infrastructure\\Wealth-Eco-Invest.Web.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Web.Infrastructure\\Wealth-Eco-Invest.Web.Infrastructure.csproj",
+        "projectName": "Wealth-Eco-Invest.Web.Infrastructure",
+        "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Web.Infrastructure\\Wealth-Eco-Invest.Web.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Georgi\\.nuget\\packages\\",
+        "outputPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Web.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Georgi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj": {
+                "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj"
+              },
+              "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj": {
+                "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj"
+              },
+              "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data\\Wealth-Eco-Invest.Data.csproj": {
+                "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data\\Wealth-Eco-Invest.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.23, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[6.0.23, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Web.ViewModels\\Wealth-Eco-Invest.Web.ViewModels.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -165,6 +324,9 @@
               },
               "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj": {
                 "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj"
+              },
+              "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Web.Infrastructure\\Wealth-Eco-Invest.Web.Infrastructure.csproj": {
+                "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Web.Infrastructure\\Wealth-Eco-Invest.Web.Infrastructure.csproj"
               }
             }
           }
