@@ -189,6 +189,9 @@ namespace Wealth_Eco_Invest.Data.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -208,37 +211,40 @@ namespace Wealth_Eco_Invest.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("66f9e150-6505-4512-8b26-49e10dc3cb38"),
+                            Id = new Guid("bb00948a-c587-47d2-89d9-9741b15dfd49"),
                             CategoryId = 3,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "This rubbish pollutes the environment.You need to throw it in the trash bins!",
                             ImageUrl = "https://www.nrdc.org/sites/default/files/styles/medium_16x9_100/public/media-uploads/health4_26_airpollguide_istock_2796602_2400.jpg.jpg?h=c3635fa2&itok=bunvf3B8",
                             IsActive = false,
                             Price = 50.00m,
+                            StartDate = new DateTime(2023, 12, 1, 12, 25, 0, 0, DateTimeKind.Unspecified),
                             Title = "Air pollution",
                             UserId = new Guid("5168c799-18f9-4c11-ac0a-3f0b210e742d")
                         },
                         new
                         {
-                            Id = new Guid("549c0ea1-f577-43df-80a3-8f1292fc7d91"),
+                            Id = new Guid("9f9d92f4-2d62-4066-aa13-0b7b9d80f2d0"),
                             CategoryId = 1,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "The pollution is the worst thing ever.We need to stop it!",
                             ImageUrl = "https://www.interplas.com/product_images/trash-bags/sku/8-10-Gallon-Black-24-x-30-Drawstring-Trash-Bags-1000px.jpg?v=1346367336",
                             IsActive = false,
                             Price = 200.00m,
+                            StartDate = new DateTime(2023, 12, 2, 10, 30, 0, 0, DateTimeKind.Unspecified),
                             Title = "Clean the rubbish",
                             UserId = new Guid("4f2762fc-4689-4fbd-8e55-8e84eac060cd")
                         },
                         new
                         {
-                            Id = new Guid("a0afae63-429b-414d-a722-beae31fe3ea5"),
+                            Id = new Guid("8e973fa0-ab21-4d45-a0d5-582be213ae22"),
                             CategoryId = 2,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Water pollution destroy our beaches and oceans.We need to stop it fast!",
                             ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdMLiNp09BNzW4jIdGFBpJx4yDwVfeXkygeQ&usqp=CAU",
                             IsActive = false,
                             Price = 100000m,
+                            StartDate = new DateTime(2023, 12, 1, 15, 5, 5, 0, DateTimeKind.Unspecified),
                             Title = "Water pollution",
                             UserId = new Guid("3a9c9bea-9f47-4924-af37-5079aad72902")
                         });

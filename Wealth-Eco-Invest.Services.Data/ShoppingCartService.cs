@@ -29,6 +29,7 @@
                     Title = x.Announce.Title,
                     CreatedOn = x.Announce.CreatedOn,
                     Count = x.Quantity,
+					StartDate = x.Announce.StartDate,
 		        })
 		        .ToArrayAsync();
 
