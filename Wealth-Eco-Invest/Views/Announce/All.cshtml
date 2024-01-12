@@ -1,55 +1,68 @@
 ﻿@model AnnounceQueryViewModel
 @{
 	ViewData["Title"] = "Announces";
+	int announceSortingNumber = (int)Model.AnnounceSorting;
 }
-
-@* <div style="margin: 0 auto; width: 60%">
-	<form asp-action="All" asp-controller="Announce" method="get" class=" d-flex" style="height: 50px;">
-		<input asp-for="@Model.SearchTerm" class="form-control mr-sm-2 w-75" type="search" placeholder="Search" aria-label="Search">
-		<button class="btn btn-outline-success ms-2 my-2 my-sm-0 w-25" type="submit">Search</button>
-	</form>
-</div> *@
-
-<form method="get">
-	<div class="row">
-		<div class="form-group col-md-3 d-flex justify-content-between">
-			<div class="form-group">
-				<label asp-for="Category"></label>
-				<select asp-for="Category" class="form-control">
-					<option value="">All</option>
-					@foreach (var category in Model.Categories)
-					{
-						<option value="@category">@category</option>
-					}
-				</select>
+<div class="d-flex">
+	<div class="d-flex justify-content-center" style="width: 80%;">
+		<form method="get" asp-action="All" asp-controller="Announce">
+			<div class="d-flex">
+				<div class="form-group" style="width: 270px;">
+					<input asp-for="SearchTerm" class="form-control" placeholder="Search...">
+				</div>
+				<div class="form-group">
+					<button class="btn btn-dark" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+				</div>
 			</div>
-
-		</div>
-
-		<div class="form-group col-md-3">
-			<label asp-for="SearchTerm"></label>
-			<input asp-for="SearchTerm" class="form-control" placeholder="...">
-		</div>
-
-		<div class="form-group col-md-3">
-			<div class="form-group">
-				<label asp-for="AnnounceSorting"></label>
-				<select asp-for="AnnounceSorting" class="form-control">
-					<option value="0">Newest</option>
-					<option value="1">Oldest</option>
-					<option value="2">Price (Ascending)</option>
-					<option value="3">Price (Descending)</option>
-				</select>
-			</div>
-		</div>
-
-		<div class="col-md-3">
-			<div class="form-group mt-4 p-2">
-				<input type="submit" value="Search" class="btn btn-primary" />
-			</div>
-		</div>
+		</form>
 	</div>
-</form>
+	<div class="btn-group">
+		<button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+			Sorting
+		</button>
+		<ul class="dropdown-menu">
+			<li>
+				<a
+					class="dropdown-item"
+					asp-action="All"
+					asp-controller="Announce"
+					asp-route-orderBy="0">
+					Newest
+				</a>
+			</li>
+			<li><hr class="dropdown-divider"></li>
+			<li>
+				<a
+					class="dropdown-item"
+					asp-action="All"
+					asp-controller="Announce"
+					asp-route-orderBy="1">
+					Oldest
+				</a>
+			</li>
+			<li><hr class="dropdown-divider"></li>
+			<li>
+				<a 
+					class="dropdown-item"
+					asp-action="All"
+					asp-controller="Announce"
+					asp-route-orderBy="2">
+					Price (Ascending)
+				</a>
+			</li>
+			<li><hr class="dropdown-divider"></li>
+			<li>
+				<a
+					class="dropdown-item"
+					asp-action="All"
+					asp-controller="Announce"
+					asp-route-orderBy="3">
+					Price (Descending)
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
 
 @{
 	int previousPage = Model.CurrentPage - 1;
@@ -58,19 +71,42 @@
 		previousPage = 1;
 	}
 
-	int maxPage = (int)Math.Ceiling((double)Model.TotalAnnounces /
-	                                Model.AnnouncesPerPage);
+	int maxPage = (int)Math.Ceiling((double)Model.TotalAnnounces / Model.AnnouncesPerPage);
 }
 
-<div class="row mb-5">
-	<div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-start">
+<a asp-action="Add" asp-controller="Announce" class="btn btn-primary">Add Announce</a>
+<h1 class="fw-bold text-center">@ViewData["Title"]</h1>
+<div class="d-flex">
+	@if (!Model.Announces.Any())
+	{
+		<h2 class="mt-5">No announces found by the given criteria!</h2>
+	}
+	else
+	{
+		@foreach (AllAnnouncesViewModel announce in @Model.Announces)
+		{
+			<div class="card ms-2 me-2" style="width: 18rem;">
+				<img style="height: 220px;" src="@announce.ImageUrl" class="card-img-top" alt="Cannot load this Image!">
+				<div class="card-body">
+					<h5 class="card-title">@announce.Title</h5>
+					<p class="card-text">@announce.Description</p>
+					<p class="card-text">Price: <span class="fw-bold">@announce.Price</span></p>
+					<a asp-action="Details" asp-controller="Announce" asp-route-id="@announce.Id" class="btn btn-warning">Details</a>
+				</div>
+			</div>
+		}
+	}
+</div>
+
+<div class="row mb-3">
+	<div class="mt-4 col-md-6 d-grid gap-2 d-md-flex justify-content-md-start">
 		<a class="btn btn-primary @(Model.CurrentPage == 1 ? "disabled" : string.Empty)"
 		   asp-controller="Announce"
 		   asp-action="All"
 		   asp-route-currentPage="@previousPage"
 		   asp-route-category="@Model.Category"
-		   asp-route-searchTerm="@Model.SearchTerm"
-		   asp-route-sorting="@((int)Model.AnnounceSorting)"><<</a>
+		   asp-route-orderBy="@ViewData["announceSorting"]"
+		   asp-route-searchTerm="@Model.SearchTerm">Previous</a>
 	</div>
 
 	@{
@@ -78,38 +114,14 @@
 		                                !Model.Announces.Any();
 	}
 
-	<div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
+	<div class="mt-4 col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
 		<a class="btn btn-primary 
            @(shouldNextPageBeDisabled ? "disabled" : string.Empty)"
 		   asp-controller="Announce"
 		   asp-action="All"
 		   asp-route-currentPage="@(Model.CurrentPage + 1)"
 		   asp-route-category="@Model.Category"
-		   asp-route-searchTerm="@Model.SearchTerm"
-		   asp-route-sorting="@((int)Model.AnnounceSorting)">>></a>
+		   asp-route-orderBy="@ViewData["announceSorting"]"
+		   asp-route-searchTerm="@Model.SearchTerm">Next</a>
 	</div>
-</div>
-
-<a asp-action="Add" asp-controller="Announce" class="btn btn-primary">Add Announce</a>
-<h1 class="fw-bold text-center">@ViewData["Title"]</h1>
-<div class="d-flex">
-@if (!Model.Announces.Any())
-{
-	<h2 class="mt-5">No announces found by the given criteria!</h2>
-}
-else
-{
-	@foreach (AllAnnouncesViewModel announce in @Model.Announces)
-	{
-		<div class="card ms-2 me-2" style="width: 18rem;">
-			<img style="height: 220px;" src="@announce.ImageUrl" class="card-img-top" alt="Cannot load this Image!">
-			<div class="card-body">
-				<h5 class="card-title">@announce.Title</h5>
-				<p class="card-text">@announce.Description</p>
-				<p class="card-text">Price: <span class="fw-bold">@announce.Price</span></p>
-				<a asp-action="Details" asp-controller="Announce" asp-route-id="@announce.Id" class="btn btn-warning">Details</a>
-			</div>
-		</div>
-	}
-}
 </div>
