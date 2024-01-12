@@ -66,7 +66,7 @@
 		        })
 		        .ToArrayAsync();
 
-	        int totalAnnounces = announcesQuery.Count();
+	        int totalAnnounces = announcesQuery.Count(x=> x.IsActive);
 
 	        return new AllAnnouncesFilteredAndPagedServiceModel()
 	        {

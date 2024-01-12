@@ -18,7 +18,7 @@
 	</div>
 	<div class="btn-group">
 		<button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-			Sorting
+			@Model.AnnounceSorting
 		</button>
 		<ul class="dropdown-menu">
 			<li>
@@ -71,7 +71,7 @@
 		previousPage = 1;
 	}
 
-	int maxPage = (int)Math.Ceiling((double)Model.TotalAnnounces / Model.AnnouncesPerPage);
+	int maxPage = (int)Math.Ceiling((double)Model.TotalAnnounces / (double)Model.AnnouncesPerPage);
 }
 
 <a asp-action="Add" asp-controller="Announce" class="btn btn-primary">Add Announce</a>
