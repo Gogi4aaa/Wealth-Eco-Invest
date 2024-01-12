@@ -53,7 +53,7 @@ namespace Wealth_Eco_Invest.Controllers
         [HttpGet]
         public async Task<IActionResult> IncreaseCount(Guid id)
         {
-	        var announce = await this.announceService.GetAnnounceByAnnounceIdForShoppingCart(id,Guid.Parse(this.User.GetId()!));
+	        var announce = await this.shoppingCartService.GetAnnounceByAnnounceId(id,Guid.Parse(this.User.GetId()!));
 	        announce.Count += 1;
 	        await this.shoppingCartService.UpdateAnnounceToUser(announce.Id, Guid.Parse(this.User.GetId()!),announce.Count);
 	        return RedirectToAction("All", "ShoppingCart");
@@ -62,7 +62,7 @@ namespace Wealth_Eco_Invest.Controllers
         [HttpGet]
         public async Task<IActionResult> DecreaseCount(Guid id)
         {
-	        var announce = await this.announceService.GetAnnounceByAnnounceIdForShoppingCart(id, Guid.Parse(this.User.GetId()!));
+	        var announce = await this.shoppingCartService.GetAnnounceByAnnounceId(id, Guid.Parse(this.User.GetId()!));
 	        announce.Count-= 1;
 	        if (announce.Count <= 0)
 	        {

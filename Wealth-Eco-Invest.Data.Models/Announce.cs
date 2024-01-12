@@ -25,6 +25,8 @@
 
         public decimal Price { get; set; }
 
+        public DateTime StartDate { get; set; }
+
         public DateTime CreatedOn { get; set; }
 
         public bool IsActive { get; set; }

@@ -13,7 +13,7 @@
 			Categories = new HashSet<string>();
 			Announces = new HashSet<AllAnnouncesViewModel>();
 		}
-		[Display(Name = "Search")]
+		[Display(Name = "")]
 		public string? SearchTerm { get; set; }
 
 		public string? Category { get; set; }

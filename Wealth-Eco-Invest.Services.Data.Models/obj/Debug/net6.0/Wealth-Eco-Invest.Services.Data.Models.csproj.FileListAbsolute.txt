@@ -17,3 +17,7 @@ D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\ob
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\obj\Debug\net6.0\ref\Wealth-Eco-Invest.Services.Data.Models.dll
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\bin\Debug\net6.0\Wealth-Eco-Invest.Data.Models.dll
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\bin\Debug\net6.0\Wealth-Eco-Invest.Data.Models.pdb
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\bin\Debug\net6.0\Wealth-Eco-Invest.Data.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\bin\Debug\net6.0\Wealth-Eco-Invest.Web.Infrastructure.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\bin\Debug\net6.0\Wealth-Eco-Invest.Data.pdb
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\bin\Debug\net6.0\Wealth-Eco-Invest.Web.Infrastructure.pdb

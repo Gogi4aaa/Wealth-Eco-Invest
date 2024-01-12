@@ -13,6 +13,7 @@ namespace Wealth_Eco_Invest.Controllers
 	using Services.Messaging.Templates;
 	using Web.Infrastructure.Extensions;
 	using Web.ViewModels.Announce;
+	using Web.ViewModels.Announce.Enums;
 	using IEmailSender = Services.Messaging.IEmailSender;
 	using static Common.EmailSendTemplate;
 	using static Common.NotificationMessagesConstants;
@@ -31,15 +32,30 @@ namespace Wealth_Eco_Invest.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> All([FromQuery] AnnounceQueryViewModel queryViewModel)
+        public async Task<IActionResult> All([FromQuery] AnnounceQueryViewModel queryViewModel, int orderBy)
         {
+	        
+	        if (orderBy == 1)
+	        {
+				queryViewModel.AnnounceSorting = AnnounceSorting.Oldest;
+			}
+			else if (orderBy == 2)
+	        {
+		        queryViewModel.AnnounceSorting = AnnounceSorting.PriceAscending;
+			}
+			else if (orderBy == 3)
+	        {
+		        queryViewModel.AnnounceSorting = AnnounceSorting.PriceDescending;
+			}
+			
 	        AllAnnouncesFilteredAndPagedServiceModel serviceModel = await this.announceService.GetAllAnnouncesAsync(queryViewModel);
+
+	        ViewData["announceSorting"] = (int)queryViewModel.AnnounceSorting;
 
             queryViewModel.Announces = serviceModel.Announces;
             queryViewModel.TotalAnnounces = serviceModel.TotalAnnouncesCount;
             queryViewModel.Categories = await this.categoryService.AllCategoriesNamesAsync();
-
-            return View(queryViewModel);
+            return this.View(queryViewModel);
         }
 
         [HttpGet]

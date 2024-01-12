@@ -29,6 +29,7 @@
                     Title = x.Announce.Title,
                     CreatedOn = x.Announce.CreatedOn,
                     Count = x.Quantity,
+					StartDate = x.Announce.StartDate,
 		        })
 		        .ToArrayAsync();
 
@@ -38,7 +39,7 @@
 	        };
         }
 
-        public async Task AddAnnounceToUser(Guid announceId, Guid userId)
+        public async Task AddAnnounceToUser(Guid announceId, Guid userId) 
         {
 	        
             Announce? announce = await this.dbContext.Announces.FirstAsync(a => a.Id == announceId);
@@ -66,7 +67,27 @@
 	            
 	    }
 
-        public async Task UpdateAnnounceToUser(Guid announceId, Guid userId, int announceCount)
+        public async Task<AllAnnouncesViewModel> GetAnnounceByAnnounceId(Guid announceId, Guid userId)
+        {
+	        var announce = await this.dbContext
+		        .Carts
+		        .Where(x => x.AnnounceId == announceId && x.BuyerId == userId)
+		        .Select(announce => new AllAnnouncesViewModel()
+		        {
+			        Id = announce.AnnounceId,
+			        Title = announce.Announce.Title,
+			        Description = announce.Announce.Description,
+			        ImageUrl = announce.Announce.ImageUrl,
+			        Price = announce.Announce.Price,
+			        CreatedOn = announce.Announce.CreatedOn,
+			        Count = announce.Quantity,
+					StartDate = announce.Announce.StartDate,
+		        })
+		        .ToArrayAsync();
+
+	        return announce.First();
+        }
+		public async Task UpdateAnnounceToUser(Guid announceId, Guid userId, int announceCount)
         {
 	        var cart = await this.dbContext
 				.Carts

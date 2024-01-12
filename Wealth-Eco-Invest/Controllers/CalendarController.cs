@@ -33,11 +33,17 @@ namespace Wealth_Eco_Invest.Controllers
 				CalendarViewModel calendar = new CalendarViewModel()
 				{
 					Title = element.Title,
-					Start = DateTime.Now.Date.ToString("yyyy-MM-dd"),//TODO i need to change that to not be DateTime.Now.Date (must be the announce startDate)
+					Start = element.StartDate.ToString("yyyy-MM-dd hh:mm:ss"),//TODO i need to change that to not be DateTime.Now.Date (must be the announce startDate)
 			};
 				allElements.Add(calendar);
 			}
 			return Json(allElements.ToArray());
 		}
+
+
+		//public async Task<IActionResult> DeleteEvent(Guid id)
+		//{
+		//	this.shoppingCartService.DeleteAnnounceToUser()
+		//}
 	}
 }

@@ -2,6 +2,7 @@
 {
 	using System.ComponentModel.DataAnnotations;
 	using Category;
+	using Infrastructure.CustomValidationAttributes;
 	using static Common.ValidationConstants.Announce;
 	using static Common.ErrorMessages.Announce;
 	public class AnnounceFormModel
@@ -24,6 +25,9 @@
 
 		[Range(PriceMinLength,PriceMaxLength)]
 		public decimal Price { get; set; }
+
+		[MyDate(ErrorMessage = "Invalid date")]
+		public DateTime StartDate { get; set; }
 
 		[Display(Name = "Category")]
 		public int CategoryId { get; set; }

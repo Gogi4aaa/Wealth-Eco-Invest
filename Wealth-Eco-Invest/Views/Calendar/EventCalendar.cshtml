@@ -61,7 +61,22 @@
 			var calendar = new FullCalendar.Calendar(calendarEl,
 				{
 					initialView: 'dayGridMonth',
-					events: elems
+					events: elems,
+					eventClick: function(info) {
+						$("#annTitle").text(info.event.title);
+						$(".annTitle").text(info.event.title);
+						$("#annStartDate").text(FullCalendar.formatDate(Date.parse(info.event.start.toString()),
+							{
+								month: 'numeric',
+								year: 'numeric',
+								day: 'numeric',
+								timeZoneName: 'short',
+								timeZone: 'local',
+								locale: 'es',
+							}));
+						$('#staticBackdrop').modal('show');
+						
+					}
 				});
 			calendar.render();
 		}
@@ -70,3 +85,24 @@
 
 
 </script>
+
+@* DELETE MODAL *@
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div style="background: #8fa678" class="modal-header">
+				<h1 class="modal-title fs-5 annTitle text-white" id="staticBackdropLabel"></h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body text-center justify-content-center align-items-center">
+				<h1 class="mb-5" id="annTitle"></h1>
+				<span class="fs-5 fw-bold">Start Date: </span>
+				<h5 id="annStartDate"></h5>
+			</div>
+			<div style="background: #8fa678" class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+@* DELETE MODAL END*@
