@@ -28,6 +28,9 @@
         public string ImageUrl { get; set; } = null!;
 
         [Required]
+        public DateTime StartDate { get; set; }
+
+        [Required]
         public string Owner { get; set; } = null!;
 
     }

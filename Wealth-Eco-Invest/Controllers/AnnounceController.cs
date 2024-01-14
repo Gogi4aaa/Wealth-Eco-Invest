@@ -2,12 +2,8 @@
 
 namespace Wealth_Eco_Invest.Controllers
 {
-	using System.Security.Claims;
-	using Common;
 	using Data.Models;
 	using Microsoft.AspNetCore.Authorization;
-	using Microsoft.AspNetCore.Identity.UI.Services;
-	using Microsoft.AspNetCore.Mvc.Infrastructure;
 	using Services.Data.Interfaces;
     using Services.Data.Models;
 	using Services.Messaging.Templates;
@@ -15,7 +11,6 @@ namespace Wealth_Eco_Invest.Controllers
 	using Web.ViewModels.Announce;
 	using Web.ViewModels.Announce.Enums;
 	using IEmailSender = Services.Messaging.IEmailSender;
-	using static Common.EmailSendTemplate;
 	using static Common.NotificationMessagesConstants;
 	[Authorize]
 	public class AnnounceController : Controller
@@ -47,14 +42,22 @@ namespace Wealth_Eco_Invest.Controllers
 	        {
 		        queryViewModel.AnnounceSorting = AnnounceSorting.PriceDescending;
 			}
-			
-	        AllAnnouncesFilteredAndPagedServiceModel serviceModel = await this.announceService.GetAllAnnouncesAsync(queryViewModel);
 
-	        ViewData["announceSorting"] = (int)queryViewModel.AnnounceSorting;
-
-            queryViewModel.Announces = serviceModel.Announces;
-            queryViewModel.TotalAnnounces = serviceModel.TotalAnnouncesCount;
-            queryViewModel.Categories = await this.categoryService.AllCategoriesNamesAsync();
+	        try
+	        {
+				AllAnnouncesFilteredAndPagedServiceModel serviceModel = await this.announceService.GetAllAnnouncesAsync(queryViewModel);
+				
+				ViewData["announceSorting"] = (int)queryViewModel.AnnounceSorting;
+				
+				queryViewModel.Announces = serviceModel.Announces;
+				queryViewModel.TotalAnnounces = serviceModel.TotalAnnouncesCount;
+				queryViewModel.Categories = await this.categoryService.AllCategoriesNamesAsync();
+	        }
+	        catch (Exception)
+	        {
+				TempData[ErrorMessage] = "Unexpected message occurred";
+			}
+	        
             return this.View(queryViewModel);
         }
 
@@ -129,10 +132,17 @@ namespace Wealth_Eco_Invest.Controllers
 				return View(model);
 			}
 
-			await this.announceService.EditAnnounceByIdAndFormModelAsync(id, model);
+			try
+			{
+				await this.announceService.EditAnnounceByIdAndFormModelAsync(id, model);
 
-			TempData[SuccessMessage] = "Your announce was updated!";
-
+				TempData[SuccessMessage] = "Your announce was updated!";
+			}
+			catch (Exception)
+			{
+				TempData[ErrorMessage] = "Unexpected message occurred";
+			}
+			
 			return RedirectToAction("All", "Announce");
 		}
 

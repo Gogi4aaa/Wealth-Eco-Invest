@@ -107,7 +107,8 @@
 			        Price = model.Price,
 			        Description = model.Description,
 			        ImageUrl = model.ImageUrl,
-					Owner = model.User.UserName
+			        Owner = model.User.UserName,
+					StartDate = model.StartDate,
 		        })
 		        .FirstAsync();
         }
@@ -155,6 +156,7 @@
 				ImageUrl = announce.ImageUrl,
 				Price = announce.Price,
 				CategoryId = announce.CategoryId,
+				StartDate = announce.StartDate
 	        };
         }
 
