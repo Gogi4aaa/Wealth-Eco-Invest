@@ -2,17 +2,19 @@
 
 namespace Wealth_Eco_Invest.Controllers
 {
-	using Data.Models;
-	using Microsoft.AspNetCore.Authorization;
-	using Services.Data.Interfaces;
+    using Data.Models;
+    using Microsoft.AspNetCore.Authorization;
+    using Services.Data.Interfaces;
     using Services.Data.Models;
-	using Services.Messaging.Templates;
-	using Web.Infrastructure.Extensions;
-	using Web.ViewModels.Announce;
-	using Web.ViewModels.Announce.Enums;
-	using IEmailSender = Services.Messaging.IEmailSender;
-	using static Common.NotificationMessagesConstants;
-	[Authorize]
+    using Services.Messaging.Templates;
+    using Web.Infrastructure.Extensions;
+    using Web.ViewModels.Announce;
+    using Web.ViewModels.Announce.Enums;
+    using IEmailSender = Services.Messaging.IEmailSender;
+    using static Common.NotificationMessagesConstants;
+    using Wealth_Eco_Invest.Services.Data.Models.Announces;
+
+    [Authorize]
 	public class AnnounceController : Controller
     {
         private readonly IAnnounceService announceService;

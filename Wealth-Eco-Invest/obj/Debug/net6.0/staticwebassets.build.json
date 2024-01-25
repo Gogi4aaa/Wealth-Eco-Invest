@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0rUk0UL2EhCS3dEUFFOM+kNQTydIR3xRRTXQRnueRo0=",
+  "Hash": "lcZMkSekfiVgfcWOjaRvtsA/Um8hDbX/ZBXQjm7yqpM=",
   "Source": "Wealth-Eco-Invest",
   "BasePath": "_content/Wealth-Eco-Invest",
   "Mode": "Default",
@@ -1086,6 +1086,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\387451757_636760738629670_6251918314014004869_n.png"
+    },
+    {
+      "Identity": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\css\\Calendar.css",
+      "SourceId": "Wealth-Eco-Invest",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\",
+      "BasePath": "_content/Wealth-Eco-Invest",
+      "RelativePath": "css/Calendar.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Calendar.css"
     },
     {
       "Identity": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\css\\shoppingCartCounter.css",
