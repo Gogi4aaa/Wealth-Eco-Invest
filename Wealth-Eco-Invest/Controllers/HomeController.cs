@@ -1,21 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using Wealth_Eco_Invest.Models;
-
-namespace Wealth_Eco_Invest.Controllers
+﻿namespace Wealth_Eco_Invest.Controllers
 {
+	using Microsoft.AspNetCore.Mvc;
+	using Newtonsoft.Json;
+
+	using System.Diagnostics;
+	using System.Net.Http;
+
+	using Models;
+	using Services.Data.Models.News;
+
 	using static Common.GeneralApplicationConstants;
 	using static Common.NotificationMessagesConstants;
-	using NuGet.Protocol;
-	using System.Net.Http;
-	using System.Text.Json;
-	using Newtonsoft.Json;
-	using Newtonsoft.Json.Linq;
-	using Services.Data.Models.News;
-	using JsonSerializer = System.Text.Json.JsonSerializer;
-	using static System.Net.WebRequestMethods;
-	using Wealth_Eco_Invest.Common;
-
+	
 	public class HomeController : Controller
 	{
 		private readonly ILogger<HomeController> _logger;
