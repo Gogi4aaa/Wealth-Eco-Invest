@@ -3,8 +3,8 @@
     ViewData["Title"] = "Home Page";
 	
 }
-<div class="text-center d-flex flex-wrap">
-
+<div class="text-center d-flex">
+	<div class="row justify-content-center">
 	@{
 		foreach (var article in Model.Articles.Results)
 		{
@@ -33,7 +33,7 @@
 				title += "...";
 			}
 
-			<div class="card ms-2 me-2 mt-2" style="width: 18rem;">
+			<div class="col-sm-6 card ms-2 me-2 mt-2" style="width: 18rem;">
 				<img style="height: 220px;" src="@article.Image" class="card-img-top" alt="Cannot load this Image!">
 				<div class="card-body">
 					<h5 class="card-title">@title</h5>
@@ -48,5 +48,6 @@
 				</div>
 			</div>
 		}
-	}
+		}
+	</div>
 </div>

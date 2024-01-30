@@ -17,51 +17,59 @@
 </head>
 <body style="background: #e8e8e8; height: 50vh;">
 	<partial name="_NotificationsPartial" />
-<header>
-	<nav class="navbar navbar-expand-sm  navbar-light border-bottom box-shadow mb-3" style="background: #8fa678; height: 70px;">
-		<div class="container-fluid">
-			<div class="navbar-collapse collapse d-flex justify-content-center align-items-center">
-				<ul class="navbar-nav flex-grow-1">
-					@* <li class ="nav-item" style="width: 200px; height: 70px;">
-						<a class="nav-link"><img src="387451757_636760738629670_6251918314014004869_n.png" class="img-fluid" /></a>
-					</li> *@
-					<li class="nav-item">
-							<button class="btn text-white menu-hover burger-button fs-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fa-solid fa-bars"></i></button>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link text-white menu-hover fs-5" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link text-white menu-hover fs-5" asp-area="" asp-controller="Announce" asp-action="All">Announces</a>
-					</li>
-				</ul>
-				@if (SignInManager.IsSignedIn(User))
-				{
-					<div class="fs-4 me-2 text-white">
-						<a class="text-white" asp-action="EventCalendar" asp-controller="Calendar"><i class="fa-regular fa-calendar-days cursor-pointer menu-hover"></i></a>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light border-bottom box-shadow mb-3" style="background: #8fa678; min-height: 70px;">
+			<div class="container-fluid justify-content-between">
+				<div>
+					<a asp-action="Index" asp-controller="Home" class="nav-link"><img src="~/387451757_636760738629670_6251918314014004869_n.png" class="img-fluid" style="width: 300px; height: 70px;" /></a>
+				</div>
+				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div style="background: #8fa678; width: 300px;" class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+					<div class="offcanvas-header justify-content-end">
+						<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 					</div>
-					<div class="fs-4 me-1 text-white">
-						<a class="text-white" asp-action="All" asp-controller="ShoppingCart"><i class="fa-solid fa-cart-shopping cursor-pointer menu-hover"></i></a>
-						<span class='badge badge-warning' id='lblCartCount'> @DbContext.Carts.Count(x => x.BuyerId == Guid.Parse(User.GetId()!)) </span>
+					<div class="offcanvas-body">
+						<ul class="navbar-nav d-flex align-items-center nav-flex-column ms-auto">
+							
+								@if (SignInManager.IsSignedIn(User))
+								{
+								@* <li class="nav-item me-3 fs-4 nav-border-top nav-border-bottom w-100 text-center">
+										<a class="nav-link text-white text-decoration-none menu-hover fs-5" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+									</li> *@
+								<li class="nav-item me-3 fs-4 nav-border-top nav-border-bottom w-100 text-center">
+										<a class="nav-link text-white text-decoration-none menu-hover fs-5" asp-area="" asp-controller="Announce" asp-action="All">Announces</a>
+									</li>
+								<li class="nav-item fs-4 text-white nav-border-top nav-border-bottom w-100 text-center">
+									<a class="nav-link text-white cursor-pointer menu-hover" asp-action="EventCalendar" asp-controller="Calendar"><i class="fa-regular fa-calendar-days"></i> <p class="hidden">Calendar</p></a>
+								</li>
+								<li class="nav-item padding-7px0px fs-4  text-white text-center nav-border-top nav-border-bottom w-100 text-center">
+									<div class="d-flex menu-hover justify-content-center align-items-start">
+										<a class="text-white text-decoration-none cursor-pointer menu-hover" asp-action="All" asp-controller="ShoppingCart"><i class="fa-solid fa-cart-shopping me-sm-3"></i></a>
+										<span class='cart-count-margin-left badge badge-warning' id='lblCartCount'> @DbContext.Carts.Count(x => x.BuyerId == Guid.Parse(User.GetId()!)) </span>
+										<a asp-action="All" asp-controller="ShoppingCart" class="text-white text-decoration-none ms-1 hidden cursor-pointer menu-hover">Cart</a>
+									</div>
+								</li>
+								}
+								<partial name="_LoginPartial" />
+						</ul>
 					</div>
-				}
-				
-				<partial name="_LoginPartial"/>
+				</div>
+			</div>
+		</nav>
+		@* SIDE NAVBAR *@
+		<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+			<div class="offcanvas-header">
+				<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+				<button type="button" class="btn-close burger-button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body">
+				<p>Try scrolling the rest of the page to see this option in action.</p>
 			</div>
 		</div>
-	</nav>
-	@* SIDE NAVBAR *@
-	<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-		<div class="offcanvas-header">
-			<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
-			<button type="button" class="btn-close burger-button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-		</div>
-		<div class="offcanvas-body">
-			<p>Try scrolling the rest of the page to see this option in action.</p>
-		</div>
-	</div>
-	@* SIDE NAVBAR END *@
-</header>
+		@* SIDE NAVBAR END *@
+	</header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

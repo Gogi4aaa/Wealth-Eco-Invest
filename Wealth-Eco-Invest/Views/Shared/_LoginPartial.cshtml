@@ -2,25 +2,27 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-<ul class="navbar-nav">
+@* <ul class="navbar-nav"> *@
 @if (SignInManager.IsSignedIn(User))
 {
-    <li class="nav-item">
+    <span>
             <a class="nav-link text-white menu-hover fs-5" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity?.Name</a>
-    </li>
-    <li class="nav-item">
+    </span>
+    <span>
         <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                 <button type="submit" class="nav-link btn btn-link text-white menu-hover fs-5">Logout</button>
         </form>
-    </li>
+    </span>
 }
 else
 {
-    <li class="nav-item">
+    <span>
             <a class="nav-link text-white menu-hover fs-5" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
+    </span>
+    <span>
             <a class="nav-link text-white menu-hover fs-5" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
+    </span>
 }
-</ul>
+@* </ul> *@
+
+<script src="~/js/site.js" asp-append-version="true"></script>
