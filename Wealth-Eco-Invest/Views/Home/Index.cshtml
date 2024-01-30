@@ -1,7 +1,52 @@
-﻿@{
+﻿@model Wealth_Eco_Invest.Services.Data.Models.News.EnvironmentNewsServiceModel.Root
+@{
     ViewData["Title"] = "Home Page";
+	
 }
+<div class="text-center d-flex flex-wrap">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to our website!</h1>
+	@{
+		foreach (var article in Model.Articles.Results)
+		{
+			var body = article.Body;
+			var title = article.Title;
+			if (article.Body.Length > 60)
+			{
+				body = "";
+				var i = 0;
+				while (i < 60)
+				{
+					body += article.Body[i];
+					i++;
+				}
+				body += "...";
+			}
+			if (article.Title.Length > 50)
+			{
+				title = "";
+				var i = 0;
+				while (i < 50)
+				{
+					title += article.Body[i];
+					i++;
+				}
+				title += "...";
+			}
+
+			<div class="card ms-2 me-2 mt-2" style="width: 18rem;">
+				<img style="height: 220px;" src="@article.Image" class="card-img-top" alt="Cannot load this Image!">
+				<div class="card-body">
+					<h5 class="card-title">@title</h5>
+					<p class="card-text">@body</p>
+					<p class="card-text"><span class="fw-bold">@article.DateTime</span></p>
+					@if (article.Source.Location is not null && article.Source.Location.Country is not null)
+					{
+						<span class="card-text">Location: @article.Source.Location.Country.Label.Eng</span>
+					}
+					<p class="card-text">Relevance: <span class="fw-bold">@article.Relevance</span></p>
+					<a href="@article.Url" target="_blank" class="btn btn-warning">More Information</a>
+				</div>
+			</div>
+		}
+	}
 </div>

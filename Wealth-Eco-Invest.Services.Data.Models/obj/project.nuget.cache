@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qrsMnfbenmJM/dk35wJhD1zmhf7svaNlzJZPJJZ8VPXOAqlySt/ZH+VgEYkK7BQJpAJY43xAxnek90J+glCzSQ==",
+  "dgSpecHash": "rUnnR+fROPMZmlPHkKbf5bPSFpLSLYf+EOtA593xH3tO0+sEs700bZRGptvOkLQMONPBOhWka6sHz0cWQSsQaQ==",
   "success": true,
   "projectFilePath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data.Models\\Wealth-Eco-Invest.Services.Data.Models.csproj",
   "expectedPackageFiles": [
@@ -38,6 +38,7 @@
     "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.1\\system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",

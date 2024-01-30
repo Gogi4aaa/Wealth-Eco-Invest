@@ -5,6 +5,7 @@
     using Models;
     using Wealth_Eco_Invest.Data;
     using Wealth_Eco_Invest.Data.Models;
+    using Wealth_Eco_Invest.Services.Data.Models.Announces;
     using Web.ViewModels.Announce;
     using Web.ViewModels.Announce.Enums;
     using static Common.GeneralApplicationConstants;
@@ -107,7 +108,8 @@
 			        Price = model.Price,
 			        Description = model.Description,
 			        ImageUrl = model.ImageUrl,
-					Owner = model.User.UserName
+			        Owner = model.User.UserName,
+					StartDate = model.StartDate,
 		        })
 		        .FirstAsync();
         }
@@ -155,6 +157,7 @@
 				ImageUrl = announce.ImageUrl,
 				Price = announce.Price,
 				CategoryId = announce.CategoryId,
+				StartDate = announce.StartDate
 	        };
         }
 

@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wealth-Eco-Invest.Web.ViewM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wealth-Eco-Invest.Services.Data.Models", "Wealth-Eco-Invest.Services.Data.Models\Wealth-Eco-Invest.Services.Data.Models.csproj", "{4DA7CACE-1AAF-4DB8-B9CA-D1741A63E8F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wealth-Eco-Invest.Services.Messaging", "Wealth-Eco-Invest.Services.Messaging\Wealth-Eco-Invest.Services.Messaging.csproj", "{50FF621A-C972-448E-95CE-D9E13AF5C492}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wealth-Eco-Invest.Services.Messaging", "Wealth-Eco-Invest.Services.Messaging\Wealth-Eco-Invest.Services.Messaging.csproj", "{50FF621A-C972-448E-95CE-D9E13AF5C492}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wealth-Eco-Invest.WebApi", "Wealth-Eco-Invest.WebApi\Wealth-Eco-Invest.WebApi.csproj", "{DE5C209F-9A2E-4F1B-A880-0EFA7E852E23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{50FF621A-C972-448E-95CE-D9E13AF5C492}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50FF621A-C972-448E-95CE-D9E13AF5C492}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50FF621A-C972-448E-95CE-D9E13AF5C492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE5C209F-9A2E-4F1B-A880-0EFA7E852E23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE5C209F-9A2E-4F1B-A880-0EFA7E852E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE5C209F-9A2E-4F1B-A880-0EFA7E852E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE5C209F-9A2E-4F1B-A880-0EFA7E852E23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

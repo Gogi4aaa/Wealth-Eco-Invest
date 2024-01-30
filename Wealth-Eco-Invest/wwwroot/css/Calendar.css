@@ -1,0 +1,29 @@
+﻿.fc .fc-button-primary {
+    background-color: #8fa678;
+    border-color: #8fa678;
+    color: white;
+}
+
+.fc .fc-button-primary:hover {
+    background-color: #9fa638;
+    border-color: #9fa638;
+    color: white;
+}
+
+a {
+    color: #74B72E;
+    text-decoration: none;
+}
+
+.fc .fc-toolbar-title {
+    color: #2c3e50;
+    font-size: 1.75em;
+    padding: 0px;
+}
+
+.fc-h-event {
+    background-color: #8fa678;
+    border: 1px solid #8fa678;
+    font-size: 1rem;
+    display: block;
+}

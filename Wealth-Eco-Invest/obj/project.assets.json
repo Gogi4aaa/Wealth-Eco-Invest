@@ -4157,6 +4157,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
           "Wealth-Eco-Invest.Web.ViewModels": "1.0.0"
         },
         "compile": {

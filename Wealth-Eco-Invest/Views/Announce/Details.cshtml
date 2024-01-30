@@ -25,6 +25,11 @@
 			</p>
 			<div class="row">
 				<div class="col-7 col-md-6">
+					<p class="card-text">
+						<span class="fw-bold text-black fs-5">
+							Start Date:
+						</span>@Model.StartDate
+					</p>
 					@* <p class="card-text">
 						<span class="fw-bold fs-5">Owner:
 						</span>@Model.ProductOwner
@@ -42,11 +47,11 @@
 					</p>
 					@* <p class="card-text text-success fs-3 fw-bold">
 						<span class="fw-bold text-black fs-4">
-							Quantity:
-						</span>@Model.Quantity
+							Start Date:
+						</span>@Model.StartDate
 					</p> *@
 				</div>
-				@if (Model.Owner == User.Identity.Name)
+				@if (Model.Owner == User.Identity!.Name)
 				{
 					<div>
 						<a asp-action="Edit" asp-controller="Announce" asp-route-id="@Model.Id" class="btn btn-primary" style="width: 22%">Edit</a>

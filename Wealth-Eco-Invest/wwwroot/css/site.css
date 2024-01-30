@@ -23,3 +23,6 @@ body {
 .cursor-pointer {
     cursor: pointer;
 }
+.burger-button:focus{
+    box-shadow: none;
+}

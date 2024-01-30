@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Wealth_Eco_Invest.WebApi</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Wealth-Eco-Invest.Common\Wealth-Eco-Invest.Common.csproj" />
+    <ProjectReference Include="..\Wealth-Eco-Invest.Data.Models\Wealth-Eco-Invest.Data.Models.csproj" />
+    <ProjectReference Include="..\Wealth-Eco-Invest.Data\Wealth-Eco-Invest.Data.csproj" />
+    <ProjectReference Include="..\Wealth-Eco-Invest.Services.Data.Models\Wealth-Eco-Invest.Services.Data.Models.csproj" />
+  </ItemGroup>
+
+</Project>
