@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NwW0LWzr1IgZeZtIg1p7+pUdy9BXtQa7RlkGWm2gtWiBumJnvp7ir3IRULTfpLt16uxjcViSkOu6XvFbeZ5H3g==",
+  "dgSpecHash": "6CRGJfFs13l+0OrIK1/VQXRuhhogxoCpWTTq0ZxMTWYrxqE4TKHip6X2jbcEhcInEiZ4Hl+s3CgoJxAvB1H17A==",
   "success": true,
   "projectFilePath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.csproj",
   "expectedPackageFiles": [
@@ -156,6 +156,7 @@
     "C:\\Users\\Georgi\\.nuget\\packages\\sqlitepclraw.core\\2.1.2\\sqlitepclraw.core.2.1.2.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.2\\sqlitepclraw.lib.e_sqlite3.2.1.2.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.2\\sqlitepclraw.provider.e_sqlite3.2.1.2.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\stripe.net\\43.12.0\\stripe.net.43.12.0.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

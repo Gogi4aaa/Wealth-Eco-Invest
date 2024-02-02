@@ -1,7 +1,10 @@
 using Microsoft.EntityFrameworkCore;
+using Stripe;
 using Wealth_Eco_Invest.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+
+StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -21,6 +24,8 @@ builder.Services.AddCors(setup =>
 	});
 });
 
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -33,8 +38,10 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
-
 app.UseCors("Wealth-Eco-Invest");
+
+app.UseRouting();
+
+app.MapControllers();
 
 app.Run();

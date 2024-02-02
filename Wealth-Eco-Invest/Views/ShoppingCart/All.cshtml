@@ -2,23 +2,32 @@
 @{
 	ViewData["Title"] = "Announce History";
 }
-<div class="text-center fs-1 fw-bold mb-3">@ViewData["Title"]</div>
-<div class="d-flex">
-	@foreach (var announce in Model.Announces)
-	{
-		<div class="card ms-2 me-2" style="width: 18rem;">
-			<img style="height: 220px;" src="@announce.ImageUrl" class="card-img-top" alt="Cannot load this Image!">
-			<div class="card-body">
-				<h5 class="card-title">@announce.Title</h5>
-				<p class="card-text">@announce.Description</p>
-				<p class="card-text">Price: <span class="fw-bold">@announce.Price</span></p>
-				<div class="text-center">
-					<a href="/ShoppingCart/IncreaseCount?id=@announce.Id" class="btn btn-primary">+</a>
-					<a href="/ShoppingCart/DecreaseCount?id=@announce.Id" class="btn btn-primary">-</a>
-					<h6>count: @announce.Count</h6>
+@if (Model.Announces.Any())
+{
+	<div class="d-flex">
+		@foreach (var announce in Model.Announces)
+		{
+			<div class="card ms-2 me-2" style="width: 18rem;">
+				<img style="height: 220px;" src="@announce.ImageUrl" class="card-img-top" alt="Cannot load this Image!">
+				<div class="card-body">
+					<h5 class="card-title">@announce.Title</h5>
+					<p class="card-text">@announce.Description</p>
+					<p class="card-text">Price: <span class="fw-bold">@announce.Price</span></p>
+					<div class="text-center">
+						<a href="/ShoppingCart/IncreaseCount?id=@announce.Id" class="btn btn-primary">+</a>
+						<a href="/ShoppingCart/DecreaseCount?id=@announce.Id" class="btn btn-primary">-</a>
+						<h6>count: @announce.Count</h6>
+					</div>
+					<div>
+						<a class="btn btn-warning" asp-action="Buy" asp-controller="ShoppingCart" asp-route-id="@announce.Id">Buy</a>
+					</div>
 				</div>
-			
 			</div>
-		</div>
-	}
-</div>
+		}
+	</div>
+}
+else
+{
+	<h1>Your cart is empty!</h1>
+	<a class="btn btn-primary" asp-action="All" asp-controller="Announce">Go to announces!</a>
+}

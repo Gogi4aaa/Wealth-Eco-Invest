@@ -6,18 +6,20 @@ namespace Wealth_Eco_Invest.Controllers
     using Services.Data.Interfaces;
     using Common;
     using Microsoft.AspNetCore.Authorization;
+    using Microsoft.JSInterop;
+    using Newtonsoft.Json;
     using Web.Infrastructure.Extensions;
     using static Common.NotificationMessagesConstants;
     using NuGet.Packaging;
     using Web.ViewModels.Announce;
     using Web.ViewModels.ShoppingCart;
+    using Stripe.Checkout;
 
-    [Authorize]
+	[Authorize]
     public class ShoppingCartController : Controller
     {
         private readonly IShoppingCartService shoppingCartService;
         private readonly IAnnounceService announceService;
-
         public ShoppingCartController(IShoppingCartService shoppingCartService, IAnnounceService announceService)
         {
             this.shoppingCartService = shoppingCartService;
@@ -42,7 +44,7 @@ namespace Wealth_Eco_Invest.Controllers
             }
             catch (Exception e)
             {
-                TempData[ErrorMessage] = "Unexpected message occurred";
+                TempData[ErrorMessage] = "Unexpected exception occurred";
             }
 
             
@@ -75,5 +77,73 @@ namespace Wealth_Eco_Invest.Controllers
 	        
 			return RedirectToAction("All", "ShoppingCart");
 		}
+
+        public async Task<IActionResult> Buy(Guid id)
+        {
+	        AllAnnouncesViewModel announce = await this.shoppingCartService.GetAnnounceByAnnounceId(id, Guid.Parse(this.User.GetId()!));
+
+			var location = new Uri($"{Request.Scheme}://{Request.Host}{Request.Path}{Request.QueryString}");
+
+			var url = "https://";
+				url += location.Authority;
+
+	        var options = new SessionCreateOptions
+			{
+				SuccessUrl = $"{url}/ShoppingCart/Success/{announce.Id}",
+				CancelUrl = $"{url}/ShoppingCart/Failed",
+				PaymentMethodTypes = new List<string> 
+				{
+					"card"
+				},
+				LineItems = new List<SessionLineItemOptions>
+				{
+					new SessionLineItemOptions
+					{
+						PriceData = new SessionLineItemPriceDataOptions
+						{
+							UnitAmountDecimal = decimal.Parse(announce.Price.ToString().Replace(".", "")),
+							Currency = "BGN",
+							ProductData = new SessionLineItemPriceDataProductDataOptions
+							{
+								Name = announce.Title,
+								Description = announce.Description,
+								Images = new List<string> { announce.ImageUrl }
+							}
+						},
+						Quantity = announce.Count,
+					},
+				},
+				Mode = "payment",
+				CustomerEmail = this.User.GetEmail(),
+			};
+
+			var service = new SessionService();
+			Session session = null;
+			try
+			{
+				session = await service.CreateAsync(options);
+			}
+			catch (Exception)
+			{
+				TempData[ErrorMessage] = "Unexpected exception occurred";
+				return View("Failed");
+
+			}
+
+			return Redirect(session.Url);
+        }
+
+        public async Task<IActionResult> Success(Guid id)
+        {
+	        await this.shoppingCartService.DeleteAnnounceToUser(id, Guid.Parse(this.User.GetId()!));
+			//TODO add to new database table with bought products
+			return View();
+        }
+
+        public IActionResult Failed()
+        {
+	        return View();
+		}
 	}
+	
 }
