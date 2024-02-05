@@ -1,6 +1,7 @@
 ﻿@model ShoppingCartViewModel
 @{
 	ViewData["Title"] = "Announce History";
+	int count = 0;
 }
 @if (Model.Announces.Any())
 {
@@ -8,6 +9,11 @@
 		@foreach (var announce in Model.Announces)
 		{
 			<div class="card ms-2 me-2" style="width: 18rem;">
+				<div class="d-flex justify-content-end navbar-toggler">
+					<a data-bs-toggle="modal" data-bs-target="@($"#removeAnnounce{count}")" class="text-decoration-none  text-end text-dark cursor-pointer">
+						<i class="fs-3 fa-solid fa-xmark"></i>
+					</a>
+				</div>
 				<img style="height: 220px;" src="@announce.ImageUrl" class="card-img-top" alt="Cannot load this Image!">
 				<div class="card-body">
 					<h5 class="card-title">@announce.Title</h5>
@@ -22,6 +28,28 @@
 						<a class="btn btn-warning" asp-action="Buy" asp-controller="ShoppingCart" asp-route-id="@announce.Id">Buy</a>
 					</div>
 				</div>
+				@* DELETE PRODUCT POP UP *@
+				<div class="modal fade" id="@($"removeAnnounce{count}")" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h1 class="modal-title fs-5" id="staticBackdropLabel">Delete</h1>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-center d-flex justify-content-center align-items-center">
+								<p class="m-0 text-danger fs-5">Are you sure you want to remove this announce from your cart?</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								<a asp-action="Remove" asp-controller="ShoppingCart" asp-route-id="@announce.Id" class="btn btn-danger">Delete</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				@{
+					count++;
+				}
+				@* DELETE PRODUCT POP UP END *@
 			</div>
 		}
 	</div>

@@ -52,6 +52,12 @@ namespace Wealth_Eco_Invest.Controllers
             return RedirectToAction("All", "ShoppingCart");
         }
 
+        public async Task<IActionResult> Remove(Guid id)
+        {
+	        await this.shoppingCartService.DeleteAnnounceToUser(id, Guid.Parse(this.User.GetId()!));
+	        return RedirectToAction("All", "ShoppingCart");
+        }
+
         [HttpGet]
         public async Task<IActionResult> IncreaseCount(Guid id)
         {

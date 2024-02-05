@@ -30,7 +30,7 @@ body {
     padding: 7px 0;
 }
 @media (max-width: 992px) {
-    .nav-flex-column {
+        .nav-flex-column {
         flex-direction: column;    
     }
     .nav-border-bottom {
