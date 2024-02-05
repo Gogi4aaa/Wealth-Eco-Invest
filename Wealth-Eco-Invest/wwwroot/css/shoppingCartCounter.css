@@ -17,5 +17,37 @@
     color: #fff;
     padding: 2px 5px;
     vertical-align: top;
-    margin-left: -10px;
+     
+}
+.cart-color {
+    color: #2C3E69;
+}
+.cart-hover:hover {
+    color: white;
+}
+@media (min-width: 992px) {
+    .cart-count-margin-left {
+        margin-left: -30px;
+    }
+    .hidden {
+        display: none;
+    }
+}
+@media (max-width: 992px) {
+    .cart-count-margin-left {
+        margin-left: -30px; 
+    }
+    .hidden {
+        display: inline;
+    }
+}
+@media(max-width: 768px) {
+    .cart-count-margin-left {
+        margin-left: -25px;
+    }
+}
+@media(max-width: 576px) {
+    .cart-count-margin-left {
+        margin-left: -10px;
+    }
 }

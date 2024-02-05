@@ -148,18 +148,5 @@ namespace Wealth_Eco_Invest.Controllers
 			return RedirectToAction("All", "Announce");
 		}
 
-		[HttpGet]
-		public async Task<IActionResult> Buy()
-		{
-			var callbackUrl = Url.Page(
-				"/",
-				pageHandler: null,
-				values: new { area = ""},
-				protocol: Request.Scheme);
-
-			await this.emailSender.SendEmailAsync(this.User.GetEmail()!, "Announce buying", AnnounceBuyingTemplate.Message(this.User.Identity!.Name!, callbackUrl));
-
-			return RedirectToAction("All", "Announce");
-		}
-	}
+    }
 }

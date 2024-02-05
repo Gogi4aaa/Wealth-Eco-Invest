@@ -15,6 +15,7 @@
           "Microsoft.EntityFrameworkCore.Sqlite": "6.0.23",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.23",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.16",
+          "Stripe.net": "43.12.0",
           "Wealth-Eco-Invest.Common": "1.0.0",
           "Wealth-Eco-Invest.Data": "1.0.0",
           "Wealth-Eco-Invest.Data.Models": "1.0.0",
@@ -1964,6 +1965,18 @@
           }
         }
       },
+      "Stripe.net/43.12.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "System.Configuration.ConfigurationManager": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Stripe.net.dll": {
+            "assemblyVersion": "43.12.0.0",
+            "fileVersion": "43.12.0.0"
+          }
+        }
+      },
       "System.AppContext/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -2810,7 +2823,8 @@
       "Wealth-Eco-Invest.Services.Messaging/1.0.0": {
         "dependencies": {
           "System.Security.Permissions": "6.0.0",
-          "Wealth-Eco-Invest.Common": "1.0.0"
+          "Wealth-Eco-Invest.Common": "1.0.0",
+          "Wealth-Eco-Invest.Web.ViewModels": "1.0.0"
         },
         "runtime": {
           "Wealth-Eco-Invest.Services.Messaging.dll": {}
@@ -3910,6 +3924,13 @@
       "sha512": "sha512-lxCZarZdvAsMl2zw9bXHrXK6RxVhB4b23iTFhCOdHFhxfbsxLxWf+ocvswJwR/9Wh/E//ddMi+wJGqUKV7VwoA==",
       "path": "sqlitepclraw.provider.e_sqlite3/2.1.2",
       "hashPath": "sqlitepclraw.provider.e_sqlite3.2.1.2.nupkg.sha512"
+    },
+    "Stripe.net/43.12.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0cDEW1/wRJqXpBRcsZcDhQDHK1cEtdtYsh3bfW0hP/2TQQRvuXNzsV3N90coEO3/ziEhcx1FEZW3anwFdFFo/g==",
+      "path": "stripe.net/43.12.0",
+      "hashPath": "stripe.net.43.12.0.nupkg.sha512"
     },
     "System.AppContext/4.3.0": {
       "type": "package",
