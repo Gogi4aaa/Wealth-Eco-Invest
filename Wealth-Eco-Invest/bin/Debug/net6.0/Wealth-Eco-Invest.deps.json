@@ -2823,7 +2823,8 @@
       "Wealth-Eco-Invest.Services.Messaging/1.0.0": {
         "dependencies": {
           "System.Security.Permissions": "6.0.0",
-          "Wealth-Eco-Invest.Common": "1.0.0"
+          "Wealth-Eco-Invest.Common": "1.0.0",
+          "Wealth-Eco-Invest.Web.ViewModels": "1.0.0"
         },
         "runtime": {
           "Wealth-Eco-Invest.Services.Messaging.dll": {}

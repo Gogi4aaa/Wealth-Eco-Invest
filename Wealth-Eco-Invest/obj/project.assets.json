@@ -4189,7 +4189,8 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "System.Security.Permissions": "6.0.0",
-          "Wealth-Eco-Invest.Common": "1.0.0"
+          "Wealth-Eco-Invest.Common": "1.0.0",
+          "Wealth-Eco-Invest.Web.ViewModels": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Wealth-Eco-Invest.Services.Messaging.dll": {}

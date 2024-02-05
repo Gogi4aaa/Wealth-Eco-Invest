@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace Wealth_Eco_Invest.Controllers
+﻿namespace Wealth_Eco_Invest.Controllers
 {
+	using Microsoft.AspNetCore.Mvc;
+
     using Data.Models;
     using Services.Data.Interfaces;
     using Common;
@@ -11,6 +11,8 @@ namespace Wealth_Eco_Invest.Controllers
     using Web.Infrastructure.Extensions;
     using static Common.NotificationMessagesConstants;
     using NuGet.Packaging;
+	using Services.Messaging;
+	using Services.Messaging.Templates;
     using Web.ViewModels.Announce;
     using Web.ViewModels.ShoppingCart;
     using Stripe.Checkout;
@@ -20,10 +22,13 @@ namespace Wealth_Eco_Invest.Controllers
     {
         private readonly IShoppingCartService shoppingCartService;
         private readonly IAnnounceService announceService;
-        public ShoppingCartController(IShoppingCartService shoppingCartService, IAnnounceService announceService)
+        private readonly IEmailSender emailSender;
+
+		public ShoppingCartController(IShoppingCartService shoppingCartService, IAnnounceService announceService, IEmailSender emailSender)
         {
             this.shoppingCartService = shoppingCartService;
             this.announceService = announceService;
+			this.emailSender = emailSender;
         }
 
         public async Task<IActionResult> All()
@@ -141,8 +146,29 @@ namespace Wealth_Eco_Invest.Controllers
 
         public async Task<IActionResult> Success(Guid id)
         {
-	        await this.shoppingCartService.DeleteAnnounceToUser(id, Guid.Parse(this.User.GetId()!));
-			//TODO add to new database table with bought products
+	        var callbackUrl = Url.Page(
+				"/",
+				pageHandler: null,
+				values: new { area = "" },
+				protocol: Request.Scheme);
+
+	        
+
+	        try
+	        {
+		        var announce = await this.shoppingCartService.GetAnnounceByAnnounceId(id, Guid.Parse(this.User.GetId()!));
+
+				await this.emailSender.SendEmailAsync(this.User.GetEmail()!, "Announce buying", AnnounceBuyingTemplate.Message(this.User.Identity!.Name!, callbackUrl, announce));
+
+				await this.shoppingCartService.DeleteAnnounceToUser(id, Guid.Parse(this.User.GetId()!));
+	        }
+	        catch (Exception)
+	        {
+		        
+	        }
+	        
+			//TODO: add to new database table with bought products
+
 			return View();
         }
 
