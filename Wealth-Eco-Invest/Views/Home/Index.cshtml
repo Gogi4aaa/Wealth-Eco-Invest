@@ -1,4 +1,4 @@
-﻿@model Wealth_Eco_Invest.Services.Data.Models.News.EnvironmentNewsServiceModel.Root
+﻿@model NewsAPI.Models.ArticlesResult
 @{
     ViewData["Title"] = "Home Page";
 	
@@ -6,17 +6,17 @@
 <div class="text-center d-flex">
 	<div class="row justify-content-center">
 	@{
-		foreach (var article in Model.Articles.Results)
+		foreach (var article in Model.Articles)
 		{
-			var body = article.Body;
+			var body = article.Description;
 			var title = article.Title;
-			if (article.Body.Length > 60)
+			if (article.Description.Length > 60)
 			{
 				body = "";
 				var i = 0;
 				while (i < 60)
 				{
-					body += article.Body[i];
+					body += article.Description[i];
 					i++;
 				}
 				body += "...";
@@ -27,23 +27,25 @@
 				var i = 0;
 				while (i < 50)
 				{
-					title += article.Body[i];
+					title += article.Description[i];
 					i++;
 				}
 				title += "...";
 			}
 
 			<div class="col-sm-6 card ms-2 me-2 mt-2" style="width: 18rem;">
-				<img style="height: 220px;" src="@article.Image" class="card-img-top" alt="Cannot load this Image!">
+				@if (string.IsNullOrEmpty(@article.UrlToImage))
+				{
+					<img style="height: 220px;" src="~/no-image.png" class="card-img-top" alt="">
+				}
+				else
+				{
+					<img style="height: 220px;" src="@article.UrlToImage" class="card-img-top" alt="">
+				}
 				<div class="card-body">
 					<h5 class="card-title">@title</h5>
+					<p class="card-text">Author:<span class="fw-bold">@article.Author</span></p>
 					<p class="card-text">@body</p>
-					<p class="card-text"><span class="fw-bold">@article.DateTime</span></p>
-					@if (article.Source.Location is not null && article.Source.Location.Country is not null)
-					{
-						<span class="card-text">Location: @article.Source.Location.Country.Label.Eng</span>
-					}
-					<p class="card-text">Relevance: <span class="fw-bold">@article.Relevance</span></p>
 					<a href="@article.Url" target="_blank" class="btn btn-warning">More Information</a>
 				</div>
 			</div>

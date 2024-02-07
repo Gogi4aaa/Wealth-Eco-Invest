@@ -7,6 +7,9 @@
 	using System.Net.Http;
 
 	using Models;
+	using NewsAPI;
+	using NewsAPI.Constants;
+	using NewsAPI.Models;
 	using Services.Data.Models.News;
 
 	using static Common.GeneralApplicationConstants;
@@ -25,12 +28,17 @@
 		[HttpGet]
 		public async Task<IActionResult> Index()
 		{
-			EnvironmentNewsServiceModel.Root myDeserializedClass = new EnvironmentNewsServiceModel.Root();
+			var articlesResponse = new ArticlesResult();
 			try
 			{
-				var response = await _client.GetAsync(NewsUrl);
-				var responseContent = await response.Content.ReadAsStringAsync();
-				 myDeserializedClass = JsonConvert.DeserializeObject<EnvironmentNewsServiceModel.Root>(responseContent)!;
+				var newsApiClient = new NewsApiClient("8a9b459dee964c2291e961c51aa7c822");
+				articlesResponse = await newsApiClient.GetEverythingAsync(new EverythingRequest
+				{
+					Q = "environment",
+					SortBy = SortBys.Popularity,
+					Language = Languages.EN,
+					PageSize = 8,
+				});
 
 			}
 			catch (Exception)
@@ -38,7 +46,7 @@
 				TempData[ErrorMessage] = "Unexpected message occurred";
 			}
 			
-			return View(myDeserializedClass);
+			return View(articlesResponse);
 		}
 
 

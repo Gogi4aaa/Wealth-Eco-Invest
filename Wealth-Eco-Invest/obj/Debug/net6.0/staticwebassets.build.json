@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lcZMkSekfiVgfcWOjaRvtsA/Um8hDbX/ZBXQjm7yqpM=",
+  "Hash": "g1lqKVjI+aNBoPb7ATbm71Oi1gPrYzETvHL2XO75Hcc=",
   "Source": "Wealth-Eco-Invest",
   "BasePath": "_content/Wealth-Eco-Invest",
   "Mode": "Default",
@@ -2871,6 +2871,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\no-image.png",
+      "SourceId": "Wealth-Eco-Invest",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\",
+      "BasePath": "_content/Wealth-Eco-Invest",
+      "RelativePath": "no-image.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\no-image.png"
     }
   ]
 }

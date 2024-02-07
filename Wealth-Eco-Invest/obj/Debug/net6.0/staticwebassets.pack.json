@@ -429,6 +429,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\no-image.png",
+      "PackagePath": "staticwebassets\\no-image.png"
+    },
+    {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Wealth-Eco-Invest.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
