@@ -8,15 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NewsAPI" Version="0.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Wealth-Eco-Invest.Web.ViewModels\Wealth-Eco-Invest.Web.ViewModels.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="News\" />
   </ItemGroup>
 
 </Project>

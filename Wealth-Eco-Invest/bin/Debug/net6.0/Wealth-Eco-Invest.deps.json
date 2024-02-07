@@ -2825,6 +2825,7 @@
       },
       "Wealth-Eco-Invest.Services.Data.Models/1.0.0": {
         "dependencies": {
+          "NewsAPI": "0.7.0",
           "Newtonsoft.Json": "13.0.1",
           "Wealth-Eco-Invest.Web.ViewModels": "1.0.0"
         },

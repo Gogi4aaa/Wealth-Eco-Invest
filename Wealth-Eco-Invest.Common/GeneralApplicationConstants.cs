@@ -24,5 +24,8 @@ namespace Wealth_Eco_Invest.Common
         public const string NewsUrl =
 			"https://newsapi.org/v2/everything?apiKey=8a9b459dee964c2291e961c51aa7c822&q=environment&language=en&sortBy=popularity&pageSize=8";
 
+        public const int TotalNews = 40;//change how much news i want on main page
+        public const int NewsPerPage = 8; //change how much news will be on one page
+
     }
 }

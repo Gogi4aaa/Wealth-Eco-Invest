@@ -11,7 +11,6 @@
 	using NewsAPI.Constants;
 	using NewsAPI.Models;
 	using Services.Data.Models.News;
-
 	using static Common.GeneralApplicationConstants;
 	using static Common.NotificationMessagesConstants;
 	
@@ -26,27 +25,30 @@
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> Index()
+		public async Task<IActionResult> Index(int page = 1)
 		{
-			var articlesResponse = new ArticlesResult();
+			var returnResponse = new EnvironmentNewsServiceModel();
 			try
 			{
 				var newsApiClient = new NewsApiClient("8a9b459dee964c2291e961c51aa7c822");
-				articlesResponse = await newsApiClient.GetEverythingAsync(new EverythingRequest
+				var articlesResponse = await newsApiClient.GetEverythingAsync(new EverythingRequest
 				{
 					Q = "environment",
-					SortBy = SortBys.Popularity,
+					SortBy = SortBys.PublishedAt,
 					Language = Languages.EN,
 					PageSize = 8,
+					Page = page,
 				});
 
+				returnResponse.Articles = articlesResponse.Articles;
+				returnResponse.CurrentPage = page;
 			}
 			catch (Exception)
 			{
 				TempData[ErrorMessage] = "Unexpected message occurred";
 			}
 			
-			return View(articlesResponse);
+			return View(returnResponse);
 		}
 
 

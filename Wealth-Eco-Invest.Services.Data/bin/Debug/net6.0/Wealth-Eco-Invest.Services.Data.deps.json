@@ -360,6 +360,17 @@
           }
         }
       },
+      "NewsAPI/0.7.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/portable45-net45+win8+wpa81/NewsAPI.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
@@ -541,6 +552,7 @@
       },
       "Wealth-Eco-Invest.Services.Data.Models/1.0.0": {
         "dependencies": {
+          "NewsAPI": "0.7.0",
           "Newtonsoft.Json": "13.0.1",
           "Wealth-Eco-Invest.Web.ViewModels": "1.0.0"
         },
@@ -816,6 +828,13 @@
       "sha512": "sha512-mtVirZr++rq+XCDITMUdnETD59XoeMxSpLRIII7JRI6Yj0LEDiO1pPn0ktlnIj12Ix8bfvQqQDMMIF9wC98oCA==",
       "path": "microsoft.win32.systemevents/4.7.0",
       "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
+    },
+    "NewsAPI/0.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZKJCjE/8M41hDHMHvd6f+dejHBaobOuw+Erk9miqcwlixiZ8neRXawR62Fq7rZcBUD/drT26OhvgSa8t6woULg==",
+      "path": "newsapi/0.7.0",
+      "hashPath": "newsapi.0.7.0.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.1": {
       "type": "package",
