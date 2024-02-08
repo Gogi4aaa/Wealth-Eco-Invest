@@ -11,7 +11,7 @@ namespace Wealth_Eco_Invest.Common
 
         //Announces
         public const int DefaultPage = 1;
-        public const int MaxAnnouncesPerPage = 6;
+        public const int MaxAnnouncesPerPage = 8;
 
         //emailSending
         public const string EmailFrom = "wealthecoinvest.contacts@gmail.com";

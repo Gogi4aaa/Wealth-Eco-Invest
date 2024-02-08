@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\Calendar.css"
     },
     {
+      "Id": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
       "Id": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\css\\shoppingCartCounter.css",
       "PackagePath": "staticwebassets\\css\\shoppingCartCounter.css"
     },
@@ -427,6 +431,10 @@
     {
       "Id": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\login.png",
+      "PackagePath": "staticwebassets\\login.png"
     },
     {
       "Id": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\no-image.png",

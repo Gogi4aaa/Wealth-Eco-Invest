@@ -16,7 +16,16 @@
 	
 </head>
 <body style="background: #e8e8e8; height: 50vh;">
-	<partial name="_NotificationsPartial" />
+<partial name="_NotificationsPartial" />
+	@* onload="loadSpinner();" *@
+	@* TODO: spinner *@
+	<div id="spinner" class="d-none justify-content-center" style="width: 100%; height: 100%;">
+		<div class="spinner-border" role="status">
+			<span class="visually-hidden">Loading...</span>
+		</div>
+	</div>
+@* TODO: spinner *@
+
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light border-bottom box-shadow mb-3" style="background: #8fa678; min-height: 70px;">
 			<div class="container-fluid justify-content-between">
@@ -78,11 +87,22 @@
 
 <footer class="footer text-muted" style="background: #607d43; width: 100%;">
 	<div class="container">
-			<span class="text-white fs-5">&copy; @DateTime.UtcNow.Year - Wealth Evo Invest - all rights reserved</span>
+		<span class="text-white fs-5">&copy; @DateTime.UtcNow.Year - Wealth Evo Invest - all rights reserved</span>
 	</div>
 </footer>
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script>
+		function loadSpinner() {
+			setTimeout(function() {
+					$("#spinner").addClass("d-flex");
+				}, 10000);
+			console.log(5);
+			$("#spinner").removeClass("d-none");
+			console.log(10);
+		}
+</script>
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>
