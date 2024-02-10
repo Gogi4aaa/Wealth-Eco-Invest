@@ -62,7 +62,7 @@
 			            return;
 		            }
 				}
-	            this.dbContext.Carts.Add(cart);
+	            await this.dbContext.Carts.AddAsync(cart);
 	            await this.dbContext.SaveChangesAsync();
 	            
 	    }

@@ -14,9 +14,11 @@ namespace Wealth_Eco_Invest.Controllers
 	public class CalendarController : Controller
 	{
 		private readonly IShoppingCartService shoppingCartService;
-		public CalendarController(IShoppingCartService shoppingCartService)
+		private readonly IPurchaseService purchaseService;
+		public CalendarController(IShoppingCartService shoppingCartService, IPurchaseService purchaseService)
 		{
 			this.shoppingCartService = shoppingCartService;
+			this.purchaseService = purchaseService;
 		}
 		public IActionResult EventCalendar()
 		{
@@ -26,7 +28,7 @@ namespace Wealth_Eco_Invest.Controllers
 		[HttpGet]
 		public async Task<JsonResult> GetAll()
 		{
-			var elements = await this.shoppingCartService.GetAllAnnouncesForUser(Guid.Parse(this.User.GetId()!));
+			var elements = await this.purchaseService.GetAllPurchasedAnnouncesByUserIdAsync(Guid.Parse(this.User.GetId()!));
 			List<CalendarViewModel> allElements = new List<CalendarViewModel>();
 			foreach (var element in elements.Announces)
 			{

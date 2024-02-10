@@ -23,12 +23,14 @@
         private readonly IShoppingCartService shoppingCartService;
         private readonly IAnnounceService announceService;
         private readonly IEmailSender emailSender;
+		private readonly IPurchaseService purchaseService;
 
-		public ShoppingCartController(IShoppingCartService shoppingCartService, IAnnounceService announceService, IEmailSender emailSender)
+		public ShoppingCartController(IShoppingCartService shoppingCartService, IAnnounceService announceService, IEmailSender emailSender, IPurchaseService purchaseService)
         {
             this.shoppingCartService = shoppingCartService;
             this.announceService = announceService;
 			this.emailSender = emailSender;
+			this.purchaseService = purchaseService;
         }
 
         public async Task<IActionResult> All()
@@ -45,7 +47,6 @@
                 await this.shoppingCartService.AddAnnounceToUser(id, Guid.Parse(this.User.GetId()!));
                 
                 TempData[SuccessMessage] = "Announce was added to cart!";
-                TempData[InformationMessage] = "Check your calendar for more info!";
             }
             catch (Exception e)
             {
@@ -152,24 +153,24 @@
 				values: new { area = "" },
 				protocol: Request.Scheme);
 
-	        
-
 	        try
 	        {
+		        await this.purchaseService.PurchaseAnnounceAsync(id, Guid.Parse(this.User.GetId()!));
+
 		        var announce = await this.shoppingCartService.GetAnnounceByAnnounceId(id, Guid.Parse(this.User.GetId()!));
 
 				await this.emailSender.SendEmailAsync(this.User.GetEmail()!, "Announce buying", AnnounceBuyingTemplate.Message(this.User.Identity!.Name!, callbackUrl, announce));
 
 				await this.shoppingCartService.DeleteAnnounceToUser(id, Guid.Parse(this.User.GetId()!));
-	        }
+
+				TempData[InformationMessage] = "Check your calendar for full information!";
+			}
 	        catch (Exception)
 	        {
-		        
-	        }
-	        
-			//TODO: add to new database table with bought products
+		        TempData[ErrorMessage] = TempData[ErrorMessage] = "Unexpected error occurred";
+			}
 
-			return View();
+	        return View();
         }
 
         public IActionResult Failed()
