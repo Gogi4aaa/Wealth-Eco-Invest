@@ -12,8 +12,8 @@
         {
             public const int TitleMaxLength = 30;
             public const int TitleMinLength = 5;
-            public const int DescriptionMaxLength = 90;
-            public const int DescriptionMinLength = 5;
+            public const int DescriptionMaxLength = 200;
+            public const int DescriptionMinLength = 35;
             public const int ImageUrlMaxLength = 1000;
             public const int PriceMinLength = 1;
             public const int PriceMaxLength = 100_000;

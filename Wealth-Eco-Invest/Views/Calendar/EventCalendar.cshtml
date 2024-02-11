@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="~/css/Calendar.css"/>
+	<link rel="stylesheet" href="~/css/calendar.css"/>
 	<script src='https://cdn.jsdelivr.net/npm/fullcalendar/index.global.min.js'></script>
 </head>
-<body>
+<body class="background">
 	<div id='calendar'></div>
 </body>
 </html>
@@ -32,6 +32,7 @@
 					initialView: 'multiMonthYear',
 					multiMonthMaxColumns: 1,
 					showNonCurrentDates: true,
+					eventColor: '#1C1B17',
 					events: elems,
 					eventClick: function(info) {
 						$("#annTitle").text(info.event.title);

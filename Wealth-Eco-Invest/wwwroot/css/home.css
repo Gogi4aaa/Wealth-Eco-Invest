@@ -1,0 +1,11 @@
+﻿.background {
+    background-image: url(/images/main.png);
+    background-position: center;
+    background-size: cover;
+}
+.card-background {
+    background: #F7F2C1;
+}
+.w-18 {
+    width: 18rem;
+}

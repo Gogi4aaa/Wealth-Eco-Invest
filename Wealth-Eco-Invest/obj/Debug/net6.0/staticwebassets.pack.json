@@ -9,8 +9,16 @@
       "PackagePath": "staticwebassets\\387451757_636760738629670_6251918314014004869_n.png"
     },
     {
-      "Id": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\css\\Calendar.css",
-      "PackagePath": "staticwebassets\\css\\Calendar.css"
+      "Id": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\css\\announces.css",
+      "PackagePath": "staticwebassets\\css\\announces.css"
+    },
+    {
+      "Id": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\css\\calendar.css",
+      "PackagePath": "staticwebassets\\css\\calendar.css"
+    },
+    {
+      "Id": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\css\\home.css",
+      "PackagePath": "staticwebassets\\css\\home.css"
     },
     {
       "Id": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\css\\login.css",
@@ -199,6 +207,22 @@
     {
       "Id": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\font-awesome\\webfonts\\fa-v4compatibility.woff2",
       "PackagePath": "staticwebassets\\font-awesome\\webfonts\\fa-v4compatibility.woff2"
+    },
+    {
+      "Id": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\images\\add.png",
+      "PackagePath": "staticwebassets\\images\\add.png"
+    },
+    {
+      "Id": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\images\\calendar.png",
+      "PackagePath": "staticwebassets\\images\\calendar.png"
+    },
+    {
+      "Id": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\images\\main.png",
+      "PackagePath": "staticwebassets\\images\\main.png"
+    },
+    {
+      "Id": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\images\\registration.png",
+      "PackagePath": "staticwebassets\\images\\registration.png"
     },
     {
       "Id": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\js\\site.js",

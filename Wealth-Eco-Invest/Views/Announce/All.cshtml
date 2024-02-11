@@ -28,6 +28,16 @@
 	bool shouldNextPageBeDisabled = Model.CurrentPage == maxPage ||
 	                                !Model.Announces.Any();
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="~/css/announces.css">
+	<title>Announces</title>
+</head>
+<body class="all-background">
 <div class="d-flex">
 	<div class="d-flex justify-content-center" style="width: 80%;">
 		<form method="get" 
@@ -109,24 +119,39 @@
 	else
 	{
 		<div class="row g-4 mt-3 justify-content-center">
-		@foreach (AllAnnouncesViewModel announce in @Model.Announces)
-		{
-			<div class="col-md-4 p-0 m-2 cursor-pointer" style="width: 300px;">
-				<a style=" text-decoration: none;color: inherit;" asp-action="Details" asp-controller="Announce" asp-route-id="@announce.Id">
-					<div class="card border-0">
-							<img style="height: 350px;padding: 8px; border-radius: 10px;" src="@announce.ImageUrl" class="card-img-top" alt="Cannot load this image!">
-						<div class="card-body mt-3">
-							<h6 class="card-text fw-bold">@announce.Description</h6>
-							<div class="d-flex justify-content-between mt-5">
-								<p class="card-text text-danger fs-4">@announce.Price lv.</p>
-								<a asp-action="Add" asp-controller="ShoppingCart" asp-route-id="@announce.Id" class="btn btn-warning cart-color cart-hover"><i class="fa-solid fa-cart-shopping"></i></a>
+			@{
+
+				foreach (AllAnnouncesViewModel announce in @Model.Announces)
+				{
+						var body = announce.Description;
+						if (announce.Description.Length > 55)
+						{
+							body = "";
+							var i = 0;
+							while (i < 55)
+							{
+								body += announce.Description[i++];
+							}
+							body += "...";
+						}
+
+					<div class="col-md-4 p-0 m-2 cursor-pointer" style="width: 300px;">
+						<a class="card-a" asp-action="Details" asp-controller="Announce" asp-route-id="@announce.Id">
+							<div class="card border-0">
+								<img style="height: 350px; padding: 8px; border-radius: 10px;" src="@announce.ImageUrl" class="card-img-top" alt="Cannot load this image!">
+								<div class="card-body pt-3 card-a-body">
+									<h6 class="card-text fw-bold">@body</h6>
+									<div class="d-flex justify-content-between mt-5">
+										<p class="card-text fs-4">@announce.Price lv.</p>
+										<a asp-action="Add" asp-controller="ShoppingCart" asp-route-id="@announce.Id" class="btn btn-warning cart-color cart-hover"><i class="fa-solid fa-cart-shopping"></i></a>
+									</div>
+								</div>
 							</div>
-						</div>
+						</a>
 					</div>
-				</a>
-			</div>
-			
-		}
+
+				}
+			}
 		</div>
 	}
 </div>
@@ -145,11 +170,11 @@
 		<li class="page-item ms-1 me-1  @(i == Model.CurrentPage ? "active" : string.Empty)">
 			<a class="page-link rounded"
 			   asp-action="All" 
-				asp-controller="Announce"
-				asp-route-currentPage="@i"
-				asp-route-category="@Model.Category"
-				asp-route-orderBy="@ViewData["announceSorting"]"
-				asp-route-searchTerm="@Model.SearchTerm">@i</a>
+			   asp-controller="Announce"
+			   asp-route-currentPage="@i"
+			   asp-route-category="@Model.Category"
+			   asp-route-orderBy="@ViewData["announceSorting"]"
+			   asp-route-searchTerm="@Model.SearchTerm">@i</a>
 		</li>
 	}
 	<li class="page-item @(shouldNextPageBeDisabled ? "disabled" : string.Empty)">
@@ -163,3 +188,5 @@
 		   asp-route-searchTerm="@Model.SearchTerm"><span aria-hidden="true">&raquo;</span></a>
 	</li>
 </ul>
+</body>
+</html>

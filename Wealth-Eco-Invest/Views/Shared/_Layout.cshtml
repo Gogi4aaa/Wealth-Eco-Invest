@@ -15,7 +15,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.js" integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	
 </head>
-<body style="background: #e8e8e8; height: 50vh;">
+<body>
 <partial name="_NotificationsPartial" />
 	@* onload="loadSpinner();" *@
 	@* TODO: spinner *@
@@ -27,16 +27,18 @@
 @* TODO: spinner *@
 
 	<header>
-		<nav class="navbar navbar-expand-lg navbar-light border-bottom box-shadow mb-3" style="background: #8fa678; min-height: 70px;">
+		<nav class="navbar navbar-expand-lg navbar-light border-bottom box-shadow mb-3" style="background: #34652B; min-height: 70px;">
 			<div class="container-fluid justify-content-between">
 				<div>
 					<a asp-action="Index" asp-controller="Home" class="nav-link"><img src="~/387451757_636760738629670_6251918314014004869_n.png" class="img-fluid" style="width: 300px; height: 70px;" /></a>
 				</div>
+				
 				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div style="background: #8fa678; width: 300px;" class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-					<div class="offcanvas-header justify-content-end">
+				<div style="width: 300px; background: rgba(52, 101, 43, 0.92); " class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+					<div class="offcanvas-header justify-content-between">
+						<p class="text-white m-0 fs-4">Wealth-Eco-Invest</p>
 						<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 					</div>
 					<div class="offcanvas-body">
@@ -48,8 +50,8 @@
 										<a class="nav-link text-white text-decoration-none menu-hover fs-5" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
 									</li> *@
 								<li class="nav-item me-3 fs-4 nav-border-top nav-border-bottom w-100 text-center">
-										<a class="nav-link text-white text-decoration-none menu-hover fs-5" asp-area="" asp-controller="Announce" asp-action="All">Announces</a>
-									</li>
+									<a class="nav-link text-white text-decoration-none menu-hover fs-5" asp-area="" asp-controller="Announce" asp-action="All">Announces</a>
+								</li>
 								<li class="nav-item fs-4 text-white nav-border-top nav-border-bottom w-100 text-center">
 									<a class="nav-link text-white cursor-pointer menu-hover" asp-action="EventCalendar" asp-controller="Calendar"><i class="fa-regular fa-calendar-days"></i> <p class="hidden">Calendar</p></a>
 								</li>
