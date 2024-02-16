@@ -2505,11 +2505,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data\\Wealth-Eco-Invest.Services.Data.csproj",
+      "projectUniqueName": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data\\Wealth-Eco-Invest.Services.Data.csproj",
       "projectName": "Wealth-Eco-Invest.Services.Data",
-      "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data\\Wealth-Eco-Invest.Services.Data.csproj",
+      "projectPath": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data\\Wealth-Eco-Invest.Services.Data.csproj",
       "packagesPath": "C:\\Users\\Georgi\\.nuget\\packages\\",
-      "outputPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data\\obj\\",
+      "outputPath": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2530,17 +2530,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj": {
-              "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj"
+            "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj": {
+              "projectPath": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj"
             },
-            "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data\\Wealth-Eco-Invest.Data.csproj": {
-              "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data\\Wealth-Eco-Invest.Data.csproj"
+            "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data\\Wealth-Eco-Invest.Data.csproj": {
+              "projectPath": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data\\Wealth-Eco-Invest.Data.csproj"
             },
-            "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data.Models\\Wealth-Eco-Invest.Services.Data.Models.csproj": {
-              "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data.Models\\Wealth-Eco-Invest.Services.Data.Models.csproj"
+            "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data.Models\\Wealth-Eco-Invest.Services.Data.Models.csproj": {
+              "projectPath": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data.Models\\Wealth-Eco-Invest.Services.Data.Models.csproj"
             },
-            "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Web.ViewModels\\Wealth-Eco-Invest.Web.ViewModels.csproj": {
-              "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Web.ViewModels\\Wealth-Eco-Invest.Web.ViewModels.csproj"
+            "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Web.ViewModels\\Wealth-Eco-Invest.Web.ViewModels.csproj": {
+              "projectPath": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Web.ViewModels\\Wealth-Eco-Invest.Web.ViewModels.csproj"
             }
           }
         }
@@ -2570,7 +2570,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   },

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj": {}
+    "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj": {}
   },
   "projects": {
-    "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj": {
+    "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj",
+        "projectUniqueName": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj",
         "projectName": "Wealth-Eco-Invest.Common",
-        "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj",
+        "projectPath": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj",
         "packagesPath": "C:\\Users\\Georgi\\.nuget\\packages\\",
-        "outputPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\obj\\",
+        "outputPath": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -59,18 +59,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj": {
+    "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj",
+        "projectUniqueName": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj",
         "projectName": "Wealth-Eco-Invest.Data.Models",
-        "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj",
+        "projectPath": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\Wealth-Eco-Invest.Data.Models.csproj",
         "packagesPath": "C:\\Users\\Georgi\\.nuget\\packages\\",
-        "outputPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\obj\\",
+        "outputPath": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Data.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -91,8 +91,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj": {
-                "projectPath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj"
+              "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj": {
+                "projectPath": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Common\\Wealth-Eco-Invest.Common.csproj"
               }
             }
           }
@@ -128,7 +128,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

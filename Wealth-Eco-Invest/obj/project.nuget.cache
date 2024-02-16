@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PUIbd7aXEVU2Zm38eZmY90+QWAJbd8GyeZpF+648QMu9pCgMsSlpH8gm+drC2KkpRdrl54xSHsCbym596TwvKQ==",
+  "dgSpecHash": "WnRqY6HbYY1oxBDWuN3JrASqtiibGKfm3ufL+znz0Zvv2+6LxbZPCJR8lVZ8fGpezySeoReMR4Ncx2pd0j4MPg==",
   "success": true,
-  "projectFilePath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.csproj",
+  "projectFilePath": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Georgi\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

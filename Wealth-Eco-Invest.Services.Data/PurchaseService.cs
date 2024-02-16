@@ -50,5 +50,13 @@
 				Announces = purchases
 			};
 		}
+
+		public async Task<bool> CheckIsThisAnnounceIsAlreadyBoughtByCurrentUser(Guid id,
+			Guid userId)
+		{
+			return await this.dbContext
+				.Purchases
+				.AnyAsync(x => x.AnnounceId == id && x.BuyerId == userId);
+		}
 	}
 }

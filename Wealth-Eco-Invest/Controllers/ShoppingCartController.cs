@@ -44,6 +44,14 @@
         {
             try
             {
+	            bool isAnnounceAlreadyBoughtByUser =
+		            await this.purchaseService.CheckIsThisAnnounceIsAlreadyBoughtByCurrentUser(id,
+			            Guid.Parse(this.User.GetId()!));
+	            if (isAnnounceAlreadyBoughtByUser)
+	            {
+		            TempData[WarningMessage] = "You are registered for this announce!";
+					return RedirectToAction("All", "Announce");
+				}
                 await this.shoppingCartService.AddAnnounceToUser(id, Guid.Parse(this.User.GetId()!));
                 
                 TempData[SuccessMessage] = "Announce was added to cart!";
@@ -52,8 +60,6 @@
             {
                 TempData[ErrorMessage] = "Unexpected exception occurred";
             }
-
-            
 
             return RedirectToAction("All", "ShoppingCart");
         }
@@ -155,6 +161,15 @@
 
 	        try
 	        {
+		        bool isAnnounceAlreadyBoughtByUser =
+			        await this.purchaseService.CheckIsThisAnnounceIsAlreadyBoughtByCurrentUser(id, Guid.Parse(this.User.GetId()!));
+		        if (isAnnounceAlreadyBoughtByUser)
+		        {
+			        TempData[ErrorMessage] = "You have already participate in this announce!";
+					TempData[InformationMessage] = "Check your calendar!";
+
+			        return View();
+		        }
 		        await this.purchaseService.PurchaseAnnounceAsync(id, Guid.Parse(this.User.GetId()!));
 
 		        var announce = await this.shoppingCartService.GetAnnounceByAnnounceId(id, Guid.Parse(this.User.GetId()!));

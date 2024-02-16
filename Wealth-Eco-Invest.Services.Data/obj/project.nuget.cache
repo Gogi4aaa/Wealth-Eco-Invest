@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ED0cEDro8sLSM9cC1XTd1jf2Rbz2mk4bZmD6hMFXNi6SIbLCJgqYZVAgqwVZC2gC4obxWH5BbdRz4GpE2JZqXQ==",
+  "dgSpecHash": "R0AZZf+PKm8qQHHn87S1LgheQzGLBcjJx0G5yEdNiTpQPxCm0rMmFyabJphi0sqYhy6uoG1HuWaKyYgrF6qfRw==",
   "success": true,
-  "projectFilePath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data\\Wealth-Eco-Invest.Services.Data.csproj",
+  "projectFilePath": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data\\Wealth-Eco-Invest.Services.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.23\\microsoft.aspnetcore.cryptography.internal.6.0.23.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.23\\microsoft.aspnetcore.cryptography.keyderivation.6.0.23.nupkg.sha512",
