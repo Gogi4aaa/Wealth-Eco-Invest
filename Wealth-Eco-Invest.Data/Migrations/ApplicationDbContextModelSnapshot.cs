@@ -17,7 +17,7 @@ namespace Wealth_Eco_Invest.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.23")
+                .HasAnnotation("ProductVersion", "6.0.26")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -211,7 +211,7 @@ namespace Wealth_Eco_Invest.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("bb00948a-c587-47d2-89d9-9741b15dfd49"),
+                            Id = new Guid("3bbdaaf4-7311-480a-b9b1-c5888231bfc6"),
                             CategoryId = 3,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "This rubbish pollutes the environment.You need to throw it in the trash bins!",
@@ -224,7 +224,7 @@ namespace Wealth_Eco_Invest.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("9f9d92f4-2d62-4066-aa13-0b7b9d80f2d0"),
+                            Id = new Guid("fcd90adb-2845-4c2f-9205-e74933cb898f"),
                             CategoryId = 1,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "The pollution is the worst thing ever.We need to stop it!",
@@ -237,7 +237,7 @@ namespace Wealth_Eco_Invest.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8e973fa0-ab21-4d45-a0d5-582be213ae22"),
+                            Id = new Guid("a750d747-0bf9-4294-b4d6-6c783a7cd34c"),
                             CategoryId = 2,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Water pollution destroy our beaches and oceans.We need to stop it fast!",
@@ -373,6 +373,25 @@ namespace Wealth_Eco_Invest.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Wealth_Eco_Invest.Data.Models.Purchase", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AnnounceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BuyerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AnnounceId");
+
+                    b.ToTable("Purchases");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", null)
@@ -444,6 +463,17 @@ namespace Wealth_Eco_Invest.Data.Migrations
                 });
 
             modelBuilder.Entity("Wealth_Eco_Invest.Data.Models.Cart", b =>
+                {
+                    b.HasOne("Wealth_Eco_Invest.Data.Models.Announce", "Announce")
+                        .WithMany()
+                        .HasForeignKey("AnnounceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Announce");
+                });
+
+            modelBuilder.Entity("Wealth_Eco_Invest.Data.Models.Purchase", b =>
                 {
                     b.HasOne("Wealth_Eco_Invest.Data.Models.Announce", "Announce")
                         .WithMany()

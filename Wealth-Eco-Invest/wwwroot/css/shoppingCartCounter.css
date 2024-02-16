@@ -25,6 +25,11 @@
 .cart-hover:hover {
     color: white;
 }
+.cart-background {
+    background: url(/images/main.png);
+    background-position: center;
+    background-size: cover;
+}
 @media (min-width: 992px) {
     .cart-count-margin-left {
         margin-left: -30px;

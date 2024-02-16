@@ -609,6 +609,18 @@
           }
         }
       },
+      "NewsAPI/0.7.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/portable45-net45+win8+wpa81/NewsAPI.dll": {}
+        },
+        "runtime": {
+          "lib/portable45-net45+win8+wpa81/NewsAPI.dll": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -944,6 +956,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "NewsAPI": "0.7.0",
           "Newtonsoft.Json": "13.0.1",
           "Wealth-Eco-Invest.Web.ViewModels": "1.0.0"
         },
@@ -1923,6 +1936,18 @@
         "version.txt"
       ]
     },
+    "NewsAPI/0.7.0": {
+      "sha512": "ZKJCjE/8M41hDHMHvd6f+dejHBaobOuw+Erk9miqcwlixiZ8neRXawR62Fq7rZcBUD/drT26OhvgSa8t6woULg==",
+      "type": "package",
+      "path": "newsapi/0.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/portable45-net45+win8+wpa81/NewsAPI.dll",
+        "newsapi.0.7.0.nupkg.sha512",
+        "newsapi.nuspec"
+      ]
+    },
     "Newtonsoft.Json/13.0.1": {
       "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
       "type": "package",
@@ -2548,5 +2573,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'NewsAPI 0.7.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "NewsAPI",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

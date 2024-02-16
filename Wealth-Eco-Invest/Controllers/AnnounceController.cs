@@ -57,7 +57,7 @@ namespace Wealth_Eco_Invest.Controllers
 	        }
 	        catch (Exception)
 	        {
-				TempData[ErrorMessage] = "Unexpected message occurred";
+				TempData[ErrorMessage] = "Unexpected error occurred";
 			}
 	        
             return this.View(queryViewModel);
@@ -87,7 +87,7 @@ namespace Wealth_Eco_Invest.Controllers
 	        }
 	        catch (Exception e)
 	        {
-		        TempData[ErrorMessage] = "Unexpected message occurred";
+		        TempData[ErrorMessage] = "Unexpected error occurred";
 	        }
 			
 	        return RedirectToAction("All", "Announce");
@@ -111,7 +111,7 @@ namespace Wealth_Eco_Invest.Controllers
 			}
 			catch (Exception)
 			{
-				TempData[ErrorMessage] = "Unexpected message occurred";
+				TempData[ErrorMessage] = "Unexpected error occurred";
 			}
 			
 			return RedirectToAction("All", "Announce");
@@ -142,7 +142,7 @@ namespace Wealth_Eco_Invest.Controllers
 			}
 			catch (Exception)
 			{
-				TempData[ErrorMessage] = "Unexpected message occurred";
+				TempData[ErrorMessage] = "Unexpected error occurred";
 			}
 			
 			return RedirectToAction("All", "Announce");

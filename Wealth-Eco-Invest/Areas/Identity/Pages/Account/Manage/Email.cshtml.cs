@@ -15,16 +15,18 @@ using Microsoft.AspNetCore.WebUtilities;
 
 namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account.Manage
 {
-    public class EmailModel : PageModel
+	using Data.Models;
+
+	public class EmailModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly IEmailSender _emailSender;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly Services.Messaging.IEmailSender _emailSender;
 
         public EmailModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
-            IEmailSender emailSender)
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
+            Services.Messaging.IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -73,7 +75,7 @@ namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account.Manage
             public string NewEmail { get; set; }
         }
 
-        private async Task LoadAsync(IdentityUser user)
+        private async Task LoadAsync(ApplicationUser user)
         {
             var email = await _userManager.GetEmailAsync(user);
             Email = email;

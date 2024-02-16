@@ -1,0 +1,23 @@
+﻿.all-background {
+    background-image: url(/images/main.png);
+    background-position: center;
+    background-size: cover;
+}
+.add-background {
+    background-image: url(/images/add.png);
+    background-position: center;
+    background-size: cover;
+}
+.edit-background {
+    background-image: url(/images/add.png);
+    background-position: center;
+    background-size: cover;
+}
+.card-a {
+    background: #fbf8dd;
+    text-decoration: none;
+    color: inherit;
+}
+.card-a-body {
+    background: #fbf8dd;
+}
