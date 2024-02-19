@@ -39,7 +39,7 @@
 </head>
 <body class="all-background">
 <div class="d-flex">
-	<div class="d-flex justify-content-center" style="width: 80%;">
+	<div class="d-flex justify-content-center" style="width: 100%;">
 		<form method="get" 
 		      asp-controller="Announce"
 		      asp-action="All"
@@ -58,7 +58,7 @@
 		</form>
 	</div>
 	<div class="btn-group">
-		<button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+			<button type="button" class="btn text-white sortingButton-background dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 			@Model.AnnounceSorting
 		</button>
 		<ul class="dropdown-menu">
@@ -135,7 +135,7 @@
 							body += "...";
 						}
 
-					<div class="col-md-4 p-0 m-2 cursor-pointer" style="width: 300px;">
+					<div class="col-md-4 m-2 cursor-pointer" style="width: 300px;">
 						<a class="card-a" asp-action="Details" asp-controller="Announce" asp-route-id="@announce.Id">
 							<div class="card">
 								<img style="height: 350px; padding: 8px; border-radius: 10px;" src="@announce.ImageUrl" class="card-img-top" alt="Cannot load this image!">

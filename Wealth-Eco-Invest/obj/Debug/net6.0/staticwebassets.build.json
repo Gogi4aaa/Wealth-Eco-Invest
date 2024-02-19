@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0fFh+kHP8eZ9Gn4Ieqg2dPxZGil3SEwD+VsoWmp6HEk=",
+  "Hash": "feZ6X+RAHfYJ1TrFT+QQPWfDj/XgEqEgFektgUOxJ0s=",
   "Source": "Wealth-Eco-Invest",
   "BasePath": "_content/Wealth-Eco-Invest",
   "Mode": "Default",
@@ -1120,6 +1120,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Calendar.css"
+    },
+    {
+      "Identity": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\css\\details.css",
+      "SourceId": "Wealth-Eco-Invest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\",
+      "BasePath": "_content/Wealth-Eco-Invest",
+      "RelativePath": "css/details.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\details.css"
     },
     {
       "Identity": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\css\\home.css",

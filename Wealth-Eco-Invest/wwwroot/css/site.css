@@ -1,3 +1,7 @@
+:root {
+    --main-bg-color: #34652B;
+    --main-color: #fbf8dd;
+}
 html {
   font-size: 14px;
 }

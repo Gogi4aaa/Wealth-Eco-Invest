@@ -49,7 +49,7 @@
 			            Guid.Parse(this.User.GetId()!));
 	            if (isAnnounceAlreadyBoughtByUser)
 	            {
-		            TempData[WarningMessage] = "You are registered for this announce!";
+		            TempData[WarningMessage] = "You are already registered for this announce!";
 					return RedirectToAction("All", "Announce");
 				}
                 await this.shoppingCartService.AddAnnounceToUser(id, Guid.Parse(this.User.GetId()!));

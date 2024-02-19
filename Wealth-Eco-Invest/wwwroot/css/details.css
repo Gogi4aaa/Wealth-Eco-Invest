@@ -1,0 +1,13 @@
+﻿.details-background {
+    background-image: url(/images/add.png);
+    background-position: center;
+    background-size: cover;
+}
+@media screen and (max-width: 768px) {
+    #imgId {
+        height: 400px;
+    }
+}
+.card-body{
+    padding: 1rem!important;
+}

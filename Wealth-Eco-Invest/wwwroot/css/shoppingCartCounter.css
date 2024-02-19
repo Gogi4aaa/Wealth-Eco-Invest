@@ -6,6 +6,14 @@
     border-radius: 9px;
 }
 
+.main-color {
+    background: #34652B;
+    color: white;
+}
+.main-color:hover{
+    opacity:0.9;
+    color: black!important;
+}
 .label-warning[href],
 .badge-warning[href] {
     background-color: #c67605;
@@ -18,6 +26,17 @@
     padding: 2px 5px;
     vertical-align: top;
      
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fbf8dd;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
 }
 .cart-color {
     color: #2C3E69;
