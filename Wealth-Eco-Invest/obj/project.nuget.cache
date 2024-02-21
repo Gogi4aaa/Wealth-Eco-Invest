@@ -1,9 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "WnRqY6HbYY1oxBDWuN3JrASqtiibGKfm3ufL+znz0Zvv2+6LxbZPCJR8lVZ8fGpezySeoReMR4Ncx2pd0j4MPg==",
+  "dgSpecHash": "1kKCUdwi1bxmq55N0eRVUG2G7g4kq6PQijTI5Mx3Cx/JWqGF3WQycp5y5WF2a+6OKEYtiIFdSd6//ORcdbMcEA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Georgi\\.nuget\\packages\\hangfire\\1.8.10\\hangfire.1.8.10.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\hangfire.aspnetcore\\1.8.10\\hangfire.aspnetcore.1.8.10.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\hangfire.core\\1.8.10\\hangfire.core.1.8.10.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\hangfire.netcore\\1.8.10\\hangfire.netcore.1.8.10.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\hangfire.sqlserver\\1.8.10\\hangfire.sqlserver.1.8.10.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
@@ -99,6 +104,7 @@
     "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.extensions.dependencymodel\\6.0.0\\microsoft.extensions.dependencymodel.6.0.0.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\6.0.0\\microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.extensions.fileproviders.embedded\\6.0.26\\microsoft.extensions.fileproviders.embedded.6.0.26.nupkg.sha512",
+    "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\3.0.0\\microsoft.extensions.hosting.abstractions.3.0.0.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.extensions.identity.core\\6.0.26\\microsoft.extensions.identity.core.6.0.26.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.extensions.identity.stores\\6.0.26\\microsoft.extensions.identity.stores.6.0.26.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.extensions.logging\\6.0.0\\microsoft.extensions.logging.6.0.0.nupkg.sha512",

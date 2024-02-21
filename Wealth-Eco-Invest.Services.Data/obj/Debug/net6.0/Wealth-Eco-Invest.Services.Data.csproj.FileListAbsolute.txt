@@ -48,3 +48,5 @@ C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data\o
 C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data\obj\Debug\net6.0\refint\Wealth-Eco-Invest.Services.Data.dll
 C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Data.pdb
 C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data\obj\Debug\net6.0\ref\Wealth-Eco-Invest.Services.Data.dll
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data\bin\Debug\net6.0\Wealth-Eco-Invest.Services.Messaging.dll
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data\bin\Debug\net6.0\Wealth-Eco-Invest.Services.Messaging.pdb

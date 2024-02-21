@@ -1,3 +1,4 @@
+using Hangfire;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,11 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 	options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+//email schedule
+builder.Services.AddHangfire(x => x.UseSqlServerStorage(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddHangfireServer();
+//email schedule
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 {
@@ -62,6 +68,8 @@ if (app.Environment.IsDevelopment())
 {
     app.SeedAdministrator(DevelopmentAdminEmail);
 }
+
+app.UseHangfireDashboard();
 
 app.MapControllerRoute(
 	name: "default",

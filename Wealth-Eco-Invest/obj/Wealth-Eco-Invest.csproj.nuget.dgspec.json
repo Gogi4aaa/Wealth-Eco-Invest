@@ -318,6 +318,9 @@
               "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data.Models\\Wealth-Eco-Invest.Services.Data.Models.csproj": {
                 "projectPath": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data.Models\\Wealth-Eco-Invest.Services.Data.Models.csproj"
               },
+              "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Messaging\\Wealth-Eco-Invest.Services.Messaging.csproj": {
+                "projectPath": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Messaging\\Wealth-Eco-Invest.Services.Messaging.csproj"
+              },
               "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Web.ViewModels\\Wealth-Eco-Invest.Web.ViewModels.csproj": {
                 "projectPath": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Web.ViewModels\\Wealth-Eco-Invest.Web.ViewModels.csproj"
               }
@@ -333,6 +336,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Hangfire.Core": {
+              "target": "Package",
+              "version": "[1.8.10, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -639,6 +648,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Hangfire": {
+              "target": "Package",
+              "version": "[1.8.10, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.22, )"
