@@ -1,0 +1,33 @@
+﻿@model AllAnnouncesForEachUser
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="~/css/site.css">
+	<link rel="stylesheet" href="~/css/admin.css">
+	<title>Home</title>
+</head>
+<body class="background">
+<table class="table table-bordered text-center table-light">
+	<thead>
+	<tr>
+		<th>Username</th>
+		<th>Email</th>
+		<th>User Announces</th>
+	</tr>
+	</thead>
+	<tbody>
+	@foreach (var userAnnounce in Model.Announces)
+	{
+		<tr>
+			<td>@userAnnounce.Username</td>
+			<td>@userAnnounce.Email</td>
+			<td><a class="btn bg-color text-white" asp-action="UserAnnounces" asp-controller="Admin" asp-route-userId="@userAnnounce.UserId">All Announces</a></td>
+		</tr>
+	}
+	</tbody>
+</table>
+</body>
+</html>

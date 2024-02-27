@@ -1,0 +1,47 @@
+﻿@model IEnumerable<AllAnnouncesForAdminViewModel>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="~/css/admin.css">
+	<link rel="stylesheet" href="~/css/site.css">
+	<title>Home</title>
+</head>
+<body class="background">
+<h1 class="text-center">Announces</h1>
+<table class="table table-bordered text-center table-light">
+	<thead>
+	<tr>
+		<th>Title</th>
+		<th>Image</th>
+		<th>Description</th>
+		<th>Price</th>
+		<th>Created On</th>
+		<th>Is Active</th>
+		<th>Start Date</th>
+		<th>Category</th>
+	</tr>
+	</thead>
+	<tbody>
+	@{
+		foreach (var announce in Model)
+		{
+			var imgUrl = String.IsNullOrEmpty(@announce.ImageUrl) ? "~/no-image.png" : announce.ImageUrl;
+			<tr>
+				<td>@announce.Title</td>
+				<td><img src="@imgUrl" class="img-fluid rounded image-size" /></td>
+				<td>@announce.Description</td>
+				<td>@announce.Price</td>
+				<td>@announce.CreatedOn</td>
+				<td>@announce.IsActive</td>
+				<td>@announce.StartDate</td>
+				<td>@announce.Category</td>
+			</tr>
+		}
+	}
+	</tbody>
+</table>
+</body>
+</html>

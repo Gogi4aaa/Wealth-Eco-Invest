@@ -7,5 +7,6 @@
 	{
 		Task<IEnumerable<string>> AllCategoriesNamesAsync();
 		Task<IEnumerable<AnnounceSelectCategoryFormModel>> AllCategoriesAsync();
+		Task<string> GetCategoryNameByCategoryIdAsync(int id);
 	}
 }

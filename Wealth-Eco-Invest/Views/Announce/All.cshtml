@@ -34,13 +34,15 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="~/css/site.css">
 	<link rel="stylesheet" href="~/css/announces.css">
 	<title>Announces</title>
 </head>
 <body class="all-background">
 <div class="d-flex">
 	<div class="d-flex justify-content-center" style="width: 100%;">
-		<form method="get" 
+		
+		<form method="get"
 		      asp-controller="Announce"
 		      asp-action="All"
 		      asp-route-currentPage="@Model.CurrentPage"
@@ -108,9 +110,7 @@
 		</ul>
 	</div>
 </div>
-
-
-<a asp-action="Add" asp-controller="Announce" class="btn btn-primary">Add Announce</a>
+<a asp-action="Add" asp-controller="Announce" class="btn text-white sortingButton-background">Add Announce</a>
 <div class="d-flex ">
 	@if (!Model.Announces.Any())
 	{
