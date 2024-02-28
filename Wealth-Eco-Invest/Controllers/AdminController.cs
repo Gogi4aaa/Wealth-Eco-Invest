@@ -1,11 +1,14 @@
-﻿using Wealth_Eco_Invest.Services.Data.Interfaces;
-using Wealth_Eco_Invest.Web.ViewModels.Admin;
-
-namespace Wealth_Eco_Invest.Controllers
+﻿namespace Wealth_Eco_Invest.Controllers
 {
+	using Wealth_Eco_Invest.Services.Data.Interfaces;
+	using Wealth_Eco_Invest.Services.Data.Models.Admin;
+
+	using Web.ViewModels.Admin;
+
 	using Microsoft.AspNetCore.Authorization;
 	using Microsoft.AspNetCore.Mvc;
 
+	using static Common.GeneralApplicationConstants;
 	[Authorize(Roles = "Administrator")]
 	public class AdminController : Controller
 	{
@@ -18,11 +21,19 @@ namespace Wealth_Eco_Invest.Controllers
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> All(Guid userId)
+		public async Task<IActionResult> All(int page = 1)
 		{
-			AllAnnouncesForEachUser announces = await this.adminService.GetAllAnnouncesForEachUser();
-
-			return View(announces);
+			AllUsersViewModel usersViewModel = await this.adminService.GetAllUsers();
+			var model = new AdminServiceModel()
+			{
+				Users = usersViewModel.Users
+					.Skip((page - 1) * UsersPerPage)
+					.Take(UsersPerPage).ToArray(),
+				CurrentPage = page,
+				TotalUsers = usersViewModel.Users.Count,
+				UsersPerPage = UsersPerPage
+			};
+			return View(model);
 		}
 
 		[HttpGet]

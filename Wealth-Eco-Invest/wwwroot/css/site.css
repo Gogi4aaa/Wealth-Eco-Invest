@@ -7,7 +7,11 @@ html {
   position: relative;
   min-height: 100%;
 }
-
+.green-background {
+    background-image: url(../images/calendar.png);
+    background-position: center;
+    background-size: cover;
+}
 @media (min-width: 768px) {
   html {
     font-size: 16px;

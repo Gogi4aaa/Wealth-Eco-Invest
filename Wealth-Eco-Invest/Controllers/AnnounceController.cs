@@ -103,6 +103,7 @@ namespace Wealth_Eco_Invest.Controllers
 		}
 
 		[HttpPost]
+		[AllowAnonymous]
 		public async Task<IActionResult> Delete(Guid id)
 		{
 			try
@@ -115,11 +116,17 @@ namespace Wealth_Eco_Invest.Controllers
 			{
 				TempData[ErrorMessage] = "Unexpected error occurred";
 			}
-			
+
+			if (await this.adminService.IsUserAdmin(Guid.Parse(this.User.GetId()!)))
+			{
+				return RedirectToAction("All", "Admin");
+			}
+
 			return RedirectToAction("All", "Announce");
 		}
 
 		[HttpGet]
+		[AllowAnonymous]
 		public async Task<IActionResult> Edit(Guid id)
 		{
 			AnnounceFormModel announceForEdit = await this.announceService.GetAnnounceForEditAsync(id);
@@ -128,6 +135,7 @@ namespace Wealth_Eco_Invest.Controllers
 		}
 
 		[HttpPost]
+		[AllowAnonymous]
 		public async Task<IActionResult> Edit(Guid id, AnnounceFormModel model)
 		{
 			if (!ModelState.IsValid)

@@ -8,7 +8,7 @@ namespace Wealth_Eco_Invest.Services.Data.Interfaces
 		Task<bool> IsUserAdmin(Guid userId);
 		Task<ApplicationUser> GetUser(Guid userId);
 
-		Task<AllAnnouncesForEachUser> GetAllAnnouncesForEachUser();
+		Task<AllUsersViewModel> GetAllUsers();
 
 		Task<IEnumerable<AllAnnouncesForAdminViewModel>> GetAllAnnouncesByUserIdAsync(Guid userId);
 	}

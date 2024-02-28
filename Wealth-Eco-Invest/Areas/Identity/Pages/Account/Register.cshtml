@@ -1,9 +1,79 @@
 ﻿@page
 @model RegisterModel
 @{
-    ViewData["Title"] = "Register";
+	ViewData["Title"] = "Register";
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="~/css/login.css">
+	<title>Register</title>
+</head>
+<body class="background">
+	<div class="Main-container">
+		<div class="container-login">
+			<div class="wrap-login">
 
+				<div class="login-pic">
+					<img src="~/login.png" alt="IMG">
+				</div>
+
+				<form class="login-form" id="account" method="post">
+					<span class="login-form-title">Sign Up</span>
+
+					<div class="wrap-input">
+						<input asp-for="Input.Username" type="text" class="input" placeholder="Username" aria-required="true">
+						<span class="focus-input"></span>
+						<span class="symbol-input">
+							<i class="fa-solid fa-user"></i>
+						</span>
+					</div>
+					<span asp-validation-for="Input.Username" class="text-danger d-flex justify-content-center"></span>
+					<div class="wrap-input">
+						<input asp-for="Input.Email" type="email" class="input" placeholder="Email" aria-required="true">
+						<span class="focus-input"></span>
+						<span class="symbol-input">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+					<span asp-validation-for="Input.Email" class="text-danger d-flex justify-content-center"></span>
+					<div class="wrap-input">
+						<input asp-for="Input.Password" type="password" class="input" placeholder="Password" aria-required="true">
+
+						<span class="focus-input"></span>
+						<span class="symbol-input">
+							<i class="fa-solid fa-unlock"></i>
+						</span>
+					</div>
+					<span asp-validation-for="Input.Password" class="text-danger d-flex justify-content-center"></span>
+					<div class="wrap-input">
+						<input asp-for="Input.ConfirmPassword" type="password" class="input" placeholder="Confirm Password" aria-required="true">
+						<span class="focus-input"></span>
+						<span class="symbol-input w-100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					<span asp-validation-for="Input.ConfirmPassword" class="text-danger d-flex justify-content-center"></span>
+					<div class="login-form-btn-container">
+						<button class="login-form-btn" type="submit">Sign Up</button>
+					</div>
+
+					<div asp-validation-summary="ModelOnly" class="text-danger text-center mt-5 list"></div>
+
+					<div class="text-center p-t-2">
+						<a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl" class="txt2" aria-hidden="true">Sign in <i class="fa fa-long-arrow-right"></i></a>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+@*<body>
 <div class="row d-flex align-items-center">
     <div class="col-md-4">
 	    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
@@ -35,6 +105,9 @@
 	    </form>
     </div>
 </div>
+</body>*@
+</html>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

@@ -1,6 +1,6 @@
 ﻿@model AnnounceQueryViewModel
 @{
-	ViewData["Title"] = "Announces";
+	ViewData["Title"] = "Users";
 	int announceSortingNumber = (int)Model.AnnounceSorting;
 	int startPage = Model.CurrentPage - 5;
 	int endPage = Model.CurrentPage + 4;
@@ -36,7 +36,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="~/css/site.css">
 	<link rel="stylesheet" href="~/css/announces.css">
-	<title>Announces</title>
+	<title>Users</title>
 </head>
 <body class="all-background">
 <div class="d-flex">
@@ -111,18 +111,20 @@
 	</div>
 </div>
 <a asp-action="Add" asp-controller="Announce" class="btn text-white sortingButton-background">Add Announce</a>
-<div class="d-flex ">
 	@if (!Model.Announces.Any())
 	{
-		<h2 class="mt-5">No announces found by the given criteria!</h2>
+		<div class="text-center">
+			<h2 class="mt-5">No announces found by the given criteria!</h2>
+		</div>
 	}
-	else
+	@if (Model.Announces.Any())
 	{
-		<div class="row g-4 mt-3 justify-content-center">
-			@{
+		<div class="d-flex">
+			<div class="row g-4 mt-3 justify-content-center">
+				@{
 
-				foreach (AllAnnouncesViewModel announce in @Model.Announces)
-				{
+					foreach (AllAnnouncesViewModel announce in @Model.Announces)
+					{
 						var body = announce.Description;
 						if (announce.Description.Length > 55)
 						{
@@ -135,26 +137,28 @@
 							body += "...";
 						}
 
-					<div class="col-md-4 m-2 cursor-pointer" style="width: 300px;">
-						<a class="card-a" asp-action="Details" asp-controller="Announce" asp-route-id="@announce.Id">
-							<div class="card">
-								<img style="height: 350px; padding: 8px; border-radius: 10px;" src="@announce.ImageUrl" class="card-img-top" alt="Cannot load this image!">
-								<div class="card-body pt-3 card-a-body">
-									<h6 class="card-text fw-bold">@body</h6>
-									<div class="d-flex justify-content-between mt-5">
-										<p class="card-text fs-4">@announce.Price lv.</p>
-										<a asp-action="Add" asp-controller="ShoppingCart" asp-route-id="@announce.Id" class="btn btn-warning cart-color cart-hover"><i class="fa-solid fa-cart-shopping"></i></a>
+						<div class="col-md-4 m-2 cursor-pointer" style="width: 300px;">
+							<a class="card-a" asp-action="Details" asp-controller="Announce" asp-route-id="@announce.Id">
+								<div class="card">
+									<img style="height: 350px; padding: 8px; border-radius: 10px;" src="@announce.ImageUrl" class="card-img-top" alt="Cannot load this image!">
+									<div class="card-body pt-3 card-a-body">
+										<h6 class="card-text fw-bold">@body</h6>
+										<div class="d-flex justify-content-between mt-5">
+											<p class="card-text fs-4">@announce.Price lv.</p>
+											<a asp-action="Add" asp-controller="ShoppingCart" asp-route-id="@announce.Id" class="btn btn-warning cart-color cart-hover"><i class="fa-solid fa-cart-shopping"></i></a>
+										</div>
 									</div>
 								</div>
-							</div>
-						</a>
-					</div>
+							</a>
+						</div>
 
+					}
 				}
+			</div>
 			}
 		</div>
 	}
-</div>
+
 <ul class="pagination d-flex justify-content-center mt-4">
 	<li class="page-item @(Model.CurrentPage == 1 ? "disabled" : string.Empty)">
 		<a class="btn btn-primary @(Model.CurrentPage == 1 ? "disabled" : string.Empty)"

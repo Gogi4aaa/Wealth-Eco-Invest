@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/Q1WTFmsweR7ZudvaQck35GObuRqi9JjkPfKHvp6WEs=",
+  "Hash": "hWQIhK9G02PxlNKuqjkirrvUj1K4FYaEYWuSrRWQ+P8=",
   "Source": "Wealth-Eco-Invest",
   "BasePath": "_content/Wealth-Eco-Invest",
   "Mode": "Default",
@@ -1188,6 +1188,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\login.css"
+    },
+    {
+      "Identity": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\css\\register.css",
+      "SourceId": "Wealth-Eco-Invest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\",
+      "BasePath": "_content/Wealth-Eco-Invest",
+      "RelativePath": "css/register.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\register.css"
     },
     {
       "Identity": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest\\wwwroot\\css\\shoppingCartCounter.css",

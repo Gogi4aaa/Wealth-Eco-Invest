@@ -23,7 +23,7 @@
 
 		public int TotalAnnounces { get; set; }
 
-		[Display(Name = "Sort Announces By")]
+		[Display(Name = "Sort Users By")]
 		public AnnounceSorting AnnounceSorting { get; set; }
 		public IEnumerable<string> Categories { get; set; }
 		public IEnumerable<AllAnnouncesViewModel> Announces { get; set; }

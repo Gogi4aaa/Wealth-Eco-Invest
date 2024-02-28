@@ -1,4 +1,33 @@
-﻿@model AllAnnouncesForEachUser
+﻿@model AdminServiceModel
+@{
+	ViewData["Title"] = "Home Page";
+	
+	int startPage = Model.CurrentPage - 5;
+	int endPage = Model.CurrentPage + 4;
+	int maxPage = (int)Math.Ceiling((double)Model.TotalUsers / (double)Model.UsersPerPage);
+	if (startPage <= 0)
+	{
+		endPage = endPage - (startPage - 1);
+		startPage = 1;
+	}
+	if (endPage > maxPage)
+	{
+		endPage = maxPage;
+		if (endPage > 10)
+		{
+			startPage = endPage - 9;
+		}
+	}
+
+	int previousPage = Model.CurrentPage - 1;
+	if (previousPage < 1)
+	{
+		previousPage = 1;
+	}
+
+	bool shouldNextPageBeDisabled = Model.CurrentPage == maxPage ||
+	                                !Model.Users.Any();
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,19 +44,47 @@
 	<tr>
 		<th>Username</th>
 		<th>Email</th>
-		<th>User Announces</th>
+		<th>User Users</th>
 	</tr>
 	</thead>
 	<tbody>
-	@foreach (var userAnnounce in Model.Announces)
+	@foreach (var userAnnounce in Model.Users)
 	{
 		<tr>
 			<td>@userAnnounce.Username</td>
 			<td>@userAnnounce.Email</td>
-			<td><a class="btn bg-color text-white" asp-action="UserAnnounces" asp-controller="Admin" asp-route-userId="@userAnnounce.UserId">All Announces</a></td>
+			<td><a class="btn bg-color text-white" asp-action="UserAnnounces" asp-controller="Admin" asp-route-userId="@userAnnounce.UserId">All Users</a></td>
 		</tr>
 	}
 	</tbody>
 </table>
+	<ul class="pagination d-flex justify-content-center mt-4 pb-4">
+		<li class="page-item @(Model.CurrentPage == 1 ? "disabled" : string.Empty)">
+			<a class="btn btn-primary @(Model.CurrentPage == 1 ? "disabled" : string.Empty)"
+			   asp-controller="Admin"
+			   asp-action="All"
+			   asp-route-page="@previousPage">
+				<span aria-hidden="true">&laquo;</span>
+			</a>
+		</li>
+		@for (int i = startPage; i <= endPage; i++)
+		{
+			<li class="page-item ms-1 me-1  @(i == Model.CurrentPage ? "active" : string.Empty)">
+				<a class="page-link rounded"
+			   asp-controller="Admin"
+			   asp-action="All"
+			   asp-route-page="@i">@i</a>
+			</li>
+		}
+		<li class="page-item @(shouldNextPageBeDisabled ? "disabled" : string.Empty)">
+			<a class="btn btn-primary
+           @(shouldNextPageBeDisabled ? "disabled" : string.Empty)"
+			   asp-controller="Admin"
+			   asp-action="All"
+			   asp-route-page="@(Model.CurrentPage + 1)">
+				<span aria-hidden="true">&raquo;</span>
+			</a>
+		</li>
+	</ul>
 </body>
 </html>

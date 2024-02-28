@@ -24,7 +24,7 @@
                 </div>
 
 				<form class="login-form" id="account" method="post">
-					<span class="login-form-title">Login</span>
+					<span class="login-form-title">Sign In</span>
 
 					<div class="wrap-input">
 						<input asp-for="Input.Username" type="text" class="input" placeholder="Username" aria-required="true">
@@ -45,7 +45,7 @@
                     </div>
 					<span asp-validation-for="Input.Password" class="text-danger d-flex justify-content-center"></span>
                     <div class="login-form-btn-container">
-                        <button class="login-form-btn" type="submit">Login</button>
+                        <button class="login-form-btn" type="submit">Sign In</button>
                     </div>
 
 					<div class="text-center p-t-1">
@@ -56,7 +56,7 @@
 					<div asp-validation-summary="ModelOnly" class="text-danger text-center mt-5 list"></div>
 
                     <div class="text-center p-t-2">
-						<a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="txt2" aria-hidden="true">Create Your Account <i class="fa fa-long-arrow-right"></i></a>
+						<a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="txt2" aria-hidden="true">Sign Up <i class="fa fa-long-arrow-right"></i></a>
                     </div>
 					
                 </form>
@@ -65,51 +65,7 @@
     </div>
 
 </body>
-
 </html>
-@* <div class="row d-flex align-items-center">
-	<div class="col-md-4">
-		<section>
-			<form id="account" method="post">
-				<h1 class="text-dark text-center">@ViewData["Title"]</h1>
-				<hr class="text-dark text-center"/>
-				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-				<div class="form-floating mb-3">
-					<input asp-for="Input.Username" class="form-control" id="username" type="text" placeholder="username" autocomplete="username" aria-required="true"/>
-					<label asp-for="Input.Username" class="form-label" for="username"></label>
-					<span asp-validation-for="Input.Username" class="text-danger"></span>
-				</div>
-				<div class="form-floating mb-2">
-					<input asp-for="Input.Password" class="form-control" id="password" type="password" placeholder="password" autocomplete="current-password" aria-required="true"/>
-					<label asp-for="Input.Password" class="form-label" for="password"></label>
-					<span asp-validation-for="Input.Password" class="text-danger"></span>
-				</div>
-				<div class="text-dark">
-					<div class="checkbox">
-						<label asp-for="Input.RememberMe" class="form-label">
-							<input class="form-check-input" asp-for="Input.RememberMe"/>
-							@Html.DisplayNameFor(m => m.Input.RememberMe)
-						</label>
-					</div>
-				</div>
-				<div class="mb-2">
-					<button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
-				</div>
-				<div>
-					<p>
-						<a class="text-dark text-decoration-none" id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-					</p>
-					<p>
-						<a class="text-dark text-decoration-none" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-					</p>
-					<p>
-						<a class="text-dark text-decoration-none" id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-					</p>
-				</div>
-			</form>
-		</section>
-	</div>
-</div> *@
 @section Scripts {
 	<partial name="_ValidationScriptsPartial" />
 }

@@ -32,14 +32,14 @@
 
 		public async Task<ApplicationUser> GetUser(Guid userId)
 		{
-			ApplicationUser user = await dbContext.Users.FirstAsync(x => x.Id == userId);
+			ApplicationUser? user = await dbContext.Users.FirstAsync(x => x.Id == userId);
 			return user;
 		}
 
-		public async Task<AllAnnouncesForEachUser> GetAllAnnouncesForEachUser()
+		public async Task<AllUsersViewModel> GetAllUsers()
 		{
 
-			AllAnnouncesForAdminViewModel[] allAnnounces = await this.dbContext
+			AllAnnouncesForAdminViewModel[] allUsers = await this.dbContext
 				.Users
 				.Select(x => new AllAnnouncesForAdminViewModel()
 				{
@@ -48,9 +48,9 @@
 					Email = x.Email,
 				})
 				.ToArrayAsync();
-			return new AllAnnouncesForEachUser()
+			return new AllUsersViewModel()
 			{
-				Announces = allAnnounces
+				Users = allUsers
 			};
 		}
 

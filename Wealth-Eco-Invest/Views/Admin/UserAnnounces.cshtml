@@ -1,4 +1,7 @@
 ﻿@model IEnumerable<AllAnnouncesForAdminViewModel>
+@{
+	int count = 0;
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,9 +51,9 @@ else
 					<td>@announce.StartDate</td>
 					<td>@announce.Category</td>
 					<td><a class="btn btn-warning" asp-action="Edit" asp-controller="Announce" asp-route-id="@announce.Id"><i class="fa-solid fa-pencil"></i></a></td>
-					<td><a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a></td>
+					<td><a type="button" data-bs-toggle="modal" data-bs-target="@($"#staticBackdrop{count}")" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a></td>
 					@* DELETE MODAL *@
-					<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					<div class="modal fade" id="@($"staticBackdrop{count}")" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -69,6 +72,9 @@ else
 							</div>
 						</div>
 					</div>
+					@{
+						count++;
+					}
 					@* DELETE MODAL END*@
 				</tr>
 			}
