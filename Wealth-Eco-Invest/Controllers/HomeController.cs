@@ -1,5 +1,10 @@
-﻿namespace Wealth_Eco_Invest.Controllers
+﻿using Wealth_Eco_Invest.Services.Data.Interfaces;
+
+namespace Wealth_Eco_Invest.Controllers
 {
+	using Web.Infrastructure.Extensions;
+
+
 	using Microsoft.AspNetCore.Mvc;
 	using Newtonsoft.Json;
 
@@ -18,15 +23,26 @@
 	{
 		private readonly ILogger<HomeController> _logger;
 		private readonly HttpClient _client;
-		public HomeController(ILogger<HomeController> logger)
+		private readonly IAdminService adminService;
+		public HomeController(ILogger<HomeController> logger, IAdminService adminService)
 		{
 			_logger = logger;
 			_client = new HttpClient();
+			this.adminService = adminService;
 		}
 
 		[HttpGet]
 		public async Task<IActionResult> Index(int page = 1)
 		{
+			if (!String.IsNullOrEmpty(this.User.GetId()!))
+			{
+				var isUserAdmin = await this.adminService.IsUserAdmin(Guid.Parse(this.User.GetId()!));
+
+				if (isUserAdmin)
+				{
+					return RedirectToAction("All", "Admin");
+				}
+			}
 			var returnResponse = new EnvironmentNewsServiceModel();
 			try
 			{

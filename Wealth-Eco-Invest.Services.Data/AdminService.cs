@@ -7,6 +7,8 @@
 	using Web.ViewModels.Admin;
 	using Web.ViewModels.Announce;
 
+	using static Common.GeneralApplicationConstants;
+
 	public class AdminService : IAdminService
 	{
 		private readonly ApplicationDbContext dbContext;
@@ -14,7 +16,21 @@
 		{
 			this.dbContext = dbContext;
 		}
-		public async Task<ApplicationUser> IsUserAdmin(Guid userId)
+
+		public async Task<bool> IsUserAdmin(Guid userId)
+		{
+			ApplicationUser? user = await dbContext.Users.FirstOrDefaultAsync(x => Guid.Parse(AdminId) == userId);
+
+
+			if (user == null)
+			{
+				return false;
+			}
+
+			return true;
+		}
+
+		public async Task<ApplicationUser> GetUser(Guid userId)
 		{
 			ApplicationUser user = await dbContext.Users.FirstAsync(x => x.Id == userId);
 			return user;

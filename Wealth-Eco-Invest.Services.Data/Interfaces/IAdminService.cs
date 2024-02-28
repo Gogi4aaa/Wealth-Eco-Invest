@@ -5,7 +5,8 @@ namespace Wealth_Eco_Invest.Services.Data.Interfaces
 {
 	public interface IAdminService
 	{
-		Task<ApplicationUser> IsUserAdmin(Guid userId);
+		Task<bool> IsUserAdmin(Guid userId);
+		Task<ApplicationUser> GetUser(Guid userId);
 
 		Task<AllAnnouncesForEachUser> GetAllAnnouncesForEachUser();
 

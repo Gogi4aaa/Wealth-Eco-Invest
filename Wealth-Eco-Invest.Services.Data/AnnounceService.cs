@@ -147,7 +147,6 @@
         {
 	        Announce announce = await this.dbContext
 		        .Announces
-		        .Where(x => x.IsActive)
 		        .FirstAsync(x => x.Id == announceId);
 
 	        return new AnnounceFormModel()

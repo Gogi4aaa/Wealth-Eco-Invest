@@ -38,14 +38,5 @@
 
 			return allCategories;
 		}
-
-		public async Task<string> GetCategoryNameByCategoryIdAsync(int id)
-		{
-			Category? category = await this.dbContext
-				.Categories
-				.FirstOrDefaultAsync(x => x.Id == id);
-
-			return category.Name;
-		}
 	}
 }

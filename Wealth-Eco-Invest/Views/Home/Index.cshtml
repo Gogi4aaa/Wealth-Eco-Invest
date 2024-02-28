@@ -43,7 +43,7 @@
 	<title>Home</title>
 </head>
 <body class="background">
-	@if (SignInManager.IsSignedIn(User) && await UserManager.IsInRoleAsync(await AdminService.IsUserAdmin(Guid.Parse(this.User.GetId()!)), "Administrator"))
+	@if (SignInManager.IsSignedIn(User) && await UserManager.IsInRoleAsync(await AdminService.GetUser(Guid.Parse(this.User.GetId()!)), "Administrator"))
 {
 	<table>
 		@*TODO: finish admin page*@

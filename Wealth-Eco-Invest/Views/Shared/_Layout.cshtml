@@ -46,14 +46,8 @@
 					<div class="offcanvas-body">
 						<ul class="navbar-nav d-flex align-items-center nav-flex-column ms-auto">
 
-							@if (SignInManager.IsSignedIn(User) && await UserManager.IsInRoleAsync(await ApplicationDbContext.Users.FirstAsync(x => x.Id == Guid.Parse(
-								this.User.GetId()!)), "Administrator"))
-							{
-								<li class="nav-item fs-4 nav-border-top nav-border-bottom w-100 text-center">
-									<a class="nav-link text-white text-decoration-none menu-hover fs-5" asp-area="" asp-controller="Admin" asp-action="All" asp-route-userId="@User.GetId()">All</a>
-								</li>
-							}
-							else if (SignInManager.IsSignedIn(User))
+							@if (SignInManager.IsSignedIn(User) && !(await UserManager.IsInRoleAsync(await ApplicationDbContext.Users.FirstAsync(x => x.Id == Guid.Parse(
+									this.User.GetId()!)), "Administrator")))
 							{
 								@* <li class="nav-item me-3 fs-4 nav-border-top nav-border-bottom w-100 text-center">
 							<a class="nav-link text-white text-decoration-none menu-hover fs-5" asp-area="" asp-controller="Home" asp-action="Index">Home</a>

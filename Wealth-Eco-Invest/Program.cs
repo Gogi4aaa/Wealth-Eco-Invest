@@ -67,6 +67,7 @@ app.UseAuthorization();
 if (app.Environment.IsDevelopment())
 {
     app.SeedAdministrator(DevelopmentAdminEmail);
+    app.SeedUser();
 }
 
 app.UseHangfireDashboard();
