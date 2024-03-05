@@ -1,6 +1,7 @@
 ﻿@model AnnounceFormModel
 @{
 	ViewData["Title"] = "Edit Announce";
+	ViewData["Old"] = Model.StartDate;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -17,15 +18,15 @@
 	<div class="mb-5">
 		<h1 class="text-dark">Create Product</h1>
 	</div>
-	<form asp-action="Edit" asp-controller="Announce" class="w-50" enctype="multipart/form-data" method="post">
+		<form asp-action="Edit" asp-controller="Announce" class="w-50" enctype="multipart/form-data" method="post">
 		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 		<div class="form-floating">
-			<input asp-for="Title" class="form-control" type="text" placeholder="Title" id="floatingTitle" />
+			<input asp-for="Title" class="form-control" type="text" placeholder="Title" id="floatingTitle"/>
 			<label asp-for="Title" for="floatingTitle"></label>
 			<span asp-validation-for="Title" class="text-danger fs-5"></span>
 		</div>
 		<div class="form-floating">
-			<input asp-for="Price" class="form-control mt-3" type="text" placeholder="price" id="floatingPrice" />
+			<input asp-for="Price" class="form-control mt-3" type="text" placeholder="price" id="floatingPrice"/>
 			<label asp-for="Price" for="floatingPrice"></label>
 			<span asp-validation-for="Price" class="text-danger fs-5"></span>
 		</div>
@@ -39,12 +40,12 @@
 			<label for="floatingSelect">Categories</label>
 		</div>
 		<div class="form-floating">
-			<input asp-for="StartDate" class="form-control mt-3" type="datetime-local" placeholder="imageUrl" id="floatingDate" />
+			<input asp-for="StartDate" class="form-control mt-3" type="datetime-local" placeholder="imageUrl" id="floatingDate"/>
 			<label asp-for="StartDate" for="floatingDate"></label>
 			<span asp-validation-for="StartDate" class="text-danger fs-5"></span>
 		</div>
 		<div class="form-floating">
-			<input asp-for="ImageUrl" class="form-control mt-3" type="text" placeholder="imageUrl" id="floatingImageUrl" />
+			<input asp-for="ImageUrl" class="form-control mt-3" type="text" placeholder="imageUrl" id="floatingImageUrl"/>
 			<label asp-for="ImageUrl" for="floatingImageUrl"></label>
 			<span asp-validation-for="ImageUrl" class="text-danger fs-5"></span>
 		</div>

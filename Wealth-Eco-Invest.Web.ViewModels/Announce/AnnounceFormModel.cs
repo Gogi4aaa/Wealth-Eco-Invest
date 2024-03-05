@@ -24,10 +24,12 @@
 		public string ImageUrl { get; set; } = null!;
 
 		[Range(PriceMinLength,PriceMaxLength)]
-		public decimal Price { get; set; }
+        public decimal Price { get; set; }
 
 		[MyDate(ErrorMessage = "Invalid date")]
 		public DateTime StartDate { get; set; }
+
+        public DateTime OldDate { get; set; }
 
 		[Display(Name = "Category")]
 		public int CategoryId { get; set; }

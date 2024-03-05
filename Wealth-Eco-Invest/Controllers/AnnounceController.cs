@@ -131,8 +131,9 @@ namespace Wealth_Eco_Invest.Controllers
 		{
 			AnnounceFormModel announceForEdit = await this.announceService.GetAnnounceForEditAsync(id);
 			announceForEdit.Categories = await this.categoryService.AllCategoriesAsync();
-			return View(announceForEdit);
-		}
+            return View(announceForEdit);
+
+        }
 
 		[HttpPost]
 		[AllowAnonymous]

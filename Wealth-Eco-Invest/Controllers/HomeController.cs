@@ -1,12 +1,10 @@
-﻿using Wealth_Eco_Invest.Services.Data.Interfaces;
-
-namespace Wealth_Eco_Invest.Controllers
+﻿namespace Wealth_Eco_Invest.Controllers
 {
+	using Wealth_Eco_Invest.Services.Data.Interfaces;
+
 	using Web.Infrastructure.Extensions;
 
-
 	using Microsoft.AspNetCore.Mvc;
-	using Newtonsoft.Json;
 
 	using System.Diagnostics;
 	using System.Net.Http;
