@@ -24,13 +24,15 @@
         private readonly IAnnounceService announceService;
         private readonly IEmailSender emailSender;
 		private readonly IPurchaseService purchaseService;
+		private readonly INotificationService notificationService;
 
-		public ShoppingCartController(IShoppingCartService shoppingCartService, IAnnounceService announceService, IEmailSender emailSender, IPurchaseService purchaseService)
+		public ShoppingCartController(IShoppingCartService shoppingCartService, IAnnounceService announceService, IEmailSender emailSender, IPurchaseService purchaseService, INotificationService notificationService)
         {
             this.shoppingCartService = shoppingCartService;
             this.announceService = announceService;
 			this.emailSender = emailSender;
 			this.purchaseService = purchaseService;
+			this.notificationService = notificationService;
         }
 
         public async Task<IActionResult> All()
@@ -44,6 +46,14 @@
         {
             try
             {
+	            bool isAnnounceAlreadyBoughtByUser =
+		            await this.purchaseService.CheckIsThisAnnounceIsAlreadyBoughtByCurrentUser(id,
+			            Guid.Parse(this.User.GetId()!));
+	            if (isAnnounceAlreadyBoughtByUser)
+	            {
+		            TempData[WarningMessage] = "You are already registered for this announce!";
+					return RedirectToAction("All", "Announce");
+				}
                 await this.shoppingCartService.AddAnnounceToUser(id, Guid.Parse(this.User.GetId()!));
                 
                 TempData[SuccessMessage] = "Announce was added to cart!";
@@ -52,8 +62,6 @@
             {
                 TempData[ErrorMessage] = "Unexpected exception occurred";
             }
-
-            
 
             return RedirectToAction("All", "ShoppingCart");
         }
@@ -153,13 +161,29 @@
 				values: new { area = "" },
 				protocol: Request.Scheme);
 
-	        try
+			try
 	        {
-		        await this.purchaseService.PurchaseAnnounceAsync(id, Guid.Parse(this.User.GetId()!));
+		        bool isAnnounceAlreadyBoughtByUser =
+			        await this.purchaseService.CheckIsThisAnnounceIsAlreadyBoughtByCurrentUser(id, Guid.Parse(this.User.GetId()!));
+		        if (isAnnounceAlreadyBoughtByUser)
+		        {
+			        TempData[ErrorMessage] = "You have already participate in this announce!";
+					TempData[InformationMessage] = "Check your calendar!";
+
+			        return View();
+		        }
+				//TODO: email sending timer
+				var announceForTimer = await this.shoppingCartService.GetAnnounceByAnnounceId(id, Guid.Parse(this.User.GetId()!));
+
+				await this.notificationService.SendEmailNotification(announceForTimer, Guid.Parse(this.User.GetId()!));
+
+
+				await this.purchaseService.PurchaseAnnounceAsync(id, Guid.Parse(this.User.GetId()!));
 
 		        var announce = await this.shoppingCartService.GetAnnounceByAnnounceId(id, Guid.Parse(this.User.GetId()!));
 
 				await this.emailSender.SendEmailAsync(this.User.GetEmail()!, "Announce buying", AnnounceBuyingTemplate.Message(this.User.Identity!.Name!, callbackUrl, announce));
+
 
 				await this.shoppingCartService.DeleteAnnounceToUser(id, Guid.Parse(this.User.GetId()!));
 

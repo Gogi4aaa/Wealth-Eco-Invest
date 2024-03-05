@@ -1,6 +1,7 @@
-﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<ApplicationUser> SignInManager
+﻿@inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+
+<link rel="stylesheet" href="~/css/site.css">
 
 @* <ul class="navbar-nav"> *@
 @if (SignInManager.IsSignedIn(User))
@@ -9,20 +10,19 @@
             <a class="nav-link text-white menu-hover fs-5" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity?.Name</a>
     </span>
     <span>
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button type="submit" class="nav-link btn btn-link text-white menu-hover fs-5">Logout</button>
+		<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button type="submit" class="nav-link btn btn-link text-white menu-hover fs-5 nav-border-bottom">Logout</button>
         </form>
     </span>
 }
 else
 {
     <span>
-            <a class="nav-link text-white menu-hover fs-5" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        <a class="nav-link text-white menu-hover fs-5 nav-border-bottom" asp-area="Identity" asp-page="/Account/Register">Sign Up</a>
     </span>
     <span>
-            <a class="nav-link text-white menu-hover fs-5" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        <a class="nav-link text-white menu-hover fs-5 nav-border-bottom" asp-area="Identity" asp-page="/Account/Login">Sign In</a>
     </span>
 }
 @* </ul> *@
-
 <script src="~/js/site.js" asp-append-version="true"></script>

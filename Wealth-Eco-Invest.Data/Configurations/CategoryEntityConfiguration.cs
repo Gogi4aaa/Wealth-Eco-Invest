@@ -22,22 +22,22 @@
             category = new Category()
             {
                 Id = 1,
-                Name = "first"
-            };
+                Name = "afforestation"
+			};
 
             categories.Add(category);
 
             category = new Category()
             {
                 Id = 2,
-                Name = "second"
+                Name = "recycling"
             };
             categories.Add(category);
 
             category = new Category()
             {
                 Id = 3,
-                Name = "third"
+                Name = "cleaning"
             };
             categories.Add(category);
 

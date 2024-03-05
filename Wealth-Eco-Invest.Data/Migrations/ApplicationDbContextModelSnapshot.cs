@@ -173,8 +173,8 @@ namespace Wealth_Eco_Invest.Data.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(90)
-                        .HasColumnType("nvarchar(90)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
@@ -211,7 +211,7 @@ namespace Wealth_Eco_Invest.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("3bbdaaf4-7311-480a-b9b1-c5888231bfc6"),
+                            Id = new Guid("8e9524f2-1dd3-493a-9d99-b5c0d27fd838"),
                             CategoryId = 3,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "This rubbish pollutes the environment.You need to throw it in the trash bins!",
@@ -224,7 +224,7 @@ namespace Wealth_Eco_Invest.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("fcd90adb-2845-4c2f-9205-e74933cb898f"),
+                            Id = new Guid("644668ec-75bd-4a57-994c-8a011942666b"),
                             CategoryId = 1,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "The pollution is the worst thing ever.We need to stop it!",
@@ -237,7 +237,7 @@ namespace Wealth_Eco_Invest.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a750d747-0bf9-4294-b4d6-6c783a7cd34c"),
+                            Id = new Guid("0beeec07-5341-48fd-8ae6-6b53fa41f4bb"),
                             CategoryId = 2,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Water pollution destroy our beaches and oceans.We need to stop it fast!",
@@ -359,17 +359,17 @@ namespace Wealth_Eco_Invest.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "first"
+                            Name = "afforestation"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "second"
+                            Name = "recycling"
                         },
                         new
                         {
                             Id = 3,
-                            Name = "third"
+                            Name = "cleaning"
                         });
                 });
 

@@ -1,4 +1,9 @@
-﻿@model EnvironmentNewsServiceModel
+﻿@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+@inject IAdminService AdminService
+@using Microsoft.EntityFrameworkCore
+@using Wealth_Eco_Invest.Services.Data.Interfaces
+@model EnvironmentNewsServiceModel
 @{
     ViewData["Title"] = "Home Page";
 	
@@ -30,7 +35,6 @@
 }
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,70 +43,87 @@
 	<title>Home</title>
 </head>
 <body class="background">
-<div class="text-center d-flex">
-	<div class="row justify-content-center">
-		@{
-			foreach (var article in Model.Articles)
-			{
-				var body = article.Description;
-				var title = article.Title;
-				var author = "";
-				if (article.Author != null && article.Author != string.Empty)
-				{
-					author = article.Author;
-					if (article.Author.Length > 15)
-					{
-						author = "";
-						var i = 0;
-						while (i < 15)
-						{
-							author += article.Author[i++];
-						}
-						author += "...";
-					}
-				}
-				if (article.Description.Length > 55)
-				{
-					body = "";
-					var i = 0;
-					while (i < 55)
-					{
-						body += article.Description[i++];
-					}
-					body += "...";
-				}
-				if (article.Title.Length > 41)
-				{
-					title = "";
-					var i = 0;
-					while (i < 41)
-					{
-						title += article.Title[i++];
-					}
-					title += "...";
-				}
-				
+	@if (SignInManager.IsSignedIn(User) && await UserManager.IsInRoleAsync(await AdminService.GetUser(Guid.Parse(this.User.GetId()!)), "Administrator"))
+{
+	<table>
+		@*TODO: finish admin page*@
+		<thead>
+			<th>Username</th>
+			<th>Email</th>
+			<th>User Users</th>
+		</thead>
+		<tbody>
 
-				<div class="col-sm-6 card ms-2 me-2 mt-2 w-18 card-background">
-					@if (string.IsNullOrEmpty(@article.UrlToImage))
+		</tbody>
+	</table>
+}
+else
+{
+	<div class="text-center d-flex">
+		<div class="row justify-content-center">
+			@{
+				foreach (var article in Model.Articles)
+				{
+					var body = article.Description;
+					var title = article.Title;
+					var author = "";
+					if (article.Author != null && article.Author != string.Empty)
 					{
-						<img style="height: 220px; padding-top: 0.7rem;" src="~/no-image.png" class="card-img-top">
+						author = article.Author;
+						if (article.Author.Length > 15)
+						{
+							author = "";
+							var i = 0;
+							while (i < 15)
+							{
+								author += article.Author[i++];
+							}
+							author += "...";
+						}
 					}
-					else
+					if (article.Description.Length > 55)
 					{
-						<img style="height: 220px;padding-top: 0.7rem;" src="@article.UrlToImage" class="card-img-top">
+						body = "";
+						var i = 0;
+						while (i < 55)
+						{
+							body += article.Description[i++];
+						}
+						body += "...";
 					}
-					<div class="card-body pt-2">
+					if (article.Title.Length > 41)
+					{
+						title = "";
+						var i = 0;
+						while (i < 41)
+						{
+							title += article.Title[i++];
+						}
+						title += "...";
+					}
+
+
+					<div class="col-sm-6 card ms-2 me-2 mt-2 w-18 card-background">
+						@if (string.IsNullOrEmpty(@article.UrlToImage))
+						{
+							<img style="height: 220px; padding-top: 0.7rem;" src="~/no-image.png" class="card-img-top">
+						}
+						else
+						{
+							<img style="height: 220px;padding-top: 0.7rem;" src="@article.UrlToImage" class="card-img-top">
+						}
+						<div class="card-body pt-2">
 							<h5 class="card-title">@title</h5>
-						<p class="card-text">Author: <span class="fw-bold">@author</span></p>
-						<p class="card-text">@body</p>
-						<a href="@article.Url" target="_blank" class="btn btn-warning">More Information</a>
+							<p class="card-text">Author: <span class="fw-bold">@author</span></p>
+							<p class="card-text">@body</p>
+							<a href="@article.Url" target="_blank" class="btn btn-warning">More Information</a>
+						</div>
 					</div>
-				</div>
+				}
 			}
-		}
+		</div>
 	</div>
-</div>
+}
 <ul class="pagination d-flex justify-content-center mt-4">
 	<li class="page-item @(Model.CurrentPage == 1 ? "disabled" : string.Empty)">
 		<a class="btn btn-primary @(Model.CurrentPage == 1 ? "disabled" : string.Empty)"
@@ -112,10 +133,10 @@
 			<span aria-hidden="true">&laquo;</span>
 		</a>
 	</li>
-	@for(int i = startPage; i <= endPage; i++)
+	@for (int i = startPage; i <= endPage; i++)
 	{
 		<li class="page-item ms-1 me-1  @(i == Model.CurrentPage ? "active" : string.Empty)">
-			<a class="page-link rounded" 
+			<a class="page-link rounded"
 			   asp-controller="Home"
 			   asp-action="Index"
 			   asp-route-page="@i">@i</a>

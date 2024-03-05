@@ -2,20 +2,21 @@
 @{
 	ViewBag.Title = "Details";
 }
-<style>
-	@@media screen and (max-width: 768px) {
-		#imgId {
-			height: 400px;
-		}
-	}
-</style>
-
-<h2 class="text-center fs-1">@ViewBag.Title</h2>
-<hr class="text-white"/>
-<div class="d-flex justify-content-center">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="~/css/details.css">
+	<link rel="stylesheet" href="~/css/site.css">
+	<title>Details</title>
+</head>
+<body class="details-background">
+<div class="d-flex justify-content-center mt-5">
 	<div class="card" style="width: 50rem;">
 		<div class="card-body">
-			<h3 class="card-title text-center mt-1 mb-3 fs-2">@Model.Title</h3>
+			<h3 class="card-title text-center mt-3 mb-3 fs-2">@Model.Title</h3>
 			<div id="imgId" class="text-center" style="height: 465px;">
 				<img src="@Model.ImageUrl" style="border-radius: 5px" class="img-fluid h-100" />
 			</div>
@@ -30,20 +31,10 @@
 							Start Date:
 						</span>@Model.StartDate
 					</p>
-					@* <p class="card-text">
-						<span class="fw-bold fs-5">Owner:
-						</span>@Model.ProductOwner
-					</p> *@
-					@* <p class="card-text">
-						<span class="fw-bold fs-5">Created on:
-						</span>@Model.CreatedOn
-					</p> *@
 				</div>
 				<div class="col-5 col-md-6">
 					<p class="card-text text-success fs-3 fw-bold">
-						<span class="fw-bold text-black fs-3">
-							Price:
-						</span>@Model.Price lv.
+						@Model.Price lv.
 					</p>
 					@* <p class="card-text text-success fs-3 fw-bold">
 						<span class="fw-bold text-black fs-4">
@@ -53,14 +44,14 @@
 				</div>
 				@if (Model.Owner == User.Identity!.Name)
 				{
-					<div>
+					<div class="d-flex justify-content-end mt-4">
 						<a asp-action="Edit" asp-controller="Announce" asp-route-id="@Model.Id" class="btn btn-primary" style="width: 22%">Edit</a>
 						<a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-danger" style="width: 22%">Delete</a>
 					</div>
 				}
 				else
 				{
-					<div>
+					<div class="d-flex justify-content-end mt-4">
 						<a asp-action="Add" asp-controller="ShoppingCart" asp-route-id="@Model.Id" class="btn btn-warning" style="width: 22%">Add to Cart</a>
 					</div>
 				}
@@ -90,3 +81,5 @@
 	</div>
 </div>
 @* DELETE MODAL END*@
+</body>
+</html>

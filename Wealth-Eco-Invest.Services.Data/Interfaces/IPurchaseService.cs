@@ -8,5 +8,7 @@
 		Task PurchaseAnnounceAsync(Guid announceId, Guid userId);
 
 		Task<PurchaseViewModel> GetAllPurchasedAnnouncesByUserIdAsync(Guid id);
+
+		Task<bool> CheckIsThisAnnounceIsAlreadyBoughtByCurrentUser(Guid id, Guid userId);
 	}
 }

@@ -19,3 +19,24 @@ D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\bin\Debu
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\bin\Debug\net6.0\Wealth-Eco-Invest.Web.Infrastructure.dll
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\bin\Debug\net6.0\Wealth-Eco-Invest.Web.Infrastructure.pdb
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\bin\Debug\net6.0\Wealth-Eco-Invest.Data.pdb
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\bin\Debug\net6.0\Wealth-Eco-Invest.Web.ViewModels.deps.json
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\bin\Debug\net6.0\Wealth-Eco-Invest.Web.ViewModels.dll
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\bin\Debug\net6.0\Wealth-Eco-Invest.Web.ViewModels.pdb
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\bin\Debug\net6.0\Wealth-Eco-Invest.Common.dll
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\bin\Debug\net6.0\Wealth-Eco-Invest.Data.dll
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\bin\Debug\net6.0\Wealth-Eco-Invest.Data.Models.dll
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\bin\Debug\net6.0\Wealth-Eco-Invest.Web.Infrastructure.dll
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\bin\Debug\net6.0\Wealth-Eco-Invest.Common.pdb
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\bin\Debug\net6.0\Wealth-Eco-Invest.Data.Models.pdb
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\bin\Debug\net6.0\Wealth-Eco-Invest.Web.Infrastructure.pdb
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\bin\Debug\net6.0\Wealth-Eco-Invest.Data.pdb
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\obj\Debug\net6.0\Wealth-Eco-Invest.Web.ViewModels.csproj.AssemblyReference.cache
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\obj\Debug\net6.0\Wealth-Eco-Invest.Web.ViewModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\obj\Debug\net6.0\Wealth-Eco-Invest.Web.ViewModels.AssemblyInfoInputs.cache
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\obj\Debug\net6.0\Wealth-Eco-Invest.Web.ViewModels.AssemblyInfo.cs
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\obj\Debug\net6.0\Wealth-Eco-Invest.Web.ViewModels.csproj.CoreCompileInputs.cache
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\obj\Debug\net6.0\Wealth-Eco-Invest.Web.ViewModels.csproj.CopyComplete
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\obj\Debug\net6.0\Wealth-Eco-Invest.Web.ViewModels.dll
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\obj\Debug\net6.0\refint\Wealth-Eco-Invest.Web.ViewModels.dll
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\obj\Debug\net6.0\Wealth-Eco-Invest.Web.ViewModels.pdb
+C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.ViewModels\obj\Debug\net6.0\ref\Wealth-Eco-Invest.Web.ViewModels.dll

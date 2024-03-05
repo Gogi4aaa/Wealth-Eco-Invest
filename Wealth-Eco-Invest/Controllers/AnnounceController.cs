@@ -13,22 +13,24 @@ namespace Wealth_Eco_Invest.Controllers
     using IEmailSender = Services.Messaging.IEmailSender;
     using static Common.NotificationMessagesConstants;
     using Wealth_Eco_Invest.Services.Data.Models.Announces;
+	using static Common.GeneralApplicationConstants;
 
-    [Authorize]
+    [Authorize(Roles = "User")]
 	public class AnnounceController : Controller
     {
         private readonly IAnnounceService announceService;
         private readonly ICategoryService categoryService;
 		private readonly IEmailSender emailSender;
-        public AnnounceController(IAnnounceService announceService, ICategoryService categoryService,IEmailSender emailSender)
+		private readonly IAdminService adminService;
+        public AnnounceController(IAnnounceService announceService, ICategoryService categoryService,IEmailSender emailSender, IAdminService adminService)
         {
             this.announceService = announceService;
             this.categoryService = categoryService;
 			this.emailSender = emailSender;
+			this.adminService = adminService;
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public async Task<IActionResult> All([FromQuery] AnnounceQueryViewModel queryViewModel, int orderBy)
         {
 	        
@@ -101,6 +103,7 @@ namespace Wealth_Eco_Invest.Controllers
 		}
 
 		[HttpPost]
+		[AllowAnonymous]
 		public async Task<IActionResult> Delete(Guid id)
 		{
 			try
@@ -113,19 +116,27 @@ namespace Wealth_Eco_Invest.Controllers
 			{
 				TempData[ErrorMessage] = "Unexpected error occurred";
 			}
-			
+
+			if (await this.adminService.IsUserAdmin(Guid.Parse(this.User.GetId()!)))
+			{
+				return RedirectToAction("All", "Admin");
+			}
+
 			return RedirectToAction("All", "Announce");
 		}
 
 		[HttpGet]
+		[AllowAnonymous]
 		public async Task<IActionResult> Edit(Guid id)
 		{
 			AnnounceFormModel announceForEdit = await this.announceService.GetAnnounceForEditAsync(id);
 			announceForEdit.Categories = await this.categoryService.AllCategoriesAsync();
-			return View(announceForEdit);
-		}
+            return View(announceForEdit);
+
+        }
 
 		[HttpPost]
+		[AllowAnonymous]
 		public async Task<IActionResult> Edit(Guid id, AnnounceFormModel model)
 		{
 			if (!ModelState.IsValid)
@@ -144,7 +155,12 @@ namespace Wealth_Eco_Invest.Controllers
 			{
 				TempData[ErrorMessage] = "Unexpected error occurred";
 			}
-			
+
+			if (await this.adminService.IsUserAdmin(Guid.Parse(this.User.GetId()!)))
+			{
+				return RedirectToAction("All", "Admin");
+			}
+
 			return RedirectToAction("All", "Announce");
 		}
 
