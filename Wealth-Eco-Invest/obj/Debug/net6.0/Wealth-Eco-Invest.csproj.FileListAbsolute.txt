@@ -64,7 +64,6 @@ D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\obj\Debug\net6.0\static
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\obj\Debug\net6.0\scopedcss\bundle\Wealth-Eco-Invest.styles.css
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\obj\Debug\net6.0\scopedcss\projectbundle\Wealth-Eco-Invest.bundle.scp.css
-D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\obj\Debug\net6.0\Wealth-Eco-Invest.csproj.CopyComplete
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\obj\Debug\net6.0\Wealth-Eco-Invest.dll
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\obj\Debug\net6.0\refint\Wealth-Eco-Invest.dll
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\obj\Debug\net6.0\Wealth-Eco-Invest.pdb
@@ -626,3 +625,27 @@ C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.
 C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\tr-TR\Hangfire.Core.resources.dll
 C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\zh-TW\Hangfire.Core.resources.dll
 C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\zh\Hangfire.Core.resources.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Hangfire.AspNetCore.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Hangfire.Core.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Hangfire.NetCore.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Hangfire.SqlServer.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\ca\Hangfire.Core.resources.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\de\Hangfire.Core.resources.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\es\Hangfire.Core.resources.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\fa\Hangfire.Core.resources.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\fr\Hangfire.Core.resources.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\nb\Hangfire.Core.resources.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\nl\Hangfire.Core.resources.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\pt-BR\Hangfire.Core.resources.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\pt-PT\Hangfire.Core.resources.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\pt\Hangfire.Core.resources.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\sv\Hangfire.Core.resources.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\tr-TR\Hangfire.Core.resources.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\zh-TW\Hangfire.Core.resources.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\zh\Hangfire.Core.resources.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\bin\Debug\net6.0\Localization.AspNetCore.TagHelpers.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\obj\Debug\net6.0\Wealth-Eco-Invest.sourcelink.json
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest\obj\Debug\net6.0\Wealth-E.A289531D.Up2Date

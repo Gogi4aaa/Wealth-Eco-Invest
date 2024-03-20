@@ -1,6 +1,5 @@
 ﻿@inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
-
 <link rel="stylesheet" href="~/css/site.css">
 
 @* <ul class="navbar-nav"> *@
@@ -18,10 +17,10 @@
 else
 {
     <span>
-        <a class="nav-link text-white menu-hover fs-5 nav-border-bottom" asp-area="Identity" asp-page="/Account/Register">Sign Up</a>
+        <a class="nav-link text-white menu-hover fs-5 nav-border-bottom" asp-area="Identity" asp-page="/Account/Register">Register</a>
     </span>
     <span>
-        <a class="nav-link text-white menu-hover fs-5 nav-border-bottom" asp-area="Identity" asp-page="/Account/Login">Sign In</a>
+        <a class="nav-link text-white menu-hover fs-5 nav-border-bottom" asp-area="Identity" asp-page="/Account/Login">Login</a>
     </span>
 }
 @* </ul> *@

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "df52bpN3J7bX7fM7LbvEtN069i1ckytOftxgtX2sKaOIX1HcJtQcJfese5v3/2EJ6DMkk2nJCD8E743GbyaJMQ==",
+  "dgSpecHash": "RYtS+2bvqsoCCHm6JKgxTdmDJSSzjspaIpeO5grAPvlyso8u9VAzNeFg335zLN2GuKP+9YUBU3v6X/LrmhTO/A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Georgi\\source\\repos\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data\\Wealth-Eco-Invest.Services.Data.csproj",
+  "projectFilePath": "D:\\Wealth Eco Invest\\Wealth-Eco-Invest\\Wealth-Eco-Invest.Services.Data\\Wealth-Eco-Invest.Services.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Georgi\\.nuget\\packages\\hangfire.core\\1.8.10\\hangfire.core.1.8.10.nupkg.sha512",
     "C:\\Users\\Georgi\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.23\\microsoft.aspnetcore.cryptography.internal.6.0.23.nupkg.sha512",

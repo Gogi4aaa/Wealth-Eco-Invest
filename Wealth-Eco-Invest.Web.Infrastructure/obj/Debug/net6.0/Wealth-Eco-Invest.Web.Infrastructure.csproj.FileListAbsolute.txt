@@ -12,7 +12,6 @@ D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.Infrastructure\obj\
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.Infrastructure\obj\Debug\net6.0\Wealth-Eco-Invest.Web.Infrastructure.AssemblyInfoInputs.cache
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.Infrastructure\obj\Debug\net6.0\Wealth-Eco-Invest.Web.Infrastructure.AssemblyInfo.cs
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.Infrastructure\obj\Debug\net6.0\Wealth-Eco-Invest.Web.Infrastructure.csproj.CoreCompileInputs.cache
-D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.Infrastructure\obj\Debug\net6.0\Wealth-Eco-Invest.Web.Infrastructure.csproj.CopyComplete
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.Infrastructure\obj\Debug\net6.0\Wealth-Eco-Invest.Web.Infrastructure.dll
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.Infrastructure\obj\Debug\net6.0\refint\Wealth-Eco-Invest.Web.Infrastructure.dll
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.Infrastructure\obj\Debug\net6.0\Wealth-Eco-Invest.Web.Infrastructure.pdb
@@ -36,3 +35,5 @@ C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.Infrastruct
 C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.Infrastructure\obj\Debug\net6.0\refint\Wealth-Eco-Invest.Web.Infrastructure.dll
 C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.Infrastructure\obj\Debug\net6.0\Wealth-Eco-Invest.Web.Infrastructure.pdb
 C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.Infrastructure\obj\Debug\net6.0\ref\Wealth-Eco-Invest.Web.Infrastructure.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.Infrastructure\obj\Debug\net6.0\Wealth-Eco-Invest.Web.Infrastructure.sourcelink.json
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Web.Infrastructure\obj\Debug\net6.0\Wealth-E.6C807541.Up2Date

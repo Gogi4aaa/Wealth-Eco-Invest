@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
 namespace Wealth_Eco_Invest.Controllers
 {
-    using Data.Models;
+	using Data.Models;
     using Microsoft.AspNetCore.Authorization;
-    using Services.Data.Interfaces;
+	using Services.Data.Interfaces;
     using Services.Data.Models;
     using Services.Messaging.Templates;
     using Web.Infrastructure.Extensions;
@@ -22,7 +21,7 @@ namespace Wealth_Eco_Invest.Controllers
         private readonly ICategoryService categoryService;
 		private readonly IEmailSender emailSender;
 		private readonly IAdminService adminService;
-        public AnnounceController(IAnnounceService announceService, ICategoryService categoryService,IEmailSender emailSender, IAdminService adminService)
+		public AnnounceController(IAnnounceService announceService, ICategoryService categoryService,IEmailSender emailSender, IAdminService adminService)
         {
             this.announceService = announceService;
             this.categoryService = categoryService;
@@ -33,7 +32,7 @@ namespace Wealth_Eco_Invest.Controllers
         [HttpGet]
         public async Task<IActionResult> All([FromQuery] AnnounceQueryViewModel queryViewModel, int orderBy)
         {
-	        
+
 	        if (orderBy == 1)
 	        {
 				queryViewModel.AnnounceSorting = AnnounceSorting.Oldest;

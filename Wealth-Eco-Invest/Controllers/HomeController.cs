@@ -8,7 +8,8 @@
 
 	using System.Diagnostics;
 	using System.Net.Http;
-
+	using Microsoft.AspNetCore.Localization;
+	using Microsoft.Extensions.Localization;
 	using Models;
 	using NewsAPI;
 	using NewsAPI.Constants;
@@ -22,16 +23,20 @@
 		private readonly ILogger<HomeController> _logger;
 		private readonly HttpClient _client;
 		private readonly IAdminService adminService;
-		public HomeController(ILogger<HomeController> logger, IAdminService adminService)
+		//private readonly IStringLocalizer<HomeController> localizer;
+		public HomeController(ILogger<HomeController> logger, IAdminService adminService
+			/*IStringLocalizer<HomeController> localizer*/)
 		{
 			_logger = logger;
 			_client = new HttpClient();
 			this.adminService = adminService;
+			//this.localizer = localizer;
 		}
 
 		[HttpGet]
 		public async Task<IActionResult> Index(int page = 1)
 		{
+			//var value = this.localizer["Welcome"].Value;
 			if (!String.IsNullOrEmpty(this.User.GetId()!))
 			{
 				var isUserAdmin = await this.adminService.IsUserAdmin(Guid.Parse(this.User.GetId()!));
@@ -64,7 +69,6 @@
 			
 			return View(returnResponse);
 		}
-
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()

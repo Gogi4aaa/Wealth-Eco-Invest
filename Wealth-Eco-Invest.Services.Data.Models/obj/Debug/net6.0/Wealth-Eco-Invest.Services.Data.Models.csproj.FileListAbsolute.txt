@@ -10,7 +10,6 @@ D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\ob
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Data.Models.AssemblyInfoInputs.cache
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Data.Models.AssemblyInfo.cs
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Data.Models.csproj.CoreCompileInputs.cache
-D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Data.Models.csproj.CopyComplete
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Data.Models.dll
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\obj\Debug\net6.0\refint\Wealth-Eco-Invest.Services.Data.Models.dll
 D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Data.Models.pdb
@@ -44,3 +43,5 @@ C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.M
 C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\obj\Debug\net6.0\refint\Wealth-Eco-Invest.Services.Data.Models.dll
 C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Data.Models.pdb
 C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\obj\Debug\net6.0\ref\Wealth-Eco-Invest.Services.Data.Models.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\obj\Debug\net6.0\Wealth-Eco-Invest.Services.Data.Models.sourcelink.json
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\obj\Debug\net6.0\Wealth-E.1B0182DF.Up2Date

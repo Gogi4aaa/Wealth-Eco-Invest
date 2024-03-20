@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Wealth_Eco_Invest.Services.Data.Models
-build_property.ProjectDir = C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\
+build_property.ProjectDir = D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Services.Data.Models\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

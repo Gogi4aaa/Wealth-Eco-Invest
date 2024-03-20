@@ -21,3 +21,4 @@ C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Common\obj\Debu
 C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Common\obj\Debug\net6.0\refint\Wealth-Eco-Invest.Common.dll
 C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Common\obj\Debug\net6.0\Wealth-Eco-Invest.Common.pdb
 C:\Users\Georgi\source\repos\Wealth-Eco-Invest\Wealth-Eco-Invest.Common\obj\Debug\net6.0\ref\Wealth-Eco-Invest.Common.dll
+D:\Wealth Eco Invest\Wealth-Eco-Invest\Wealth-Eco-Invest.Common\obj\Debug\net6.0\Wealth-Eco-Invest.Common.sourcelink.json
