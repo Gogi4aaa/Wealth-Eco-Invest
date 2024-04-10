@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\Wealth-Eco-Invest.WebApi.props" />
-</Project>
