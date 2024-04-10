@@ -1,12 +1,12 @@
 ﻿@inject UserManager<ApplicationUser> UserManager
 @inject SignInManager<ApplicationUser> SignInManager
 @inject IAdminService AdminService
-@using Microsoft.EntityFrameworkCore
 @using Wealth_Eco_Invest.Services.Data.Interfaces
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Wealth_Eco_Invest.Controllers
 @model EnvironmentNewsServiceModel
 @{
     ViewData["Title"] = "Home Page";
-	
 	int startPage = Model.CurrentPage - 5;
 	int endPage = Model.CurrentPage + 4;
 	int maxPage = (int)Math.Ceiling((double)Model.TotalNews / (double)Model.NewsPerPage);

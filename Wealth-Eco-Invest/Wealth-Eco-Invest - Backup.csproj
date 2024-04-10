@@ -36,4 +36,10 @@
     <ProjectReference Include="..\Wealth-Eco-Invest.Web.ViewModels\Wealth-Eco-Invest.Web.ViewModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Views\Home\Index.en-US.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

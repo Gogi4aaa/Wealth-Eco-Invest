@@ -1,10 +1,16 @@
+using System.Globalization;
+using System.Reflection;
 using Hangfire;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Stripe;
 using Wealth_Eco_Invest.Data;
 using Wealth_Eco_Invest.Data.Models;
+using Wealth_Eco_Invest.Models;
 using Wealth_Eco_Invest.Services.Data.Interfaces;
 using Wealth_Eco_Invest.Services.Messaging;
 using Wealth_Eco_Invest.Web.Infrastructure.Extensions;
@@ -37,7 +43,8 @@ builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.AddControllersWithViews()
 	.AddMvcOptions(options =>
 	{
-		options.ModelBinderProviders.Insert(0,new DecimalModelBinderProvider());
+		options.EnableEndpointRouting = false;
+		options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
 		options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
 	});
 

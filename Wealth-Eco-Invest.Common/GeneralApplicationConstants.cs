@@ -8,7 +8,7 @@ namespace Wealth_Eco_Invest.Common
         public const string AdminAreaName = "Admin";
         public const string AdminRoleName = "Administrator";
         public const string DevelopmentAdminEmail = "administrator@gmail.com";
-        public const string AdminId = "6721a91c-5048-435e-88b2-63ea2c4c7c19";
+        public const string AdminId = "fc919f02-cc04-4ddf-8e25-7a02ba70fdd5";
         public const int UsersPerPage = 10;
 
         //User
