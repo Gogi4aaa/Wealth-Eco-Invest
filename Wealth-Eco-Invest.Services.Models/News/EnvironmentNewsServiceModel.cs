@@ -1,4 +1,10 @@
-﻿namespace Wealth_Eco_Invest.Services.Data.Models.News
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Wealth_Eco_Invest.Services.Models.News
 {
 	using NewsAPI.Models;
 	using Common;

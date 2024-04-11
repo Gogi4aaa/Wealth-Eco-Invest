@@ -1,6 +1,6 @@
-﻿namespace Wealth_Eco_Invest.Services.Data.Models.Admin
+﻿namespace Wealth_Eco_Invest.Services.Models.Admin
 {
-	using Wealth_Eco_Invest.Web.ViewModels.Admin;
+	using Web.ViewModels.Admin;
 
 	public class AdminServiceModel : AllUsersViewModel
 	{

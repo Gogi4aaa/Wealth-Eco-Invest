@@ -1,9 +1,9 @@
 ﻿namespace Wealth_Eco_Invest.Web.ViewModels.Announce
 {
 	using System.ComponentModel.DataAnnotations;
+	using Microsoft.AspNetCore.Http;
 	using Category;
 	using Infrastructure.CustomValidationAttributes;
-	using Microsoft.AspNetCore.Http;
 	using static Common.ValidationConstants.Announce;
 	using static Common.ErrorMessages.Announce;
 	public class AnnounceFormModel

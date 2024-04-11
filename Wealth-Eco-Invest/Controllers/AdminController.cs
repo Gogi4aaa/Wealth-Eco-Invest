@@ -1,13 +1,12 @@
 ﻿namespace Wealth_Eco_Invest.Controllers
 {
 	using Wealth_Eco_Invest.Services.Data.Interfaces;
-	using Wealth_Eco_Invest.Services.Data.Models.Admin;
 
 	using Web.ViewModels.Admin;
 
 	using Microsoft.AspNetCore.Authorization;
 	using Microsoft.AspNetCore.Mvc;
-
+	using Services.Models.Admin;
 	using static Common.GeneralApplicationConstants;
 	[Authorize(Roles = "Administrator")]
 	public class AdminController : Controller

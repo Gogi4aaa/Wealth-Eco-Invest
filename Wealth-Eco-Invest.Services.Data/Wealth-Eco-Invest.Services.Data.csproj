@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Hangfire.Core" Version="1.8.10" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,6 +17,7 @@
     <ProjectReference Include="..\Wealth-Eco-Invest.Data\Wealth-Eco-Invest.Data.csproj" />
     <ProjectReference Include="..\Wealth-Eco-Invest.Services.Data.Models\Wealth-Eco-Invest.Services.Data.Models.csproj" />
     <ProjectReference Include="..\Wealth-Eco-Invest.Services.Messaging\Wealth-Eco-Invest.Services.Messaging.csproj" />
+    <ProjectReference Include="..\Wealth-Eco-Invest.Services.Models\Wealth-Eco-Invest.Services.Models.csproj" />
     <ProjectReference Include="..\Wealth-Eco-Invest.Web.ViewModels\Wealth-Eco-Invest.Web.ViewModels.csproj" />
   </ItemGroup>
 
