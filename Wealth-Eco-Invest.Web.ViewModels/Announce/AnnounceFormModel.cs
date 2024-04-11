@@ -3,6 +3,7 @@
 	using System.ComponentModel.DataAnnotations;
 	using Category;
 	using Infrastructure.CustomValidationAttributes;
+	using Microsoft.AspNetCore.Http;
 	using static Common.ValidationConstants.Announce;
 	using static Common.ErrorMessages.Announce;
 	public class AnnounceFormModel
@@ -19,6 +20,8 @@
 		[Required]
 		[StringLength(DescriptionMaxLength,MinimumLength = DescriptionMinLength,ErrorMessage = DescriptionErrorMessage)]
 		public string Description { get; set; } = null!;
+
+		public IFormFile ProductImage { get; set; }
 
 		[Display(Name = "Image Link")]
 		public string ImageUrl { get; set; } = null!;
