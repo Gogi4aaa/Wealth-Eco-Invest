@@ -4,6 +4,8 @@
 
 	public interface IMessageService
 	{
-		Task<List<AllMessagesViewModel>> GetAllMessagesByUserAsync(Guid userId);
+		Task<List<AllChatsViewModel>> GetAllChatsByUserId(Guid userId);
+		Task<List<MessageViewModel>> GetAllMessagesByChatIdAsync(Guid chatId);
+
 	}
 }

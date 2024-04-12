@@ -1,12 +1,10 @@
 ﻿namespace Wealth_Eco_Invest.Web.ViewModels.Messages
 {
-	public class AllMessagesViewModel
+	public class AllChatsViewModel
 	{
 		public string Name { get; set; }
 
-		public string Message { get; set; }
-
-		public DateTime TypedOn { get; set; }
+		public DateTime StartedOn { get; set; }
 
 		public Guid UserTo { get; set; }
 

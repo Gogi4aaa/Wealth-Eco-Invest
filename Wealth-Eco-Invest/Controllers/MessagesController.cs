@@ -14,14 +14,22 @@
 			this.messageService = messageService;
 			this.userService = userService;
 		}
+
+		[HttpGet]
 		public async Task<IActionResult> All()
 		{
-			var all = await this.messageService.GetAllMessagesByUserAsync(Guid.Parse(this.User.GetId()!));
-			foreach (var message in all)
+			var all = await this.messageService.GetAllChatsByUserId(Guid.Parse(this.User.GetId()!));
+			foreach (var chat in all)
 			{
-				message.Name = await this.userService.GetUserNameByIdAsync(message.UserTo);
+				chat.Name = await this.userService.GetUserNameByIdAsync(chat.UserTo);
 			}
-			return View();
+
+			return View(all);
+		}
+
+		public async Task<JsonResult> GetChat(Guid chatId)
+		{
+			return Json(new MessageViewModel());
 		}
 	}
 }

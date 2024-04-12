@@ -5,6 +5,10 @@
 
 	public class Chat
 	{
+		public Chat()
+		{
+			this.Messages = new HashSet<Message>();
+		}
 		[Key]
 		public Guid Id { get; set; }
 
@@ -12,14 +16,14 @@
 
 		public Guid UserTo { get; set; }
 
-		public string Message { get; set; }
-
-		public DateTime TypedOn { get; set; }
+		public DateTime StartedOn { get; set; }
 
 		[ForeignKey(nameof(Announce))]
 		public Guid AnnounceId { get; set; }
 
 		public Announce Announce { get; set; }
+
+		public ICollection<Message> Messages { get; set; }
 
 	}
 }
