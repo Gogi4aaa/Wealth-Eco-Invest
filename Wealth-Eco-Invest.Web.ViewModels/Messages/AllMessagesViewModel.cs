@@ -7,5 +7,9 @@
 		public string Message { get; set; }
 
 		public DateTime TypedOn { get; set; }
+
+		public Guid UserTo { get; set; }
+
+		public Guid UserFrom { get; set; }
 	}
 }
