@@ -1,6 +1,7 @@
 ﻿namespace Wealth_Eco_Invest.Web.ViewModels.Announce
 {
 	using System.ComponentModel.DataAnnotations;
+	using Microsoft.AspNetCore.Http;
 	using Category;
 	using Infrastructure.CustomValidationAttributes;
 	using static Common.ValidationConstants.Announce;
@@ -19,6 +20,8 @@
 		[Required]
 		[StringLength(DescriptionMaxLength,MinimumLength = DescriptionMinLength,ErrorMessage = DescriptionErrorMessage)]
 		public string Description { get; set; } = null!;
+
+		public IFormFile ProductImage { get; set; }
 
 		[Display(Name = "Image Link")]
 		public string ImageUrl { get; set; } = null!;

@@ -8,15 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CloudinaryDotNet" Version="1.26.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.23" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.23" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Wealth-Eco-Invest.Common\Wealth-Eco-Invest.Common.csproj" />
     <ProjectReference Include="..\Wealth-Eco-Invest.Data.Models\Wealth-Eco-Invest.Data.Models.csproj" />
     <ProjectReference Include="..\Wealth-Eco-Invest.Data\Wealth-Eco-Invest.Data.csproj" />
+    <ProjectReference Include="..\Wealth-Eco-Invest.Web.ViewModels\Wealth-Eco-Invest.Web.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

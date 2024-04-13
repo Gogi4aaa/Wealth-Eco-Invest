@@ -5,11 +5,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Stripe;
 using Wealth_Eco_Invest.Data;
 using Wealth_Eco_Invest.Data.Models;
+using Wealth_Eco_Invest.Hubs;
 using Wealth_Eco_Invest.Models;
 using Wealth_Eco_Invest.Services.Data.Interfaces;
 using Wealth_Eco_Invest.Services.Messaging;
@@ -47,6 +49,7 @@ builder.Services.AddControllersWithViews()
 		options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
 		options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
 	});
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -84,5 +87,5 @@ app.MapControllerRoute(
 	pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapRazorPages();
-
+app.MapHub<ChatHub>("/chatHub");
 app.Run();

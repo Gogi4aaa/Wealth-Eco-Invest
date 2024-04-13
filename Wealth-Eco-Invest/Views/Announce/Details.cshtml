@@ -42,6 +42,16 @@
 						</span>@Model.StartDate
 					</p> *@
 				</div>
+				<div class="col-7 col-md-6">
+					<p class="card-text">
+						<span class="fw-bold text-black fs-5">
+							Owner:
+						</span>@Model.Owner
+					</p>
+					<a asp-action="Add" asp-controller="Chat" asp-route-ownerName="@Model.Owner" asp-route-announceId="@Model.Id" class="card-text">
+						Съобщение
+					</a>
+				</div>
 				@if (Model.Owner == User.Identity!.Name)
 				{
 					<div class="d-flex justify-content-end mt-4">

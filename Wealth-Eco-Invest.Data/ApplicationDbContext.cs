@@ -18,6 +18,8 @@
         public DbSet<Announce> Announces { get; set; } = null!;
         public DbSet<Cart> Carts { get; set; } = null!;
         public DbSet<Purchase> Purchases { get; set; } = null!;
+        public DbSet<Chat> Chats { get; set; } = null!;
+        public DbSet<Message> Messages { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

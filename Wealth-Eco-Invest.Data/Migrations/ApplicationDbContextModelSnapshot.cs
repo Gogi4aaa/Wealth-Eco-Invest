@@ -17,7 +17,7 @@ namespace Wealth_Eco_Invest.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.26")
+                .HasAnnotation("ProductVersion", "6.0.27")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -211,7 +211,7 @@ namespace Wealth_Eco_Invest.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8e9524f2-1dd3-493a-9d99-b5c0d27fd838"),
+                            Id = new Guid("30e68ff8-ed5a-4845-b4fd-7f411a200307"),
                             CategoryId = 3,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "This rubbish pollutes the environment.You need to throw it in the trash bins!",
@@ -224,7 +224,7 @@ namespace Wealth_Eco_Invest.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("644668ec-75bd-4a57-994c-8a011942666b"),
+                            Id = new Guid("563a95b5-8ca7-4afb-bf6c-744e727fc099"),
                             CategoryId = 1,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "The pollution is the worst thing ever.We need to stop it!",
@@ -237,7 +237,7 @@ namespace Wealth_Eco_Invest.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0beeec07-5341-48fd-8ae6-6b53fa41f4bb"),
+                            Id = new Guid("ac2be51f-10a4-47b5-91d5-6694bf8d1800"),
                             CategoryId = 2,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Water pollution destroy our beaches and oceans.We need to stop it fast!",
@@ -373,6 +373,54 @@ namespace Wealth_Eco_Invest.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Wealth_Eco_Invest.Data.Models.Chat", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AnnounceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("StartedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserFrom")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserTo")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AnnounceId");
+
+                    b.ToTable("Chats");
+                });
+
+            modelBuilder.Entity("Wealth_Eco_Invest.Data.Models.Message", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ChatId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("TypedOn")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChatId");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("Wealth_Eco_Invest.Data.Models.Purchase", b =>
                 {
                     b.Property<Guid>("Id")
@@ -473,6 +521,28 @@ namespace Wealth_Eco_Invest.Data.Migrations
                     b.Navigation("Announce");
                 });
 
+            modelBuilder.Entity("Wealth_Eco_Invest.Data.Models.Chat", b =>
+                {
+                    b.HasOne("Wealth_Eco_Invest.Data.Models.Announce", "Announce")
+                        .WithMany()
+                        .HasForeignKey("AnnounceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Announce");
+                });
+
+            modelBuilder.Entity("Wealth_Eco_Invest.Data.Models.Message", b =>
+                {
+                    b.HasOne("Wealth_Eco_Invest.Data.Models.Chat", "Chat")
+                        .WithMany("Messages")
+                        .HasForeignKey("ChatId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Chat");
+                });
+
             modelBuilder.Entity("Wealth_Eco_Invest.Data.Models.Purchase", b =>
                 {
                     b.HasOne("Wealth_Eco_Invest.Data.Models.Announce", "Announce")
@@ -492,6 +562,11 @@ namespace Wealth_Eco_Invest.Data.Migrations
             modelBuilder.Entity("Wealth_Eco_Invest.Data.Models.Category", b =>
                 {
                     b.Navigation("Announces");
+                });
+
+            modelBuilder.Entity("Wealth_Eco_Invest.Data.Models.Chat", b =>
+                {
+                    b.Navigation("Messages");
                 });
 #pragma warning restore 612, 618
         }

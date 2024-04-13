@@ -3,9 +3,9 @@
     using Interfaces;
     using Microsoft.EntityFrameworkCore;
     using Models;
+    using Models.Announce;
     using Wealth_Eco_Invest.Data;
     using Wealth_Eco_Invest.Data.Models;
-    using Wealth_Eco_Invest.Services.Data.Models.Announces;
     using Web.ViewModels.Announce;
     using Web.ViewModels.Announce.Enums;
     using static Common.GeneralApplicationConstants;

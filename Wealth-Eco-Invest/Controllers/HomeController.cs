@@ -14,7 +14,7 @@
 	using NewsAPI;
 	using NewsAPI.Constants;
 	using NewsAPI.Models;
-	using Services.Data.Models.News;
+	using Services.Models.News;
 	using static Common.GeneralApplicationConstants;
 	using static Common.NotificationMessagesConstants;
 	

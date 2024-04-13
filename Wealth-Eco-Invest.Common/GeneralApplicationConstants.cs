@@ -32,5 +32,12 @@ namespace Wealth_Eco_Invest.Common
         public const int TotalNews = 40;//change how much news i want on main page
         public const int NewsPerPage = 8; //change how much news will be on one page
 
-    }
+
+        //Error message
+        public const string CommonErrorMessage = "Възникна неочаквана грешка!";
+
+		//cloudinary
+		public const string CloudinaryApi =
+			"cloudinary://312758823981794:Et5OYp91YC5IB8gzO8HWFCxuiQA@dzrp3c1cv";
+	}
 }

@@ -1,17 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
-namespace Wealth_Eco_Invest.Controllers
+﻿namespace Wealth_Eco_Invest.Controllers
 {
+	using Microsoft.AspNetCore.Mvc;
 	using Data.Models;
     using Microsoft.AspNetCore.Authorization;
 	using Services.Data.Interfaces;
-    using Services.Data.Models;
-    using Services.Messaging.Templates;
-    using Web.Infrastructure.Extensions;
+	using Services.Messaging.Templates;
+	using Services.Models.Announce;
+	using Web.Infrastructure.Extensions;
     using Web.ViewModels.Announce;
     using Web.ViewModels.Announce.Enums;
     using IEmailSender = Services.Messaging.IEmailSender;
     using static Common.NotificationMessagesConstants;
-    using Wealth_Eco_Invest.Services.Data.Models.Announces;
+	using Web.Infrastructure.Files;
+	using Web.Infrastructure.ImagesCloud;
 	using static Common.GeneralApplicationConstants;
 
     [Authorize(Roles = "User")]
@@ -21,12 +22,14 @@ namespace Wealth_Eco_Invest.Controllers
         private readonly ICategoryService categoryService;
 		private readonly IEmailSender emailSender;
 		private readonly IAdminService adminService;
+		private readonly CloudinarySetUp cloudinarySetUp;
 		public AnnounceController(IAnnounceService announceService, ICategoryService categoryService,IEmailSender emailSender, IAdminService adminService)
         {
             this.announceService = announceService;
             this.categoryService = categoryService;
 			this.emailSender = emailSender;
 			this.adminService = adminService;
+			this.cloudinarySetUp = new CloudinarySetUp();
         }
 
         [HttpGet]
@@ -73,24 +76,43 @@ namespace Wealth_Eco_Invest.Controllers
         }
 
         [HttpPost]
-		public async Task<IActionResult> Add(AnnounceFormModel formModel)
+		public async Task<IActionResult> Add(AnnounceFormModel model)
         {
-	        if (!ModelState.IsValid)
+	        ModelState.Remove(nameof(model.ImageUrl));
+			if (!ModelState.IsValid)
 	        {
-		        formModel.Categories = await this.categoryService.AllCategoriesAsync();
-				return View(formModel);
+		        model.Categories = await this.categoryService.AllCategoriesAsync();
+				return View(model);
 	        }
-	        formModel.UserId = Guid.Parse(this.User.GetId()!);
+	        string fullPath = String.Empty;
+	        bool isFileCreated = false;
 	        try
 	        {
-				await this.announceService.AddAnnounceAsync(formModel);
-				TempData[SuccessMessage] = "You successfully added your announce!";
-	        }
+		        model.UserId = Guid.Parse(this.User.GetId()!);
+		        string fileName = model.ProductImage.FileName;
+		        model.ImageUrl = fileName;
+		        CreateFile.CreateImageFile(model);
+		        isFileCreated = true;
+		        fullPath = Path.GetFullPath(fileName);
+		        await cloudinarySetUp.UploadAsync(fullPath);
+		        var correctImageUrl = cloudinarySetUp.GenerateImageUrl(fileName);
+		        model.ImageUrl = correctImageUrl;
+
+				await this.announceService.AddAnnounceAsync(model);
+			}
 	        catch (Exception e)
 	        {
-		        TempData[ErrorMessage] = "Unexpected error occurred";
+		        TempData[ErrorMessage] = CommonErrorMessage;
+		        return View(model);
 	        }
-			
+	        finally
+	        {
+		        if (isFileCreated)
+		        {
+			        System.IO.File.Delete(fullPath);
+		        }
+	        }
+	        TempData[SuccessMessage] = "Успешно добавихте нов продукт!";
 	        return RedirectToAction("All", "Announce");
         }
         [HttpGet]
@@ -138,24 +160,52 @@ namespace Wealth_Eco_Invest.Controllers
 		[AllowAnonymous]
 		public async Task<IActionResult> Edit(Guid id, AnnounceFormModel model)
 		{
+			ModelState.Remove(nameof(model.ImageUrl));
+			ModelState.Remove(nameof(model.ProductImage));
 			if (!ModelState.IsValid)
 			{
 				model.Categories = await this.categoryService.AllCategoriesAsync();
 				return View(model);
 			}
-
+			model.UserId = Guid.Parse(this.User.GetId()!);
+			string fullPath = String.Empty;
+			bool isFileCreated = false;
 			try
 			{
+				if (model.ProductImage == null)
+				{
+					var item = await this.announceService.GetAnnounceForDetailsByIdAsync(id);
+					model.ImageUrl = item.ImageUrl;
+				}
+				else
+				{
+					string fileName = model.ProductImage.FileName;
+					model.ImageUrl = fileName;
+					CreateFile.CreateImageFile(model);
+					isFileCreated = true;
+					fullPath = Path.GetFullPath(fileName);
+					await cloudinarySetUp.UploadAsync(fullPath);
+					var correctImageUrl = cloudinarySetUp.GenerateImageUrl(fileName);
+					model.ImageUrl = correctImageUrl;
+				}
+
 				await this.announceService.EditAnnounceByIdAndFormModelAsync(id, model);
 
-				TempData[SuccessMessage] = "Your announce was updated!";
+				TempData[SuccessMessage] = "Вашият продукт е успешно редактиран!";
 			}
-			catch (Exception)
+			catch (Exception e)
 			{
-				TempData[ErrorMessage] = "Unexpected error occurred";
+				TempData[ErrorMessage] = CommonErrorMessage;
+			}
+			finally
+			{
+				if (isFileCreated)
+				{
+					System.IO.File.Delete(fullPath);
+				}
 			}
 
-			if (await this.adminService.IsUserAdmin(Guid.Parse(this.User.GetId()!)))
+			if (this.User.IsInRole(AdminRoleName))
 			{
 				return RedirectToAction("All", "Admin");
 			}

@@ -23,6 +23,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
     <PackageReference Include="NewsAPI" Version="0.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Stripe.net" Version="43.12.0" />
   </ItemGroup>
 
@@ -32,6 +33,7 @@
     <ProjectReference Include="..\Wealth-Eco-Invest.Data\Wealth-Eco-Invest.Data.csproj" />
     <ProjectReference Include="..\Wealth-Eco-Invest.Services.Data\Wealth-Eco-Invest.Services.Data.csproj" />
     <ProjectReference Include="..\Wealth-Eco-Invest.Services.Messaging\Wealth-Eco-Invest.Services.Messaging.csproj" />
+    <ProjectReference Include="..\Wealth-Eco-Invest.Services.Models\Wealth-Eco-Invest.Services.Models.csproj" />
     <ProjectReference Include="..\Wealth-Eco-Invest.Web.Infrastructure\Wealth-Eco-Invest.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\Wealth-Eco-Invest.Web.ViewModels\Wealth-Eco-Invest.Web.ViewModels.csproj" />
   </ItemGroup>
