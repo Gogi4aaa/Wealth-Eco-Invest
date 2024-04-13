@@ -3,6 +3,7 @@
 	using Interfaces;
 	using Microsoft.EntityFrameworkCore;
 	using Wealth_Eco_Invest.Data;
+	using Wealth_Eco_Invest.Data.Models;
 	using Web.ViewModels.Messages;
 
 	public class MessageService : IMessageService
@@ -11,22 +12,6 @@
 		public MessageService(ApplicationDbContext dbContext)
 		{
 			this.dbContext = dbContext;
-		}
-
-		public async Task<List<AllChatsViewModel>> GetAllChatsByUserId(Guid userId)
-		{
-			var all = await this.dbContext
-				.Chats
-				.Where(x => x.UserFrom == userId)
-				.Select(x => new AllChatsViewModel()
-				{
-					UserTo = x.UserTo,
-					UserFrom = x.UserFrom,
-					StartedOn = x.StartedOn
-				})
-				.ToListAsync();
-
-			return all;
 		}
 
 		public async Task<List<MessageViewModel>> GetAllMessagesByChatIdAsync(Guid chatId)
@@ -46,5 +31,17 @@
 			return all;
 		}
 
+		public async Task SaveMessageAsync(string message, Guid chatId)
+		{
+			var messageToAdd = new Message()
+			{
+				TypedOn = DateTime.Now,
+				Content = message,
+				ChatId = chatId,
+			};
+
+			await this.dbContext.Messages.AddAsync(messageToAdd);
+			await this.dbContext.SaveChangesAsync();
+		}
 	}
 }

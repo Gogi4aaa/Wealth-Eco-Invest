@@ -1,6 +1,7 @@
 ﻿namespace Wealth_Eco_Invest.Services.Data
 {
 	using Interfaces;
+	using Microsoft.EntityFrameworkCore;
 	using Wealth_Eco_Invest.Data;
 
 	public class UserService : IUserService
@@ -17,6 +18,23 @@
 				.FindAsync(userId);
 
 			return user.UserName;
+		}
+
+		public async Task<Guid> GetUserIdByUsernameAsync(string username)
+		{
+			var user = await this.dbContext
+				.Users
+				.FirstOrDefaultAsync(x => x.UserName == username);
+			return user.Id;
+		}
+
+		public async Task<bool> IsCurrentUserTyping(Guid chatId, Guid userId)
+		{
+			var chat = await this.dbContext
+				.Chats
+				.FindAsync(chatId);
+
+			return chat.UserFrom == userId;
 		}
 	}
 }

@@ -48,7 +48,7 @@
 							Owner:
 						</span>@Model.Owner
 					</p>
-					<a class="card-text">
+					<a asp-action="Add" asp-controller="Chat" asp-route-ownerName="@Model.Owner" asp-route-announceId="@Model.Id" class="card-text">
 						Съобщение
 					</a>
 				</div>
