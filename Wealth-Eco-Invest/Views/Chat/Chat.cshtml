@@ -17,56 +17,64 @@
 		{ 11, "Ное" },
 		{ 12, "Дек" },
 	};
+	string userTypingClasses = "bg-primary";
+	string flexContent = "align-items-start";
 	string date = "";
+	bool isUserActive = UserService.IsCurrentUserTyping(Model.Id, Guid.Parse(this.User.GetId())).Result;
+	if (isUserActive)
+	{
+		userTypingClasses = "bg-light";
+		flexContent = "align-items-end";
+	}
 }
-<div class="col-7 px-0">
-	<div class="px-4 py-5 chat-box bg-white">
-		<ul id="messagesList">
-
-		</ul>
-		@foreach (var message in Model.Messages)
+<div class="px-0">
+<div class="px-4 py-5 chat-box bg-white d-flex justify-content-end flex-column @flexContent">@* now user is receiver if i change it user will be sender *@
+	@foreach (var message in Model.Messages)
+	{
+		string activeUserClassesIn = "media text-center ml-auto mb-3";
+		string bodyClassIn = "bg-primary";
+		bool isUserActiveIn = UserService.IsCurrentUserTyping(Model.Id, @message.UserFrom).Result;
+		if (isUserActiveIn)
 		{
-			foreach (var (key,value) in days)
-			{
-				if (key == @message.TypedOn.Month)
-				{
-					date = value;
-					break;
-				}
-			}
-			string activeUserClasses = "media w-50 ml-auto mb-3";
-			string bodyClass = "bg-primary";
-			bool isUserActive = UserService.IsCurrentUserTyping(Model.Id, Guid.Parse(this.User.GetId())).Result;
-			if (isUserActive)
-			{
-				activeUserClasses = "media w-50 mb-3";
-				bodyClass = "bg-light";
-			}
-
-			<!-- Sender Message-->
-			<div class="@activeUserClasses">
-				<div class="media-body ml-3">
-					<div class="@bodyClass rounded py-2 px-3 mb-2">
-						@message.Message
-					</div>
-					<p class="small text-muted">@message.TypedOn.ToString("tt") | @message.TypedOn.Day @date</p>
-				</div>
-			</div>
+			flexContent = "align-items-end";
+			userTypingClasses = "bg-light";
+			activeUserClassesIn = "media text-center mb-3";
+			bodyClassIn = "bg-light";
 		}
-		<p class="bg-light rounded py-2 px-3 mb-2" id="textDiv" class="text-small mb-0 text-muted" hidden></p>
-	</div>
-	<!-- Typing area -->
-	<div class="input-group">
-			<input type="text" id="userInput" value="@this.User.Identity.Name" hidden/>
-			<input id="messageInput" type="text" placeholder="Type a message" class="form-control rounded-0 border-0 py-4 bg-light">
-			<input id="chatDiv" value="@Model.Id" hidden/>
-			<div class="input-group-append">
-				<button id="sendButton" type="submit" class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
+		foreach (var (key,value) in days)
+		{
+			if (key == @message.TypedOn.Month)
+			{
+				date = value;
+				break;
+			}
+		}
+		string fullTime = message.TypedOn.Hour + ":" + message.TypedOn.Minute;
+		<!-- Sender Message-->
+		<div class="@activeUserClassesIn">
+			<div class="media-body ml-3">
+				<div class="@bodyClassIn rounded py-2 px-3 mb-2">
+					@message.Message
+				</div>
+				<p class="small text-muted">@fullTime | @message.TypedOn.Day @date</p>
 			</div>
 		</div>
-</div>
-<script>
+	}
+	<div id="textDiv">
+			
+	</div>
+	<!-- Typing area -->
 	
-</script>
+</div>
+</div>
+<div class="input-group">
+	<input type="text" id="userInput" value="@this.User.Identity.Name"  />
+	<input type="text" id="userTypingClasses" value="@userTypingClasses" hidden />
+	<input id="messageInput" type="text" placeholder="Type a message" class="form-control rounded-0 border-0 py-4 bg-light">
+	<input id="chatDiv" value="@Model.Id" hidden />
+	<div class="input-group-append">
+		<button id="sendButton" type="submit" class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
+	</div>
+</div>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
 <script src="~/js/chat.js"></script>

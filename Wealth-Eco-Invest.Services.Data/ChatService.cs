@@ -24,7 +24,7 @@
 					UserTo = x.UserTo,
 					UserFrom = x.UserFrom,
 					StartedOn = x.StartedOn,
-					ChatId = x.Id
+					ChatId = x.Id,
 				})
 				.ToListAsync();
 
