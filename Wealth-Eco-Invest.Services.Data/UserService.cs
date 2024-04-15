@@ -36,5 +36,13 @@
 
 			return chat.UserFrom == userId;
 		}
+
+		public async Task<string> GetConnectionId(Guid userId)
+		{
+			var user = await this.dbContext
+				.Users
+				.FindAsync(userId);
+			return user.ConnectionId;
+		}
 	}
 }

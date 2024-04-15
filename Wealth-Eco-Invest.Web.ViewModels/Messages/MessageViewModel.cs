@@ -11,5 +11,6 @@
 		public Guid UserTo { get; set; }
 
 		public Guid UserFrom { get; set; }
+		public Guid ChatId { get; set; }
 	}
 }

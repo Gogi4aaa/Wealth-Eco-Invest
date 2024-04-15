@@ -28,37 +28,41 @@
 	}
 }
 <div class="px-0">
-<div class="px-4 py-5 chat-box bg-white d-flex justify-content-end flex-column @flexContent">@* now user is receiver if i change it user will be sender *@
+	<div class="px-4 py-5 chat-box bg-white d-flex justify-content-end flex-column @flexContent">@* now user is receiver if i change it user will be sender *@
+		
 	@foreach (var message in Model.Messages)
 	{
-		string activeUserClassesIn = "media text-center ml-auto mb-3";
-		string bodyClassIn = "bg-primary";
-		bool isUserActiveIn = UserService.IsCurrentUserTyping(Model.Id, @message.UserFrom).Result;
-		if (isUserActiveIn)
+		@if (Model.Id == @message.ChatId)
 		{
-			flexContent = "align-items-end";
-			userTypingClasses = "bg-light";
-			activeUserClassesIn = "media text-center mb-3";
-			bodyClassIn = "bg-light";
-		}
-		foreach (var (key,value) in days)
-		{
-			if (key == @message.TypedOn.Month)
+			string activeUserClassesIn = "media text-center ml-auto mb-3";
+			string bodyClassIn = "bg-primary";
+			bool isUserActiveIn = UserService.IsCurrentUserTyping(Model.Id, @message.UserFrom).Result;
+			if (isUserActiveIn)
 			{
-				date = value;
-				break;
+				flexContent = "align-items-end";
+				userTypingClasses = "bg-light";
+				activeUserClassesIn = "media text-center mb-3";
+				bodyClassIn = "bg-light";
 			}
-		}
-		string fullTime = message.TypedOn.Hour + ":" + message.TypedOn.Minute;
-		<!-- Sender Message-->
-		<div class="@activeUserClassesIn">
-			<div class="media-body ml-3">
-				<div class="@bodyClassIn rounded py-2 px-3 mb-2">
-					@message.Message
+			foreach (var (key,value) in days)
+			{
+				if (key == @message.TypedOn.Month)
+				{
+					date = value;
+					break;
+				}
+			}
+			string fullTime = message.TypedOn.Hour + ":" + message.TypedOn.Minute;
+			<!-- Sender Message-->
+			<div class="@activeUserClassesIn">
+				<div class="media-body ml-3">
+					<div class="@bodyClassIn rounded py-2 px-3 mb-2">
+						@message.Message
+					</div>
+					<p class="small text-muted">@fullTime | @message.TypedOn.Day @date</p>
 				</div>
-				<p class="small text-muted">@fullTime | @message.TypedOn.Day @date</p>
 			</div>
-		</div>
+		}
 	}
 	<div id="textDiv">
 			

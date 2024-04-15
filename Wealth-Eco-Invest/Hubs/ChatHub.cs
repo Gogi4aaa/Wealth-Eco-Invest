@@ -15,7 +15,7 @@
 		}
 		public async Task SendMessage(string user, string message, string chatId, string userTypingClasses)
 		{
-			await base.Clients.Group(chatId).SendAsync("ReceiveMessage", user, message, chatId, userTypingClasses);
+			
 		}
 
 		public override async Task OnConnectedAsync()
@@ -40,7 +40,7 @@
 		{
 			Guid userId = GetUserId();
 			var chatIdsOfUser = dbContext.Chats
-				.Where(x => x.UserFrom == userId || x.UserTo == userId)//moje i da grumne zaradi userTo
+				.Where(x => x.UserFrom == userId)//moje i da grumne zaradi userTo
 				.Select(x => x.Id)
 				.ToList();
 

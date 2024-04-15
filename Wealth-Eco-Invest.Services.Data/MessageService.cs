@@ -25,6 +25,7 @@
 					TypedOn = x.TypedOn,
 					UserFrom = x.Chat.UserFrom,
 					UserTo = x.Chat.UserTo,
+					ChatId = x.ChatId
 				})
 				.ToListAsync();
 

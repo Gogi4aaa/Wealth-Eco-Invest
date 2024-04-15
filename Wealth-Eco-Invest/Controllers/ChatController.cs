@@ -9,6 +9,9 @@
 	using Web.ViewModels.Messages;
 	using static Common.NotificationMessagesConstants;
 	using static Common.GeneralApplicationConstants;
+	using static Wealth_Eco_Invest.Common.ValidationConstants;
+	using Stripe;
+
 	public class ChatController : Controller
 	{
 		private readonly IChatService chatService;
@@ -61,19 +64,49 @@
 		public async Task<IActionResult> Chat(Guid chatId)
 		{
 			var chat = await this.chatService.GetChatByChatIdAsync(chatId);
+			
 			chat.Messages = await this.messageService.GetAllMessagesByChatIdAsync(chatId);
 			chat.MessageInput = "";
+
 			return View(chat);
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> MethodCall(string message, string chatId)
+		public async Task<IActionResult> MethodCall(string message, string chatId,string isNotCorrect = "")
 		{
+			if (isNotCorrect == "")
+			{
+				//tuka burka potrebitelite
+				string username = this.User.Identity.Name;
+				await this.messageService.SaveMessageAsync(message, Guid.Parse(chatId), username);
+			}
 
-			//await this.chatHubContext.Clients.All.SendAsync("ReceiveMessage", this.User.Identity.Name, message);
-			string username = this.User.Identity.Name;
-			await this.messageService.SaveMessageAsync(message, Guid.Parse(chatId), username);
 			return RedirectToAction("Chat", "Chat", new {chatId = Guid.Parse(chatId)});
+		}
+		[HttpGet]
+		public async Task<IActionResult> SendMessage(string message, Guid chatId)
+		{
+			var connectionId = await this.userService.GetConnectionId(Guid.Parse(this.User.GetId()));
+			List<string> ids = new List<string>();
+			string isNotCorrect = "";
+			ids.Add(connectionId);
+			try
+			{
+				bool isItCalled = false;
+				await this.chatHubContext.Clients.GroupExcept(chatId.ToString(), ids).SendAsync("ReceiveMessage", message, chatId);
+
+				string username = this.User.Identity.Name;
+
+				await this.messageService.SaveMessageAsync(message, chatId, username);
+
+				return RedirectToAction("Chat", "Chat", new { chatId = chatId });
+			}
+			catch (Exception e)
+			{
+				isNotCorrect = "възникна грешка";
+			}
+			
+			return RedirectToAction("Chat", "Chat", new { chatId = chatId});
 		}
 	}
 }
