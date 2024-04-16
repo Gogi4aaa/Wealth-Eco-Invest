@@ -13,10 +13,6 @@
 		{
 			this.dbContext = dbContext;
 		}
-		public async Task SendMessage(string user, string message, string chatId, string userTypingClasses)
-		{
-			
-		}
 
 		public override async Task OnConnectedAsync()
 		{
@@ -36,11 +32,15 @@
 			await base.OnDisconnectedAsync(exception);
 		}
 
+		public async Task JoinGroup(Guid chatId)
+		{
+			await Groups.AddToGroupAsync(GetConnectionId(), chatId.ToString());
+		}
 		private async Task AddUserToGroups()
 		{
 			Guid userId = GetUserId();
 			var chatIdsOfUser = dbContext.Chats
-				.Where(x => x.UserFrom == userId)//moje i da grumne zaradi userTo
+				.Where(x => x.UserFrom == userId || x.UserTo == userId)//moje i da grumne zaradi userTo
 				.Select(x => x.Id)
 				.ToList();
 

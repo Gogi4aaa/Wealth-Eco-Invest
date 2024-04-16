@@ -11,6 +11,8 @@
 	using static Common.GeneralApplicationConstants;
 	using static Wealth_Eco_Invest.Common.ValidationConstants;
 	using Stripe;
+	using NuGet.Packaging.Signing;
+	using System.Text.RegularExpressions;
 
 	public class ChatController : Controller
 	{
@@ -61,13 +63,14 @@
 			return RedirectToAction("All", "Chat");
 		}
 
-		public async Task<IActionResult> Chat(Guid chatId)
+		public async Task<IActionResult> Chat(Guid chatId, string user = "")
 		{
+			
 			var chat = await this.chatService.GetChatByChatIdAsync(chatId);
 			
 			chat.Messages = await this.messageService.GetAllMessagesByChatIdAsync(chatId);
 			chat.MessageInput = "";
-
+			
 			return View(chat);
 		}
 
