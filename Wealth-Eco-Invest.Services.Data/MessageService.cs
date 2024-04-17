@@ -23,9 +23,10 @@
 				{
 					Message = x.Content,
 					TypedOn = x.TypedOn,
-					UserFrom = x.Chat.UserFrom,
-					UserTo = x.Chat.UserTo,
-					ChatId = x.ChatId
+					ChatId = x.ChatId,
+					Owner = x.OwnerUsername,
+					ChatUserFrom = x.Chat.UserFrom,
+					ChatUserTo = x.Chat.UserTo,
 				})
 				.ToListAsync();
 
@@ -41,6 +42,11 @@
 				ChatId = chatId,
 				OwnerUsername = username
 			};
+			var chat = await this.dbContext
+				.Chats
+				.FindAsync(chatId);
+
+			chat.StartedOn = messageToAdd.TypedOn;//equal to DateTime.Now
 
 			await this.dbContext.Messages.AddAsync(messageToAdd);
 			await this.dbContext.SaveChangesAsync();

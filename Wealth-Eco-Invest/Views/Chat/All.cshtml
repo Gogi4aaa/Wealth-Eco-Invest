@@ -1,6 +1,7 @@
-﻿@model List<AllChatsViewModel>
+﻿@inject IUserService UserService
+@model List<AllChatsViewModel>
 @{
-	Dictionary<int, string> days = new Dictionary<int, string>()
+	var days = new Dictionary<int, string>
 	{
 		{ 1, "Яну" },
 		{ 2, "Фев" },
@@ -13,14 +14,14 @@
 		{ 9, "Сеп" },
 		{ 10, "Окт" },
 		{ 11, "Ное" },
-		{ 12, "Дек" },
+		{ 12, "Дек" }
 	};
-	string date = "";
+	var date = "";
 }
-<div class="row rounded-lg overflow-hidden shadow">
+<div class="d-flex justify-content-center">
 	<!-- Users box-->
-	<div class="col-5 px-0">
-		<div class="bg-white">
+	<div class="col-5 px-0 shadow">
+		
 
 			<div class="bg-gray px-4 py-2 bg-light">
 				<p class="h5 mb-0 py-1">Recent</p>
@@ -28,29 +29,30 @@
 
 			<div class="messages-box">
 				<div class="list-group rounded-0">
-					@foreach (var message in Model)
+					@foreach (var chat in Model)
 					{
+						var userToName = Guid.Parse(User.GetId()) == chat.UserTo ? UserService.GetUserNameByIdAsync(chat.UserFrom).Result : UserService.GetUserNameByIdAsync(chat.UserTo).Result;
 						foreach (var (key,value) in days)
 						{
-							if (key == @message.StartedOn.Month)
+							if (key == chat.StartedOn.Month)
 							{
 								date = value;
 								break;
 							}
 						}
-						<a asp-action="Chat" asp-controller="Chat" asp-route-chatId="@message.ChatId" asp-route-user="user" class="list-group-item list-group-item-action active text-white rounded-0">
+						<a asp-action="Chat" asp-controller="Chat" asp-route-chatId="@chat.ChatId" class="list-group-item list-group-item-action active text-white rounded-0 border">
 							<div class="media">
 								<div class="media-body ml-4">
+									<h5 class="fw-bold">@userToName</h5>
 									<div class="d-flex align-items-center justify-content-between mb-1">
-										<h6 class="mb-0">@message.Name</h6><small class="small font-weight-bold">@message.StartedOn.Day @date</small>
+										<h6 class="mb-0">@chat.Name @chat.Message</h6><small class="small font-weight-bold">@chat.StartedOn.Day @date</small>
 									</div>
-									<p class="font-italic mb-0 text-small">@message.Message</p>
 								</div>
 							</div>
 						</a>
 					}
 				</div>
 			</div>
-		</div>
+		
 	</div>
 </div>

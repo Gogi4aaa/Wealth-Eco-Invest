@@ -25,7 +25,10 @@
 					UserFrom = x.UserFrom,
 					StartedOn = x.StartedOn,
 					ChatId = x.Id,
+					AnnounceName = x.Announce.Title,
+
 				})
+				.OrderByDescending(x => x.StartedOn)
 				.ToListAsync();
 
 			return all;
@@ -56,6 +59,17 @@
 				UserFrom = chat.UserFrom,
 				Id = chat.Id,
 			};
+		}
+
+		public async Task<bool> IsChatAlreadyExist(Guid currentUserId, Guid ownerId)
+		{
+			if (currentUserId == ownerId)
+			{
+				return true;
+			}
+			return await this.dbContext
+				.Chats
+				.AnyAsync(x => (x.UserFrom == currentUserId && x.UserTo == ownerId) || (x.UserFrom == ownerId && x.UserTo == currentUserId));
 		}
 	}
 }

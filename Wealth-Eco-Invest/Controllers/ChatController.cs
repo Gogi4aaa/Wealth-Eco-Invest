@@ -36,11 +36,22 @@
 			{
 				chat.Message = await this.messageService.GetLatestMessage(chat.ChatId, chat.UserFrom, chat.UserTo);
 				chat.Name = await this.messageService.GetLatestMessageOwner(chat.ChatId, chat.UserFrom, chat.UserTo);
+
+				if (chat.Name == this.User.Identity.Name)
+				{
+					chat.Name = "You: ";
+				}
+				else
+				{
+					chat.Name += ": ";
+				}
 				if (chat.Message == "" || chat.Name == "")
 				{
-					chat.Name = await this.userService.GetUserNameByIdAsync(chat.UserTo);
+					chat.Name = "";
 					chat.Message = "Все още нямате съобщения с този потребител!";
 				}
+
+				
 			}
 			
 			return View(all);
@@ -53,6 +64,13 @@
 			{
 				Guid userToId = await this.userService.GetUserIdByUsernameAsync(ownerName);
 				Guid userFromId = Guid.Parse(this.User.GetId()!);
+				var isChatAlreadyExist = await this.chatService.IsChatAlreadyExist(userFromId, userToId);
+				if (isChatAlreadyExist)
+				{
+					TempData[ErrorMessage] = "Вече имате чат с този потребител!";
+					return RedirectToAction("All", "Chat");
+				}
+				
 				await this.chatService.AddChatAsync(userFromId, userToId, announceId);
 			}
 			catch (Exception e)
@@ -63,27 +81,39 @@
 			return RedirectToAction("All", "Chat");
 		}
 
-		public async Task<IActionResult> Chat(Guid chatId, string user = "")
+		public async Task<IActionResult> Chat(Guid chatId)
 		{
 			
 			var chat = await this.chatService.GetChatByChatIdAsync(chatId);
+			var all = await this.messageService.GetAllMessagesByChatIdAsync(chatId);
+			foreach (var messageViewModel in all)
+			{
+				messageViewModel.UserFrom = await this.userService.GetUserIdByUsernameAsync(messageViewModel.Owner);
+				var userChatFrom = await this.userService.GetUserNameByIdAsync(messageViewModel.ChatUserFrom);
+				var userChatTo = await this.userService.GetUserNameByIdAsync(messageViewModel.ChatUserTo);
+				if (messageViewModel.Owner != userChatFrom)
+				{
+					messageViewModel.UserTo = await this.userService.GetUserIdByUsernameAsync(userChatFrom);
+				}
+				else if (messageViewModel.Owner != userChatTo)
+				{
+					messageViewModel.UserTo = await this.userService.GetUserIdByUsernameAsync(userChatTo);
+				}
+			}
+
+			chat.Messages = all;
 			
-			chat.Messages = await this.messageService.GetAllMessagesByChatIdAsync(chatId);
-			chat.MessageInput = "";
 			
 			return View(chat);
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> MethodCall(string message, string chatId,string isNotCorrect = "")
+		public async Task<IActionResult> MethodCall(string message, string chatId)
 		{
-			if (isNotCorrect == "")
-			{
-				//tuka burka potrebitelite
-				string username = this.User.Identity.Name;
-				await this.messageService.SaveMessageAsync(message, Guid.Parse(chatId), username);
-			}
-
+			
+			string username = this.User.Identity.Name;
+			await this.messageService.SaveMessageAsync(message, Guid.Parse(chatId), username);
+			
 			return RedirectToAction("Chat", "Chat", new {chatId = Guid.Parse(chatId)});
 		}
 		[HttpGet]

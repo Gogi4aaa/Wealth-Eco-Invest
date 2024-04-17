@@ -2,7 +2,7 @@
 @model ChatViewModel
 @inject IUserService UserService
 @{
-	Dictionary<int, string> days = new Dictionary<int, string>()
+	var days = new Dictionary<int, string>
 	{
 		{ 1, "Яну" },
 		{ 2, "Фев" },
@@ -15,67 +15,64 @@
 		{ 9, "Сеп" },
 		{ 10, "Окт" },
 		{ 11, "Ное" },
-		{ 12, "Дек" },
+		{ 12, "Дек" }
 	};
-	string userTypingClasses = "bg-primary";
-	string flexContent = "align-items-start";
-	string date = "";
-	bool isUserActive = UserService.IsCurrentUserTyping(Model.Id, Guid.Parse(this.User.GetId())).Result;
-	if (isUserActive)
-	{
-		userTypingClasses = "bg-light";
-		flexContent = "align-items-end";
-	}
+	var date = "";
+	var userToName = Guid.Parse(User.GetId()) == Model.UserTo ? UserService.GetUserNameByIdAsync(Model.UserFrom).Result : UserService.GetUserNameByIdAsync(Model.UserTo).Result;
 }
 <div class="px-0">
-	<div class="px-4 py-5 chat-box bg-white d-flex justify-content-end flex-column @flexContent">@* now user is receiver if i change it user will be sender *@
-		
-	@foreach (var message in Model.Messages)
-	{
-		@if (Model.Id == @message.ChatId)
+	<div class="px-4 chat-box bg-white d-flex justify-content-end flex-column">
+		@* now user is receiver if i change it user will be sender *@
+		<div style="height: 100px; border: 1px solid black" class="mb-5">
+			<h1>Chat with @userToName</h1>
+		</div>
+		@foreach (var message in Model.Messages)
 		{
-			string activeUserClassesIn = "media text-center ml-auto mb-3";
-			string bodyClassIn = "bg-primary";
-			bool isUserActiveIn = UserService.IsCurrentUserTyping(Model.Id, @message.UserFrom).Result;
+			var fullTime = message.TypedOn.Hour + ":" + message.TypedOn.Minute;
+			var flexContent = "d-flex align-items-start flex-column";
+			var activeUserClassesIn = "media text-center ml-auto mb-3";
+			var bodyClassIn = "bg-primary";
+			var textEnd = "text-start";
+			var isUserActiveIn = Guid.Parse(User.GetId()) == message.UserFrom;
 			if (isUserActiveIn)
 			{
-				flexContent = "align-items-end";
-				userTypingClasses = "bg-light";
+				textEnd = "text-end";
+				flexContent = "d-flex align-items-end flex-column";
 				activeUserClassesIn = "media text-center mb-3";
 				bodyClassIn = "bg-light";
 			}
 			foreach (var (key,value) in days)
 			{
-				if (key == @message.TypedOn.Month)
+				if (key == message.TypedOn.Month)
 				{
 					date = value;
 					break;
 				}
 			}
-			string fullTime = message.TypedOn.Hour + ":" + message.TypedOn.Minute;
-			<!-- Sender Message-->
-			<div class="@activeUserClassesIn">
-				<div class="media-body ml-3">
-					<div class="@bodyClassIn rounded py-2 px-3 mb-2">
-						@message.Message
+
+			<div class="@flexContent">
+				<div class="@activeUserClassesIn">
+					<div class="media-body ml-3">
+						<div class="@bodyClassIn rounded py-2 px-3 mb-2">
+							@message.Message
+						</div>
+						<p class="small text-muted">@fullTime | @message.TypedOn.Day @date</p>
 					</div>
-					<p class="small text-muted">@fullTime | @message.TypedOn.Day @date</p>
 				</div>
 			</div>
 		}
-	}
-	<div id="textDiv">
-			
 	</div>
-	<!-- Typing area -->
-	
-</div>
+	<div id="textDiv" class="px-4 d-flex justify-content-start flex-column align-items-start">
+	</div>
+
 </div>
 <div class="input-group">
 	<input id="messageInput" type="text" placeholder="Type a message" class="form-control rounded-0 border-0 py-4 bg-light">
-	<input id="chatDiv" value="@Model.Id" hidden />
+	<input id="chatDiv" value="@Model.Id" hidden/>
 	<div class="input-group-append">
-		<button id="sendButton" type="submit" class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
+		<button id="sendButton" type="submit" class="btn btn-link">
+			<i class="fa fa-paper-plane"></i>
+		</button>
 	</div>
 </div>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>

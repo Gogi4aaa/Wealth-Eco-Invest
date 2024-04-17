@@ -9,5 +9,7 @@ namespace Wealth_Eco_Invest.Services.Data.Interfaces
 		Task AddChatAsync(Guid userFrom, Guid userTo, Guid announceId);
 
 		Task<ChatViewModel> GetChatByChatIdAsync(Guid chatId);
+
+		Task<bool> IsChatAlreadyExist(Guid currentUserId, Guid ownerId);
 	}
 }

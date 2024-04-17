@@ -10,7 +10,12 @@
 
 		public Guid UserTo { get; set; }
 
+		public Guid ChatUserFrom { get; set; }
+
+		public Guid ChatUserTo { get; set; }
+
 		public Guid UserFrom { get; set; }
+		public string Owner { get; set; }	
 		public Guid ChatId { get; set; }
 	}
 }
