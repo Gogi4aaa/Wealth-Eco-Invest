@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Wealth_Eco_Invest.Data;
 
@@ -11,9 +12,10 @@ using Wealth_Eco_Invest.Data;
 namespace Wealth_Eco_Invest.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240414142726_addConnectionIdToUsers")]
+    partial class addConnectionIdToUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -211,7 +213,7 @@ namespace Wealth_Eco_Invest.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("a58479a1-e0f5-4f4f-9a55-da3ffd62bc72"),
+                            Id = new Guid("14b4f7eb-67cd-4379-917a-78ab99692aa7"),
                             CategoryId = 3,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "This rubbish pollutes the environment.You need to throw it in the trash bins!",
@@ -224,7 +226,7 @@ namespace Wealth_Eco_Invest.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a7ca0d54-62df-447f-b886-2847298abcde"),
+                            Id = new Guid("e3f6a531-1e7e-42bc-8a52-26b149857aad"),
                             CategoryId = 1,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "The pollution is the worst thing ever.We need to stop it!",
@@ -237,7 +239,7 @@ namespace Wealth_Eco_Invest.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("bdcb571c-b477-4a6c-9709-b5ca3d27c6bc"),
+                            Id = new Guid("d6f79cbb-dfb1-4855-b5b8-7cc7c151feb4"),
                             CategoryId = 2,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Water pollution destroy our beaches and oceans.We need to stop it fast!",
@@ -411,10 +413,6 @@ namespace Wealth_Eco_Invest.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Content")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OwnerUsername")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

@@ -15,5 +15,7 @@
 		public string Content { get; set; }
 
 		public DateTime TypedOn { get; set; }
+
+		public string OwnerUsername { get; set; } = null!;
 	}
 }

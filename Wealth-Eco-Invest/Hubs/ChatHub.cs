@@ -1,42 +1,58 @@
-﻿namespace Wealth_Eco_Invest.Hubs
+﻿namespace Wealth_Eco_Invest.Hubs;
+
+using Data;
+using Microsoft.AspNetCore.SignalR;
+using Web.Infrastructure.Extensions;
+
+public class ChatHub : Hub
 {
-	using Data;
-	using Data.Models;
-	using Microsoft.AspNetCore.SignalR;
-	using Web.Infrastructure.Extensions;
+	private readonly ApplicationDbContext dbContext;
 
-	public class ChatHub : Hub
+	public ChatHub(ApplicationDbContext dbContext)
 	{
-		private readonly ApplicationDbContext dbContext;
-		public ChatHub(ApplicationDbContext dbContext)
-		{
-			this.dbContext = dbContext;
-		}
-		public async Task SendMessage(string user, string message, string chatId)
-		{
-			await base.Clients.All.SendAsync("ReceiveMessage", user, message, chatId);
-			Clients.Client(GetConnectionId());
-		}
+		this.dbContext = dbContext;
+	}
 
-		public override Task OnConnectedAsync()
-		{
-			GetConnectionId();
-			//dobavqm connection-Idto kum momentniq potrebitel v kolonkata
-			return base.OnConnectedAsync();
-		}
-		public override Task OnDisconnectedAsync(Exception? exception)
-		{
-			//premahvam connection-Idto kum momentniq potrebitel ot kolonkata
-			return base.OnDisconnectedAsync(exception);
-		}
+	public override async Task OnConnectedAsync()
+	{
+		var user = await dbContext.Users.FindAsync(GetUserId());
+		user.ConnectionId = GetConnectionId();
+		await dbContext.SaveChangesAsync();
+		await AddUserToGroups();
+		//dobavqm connection-Idto kum momentniq potrebitel v kolonkata
+		await base.OnConnectedAsync();
+	}
 
-		private string GetUserId()
+	public override async Task OnDisconnectedAsync(Exception? exception)
+	{
+		var user = await dbContext.Users.FindAsync(GetUserId());
+		user.ConnectionId = null;
+		await dbContext.SaveChangesAsync();
+		//premahvam connection-Idto kum momentniq potrebitel ot kolonkata
+		await base.OnDisconnectedAsync(exception);
+	}
+
+	private async Task AddUserToGroups()
+	{
+		var userId = GetUserId();
+		var chatIdsOfUser = dbContext.Chats
+			.Where(x => x.UserFrom == userId || x.UserTo == userId)
+			.Select(x => x.Id)
+			.ToList();
+
+		foreach (var chatId in chatIdsOfUser)
 		{
-			return Context.User.GetId();
+			await Groups.AddToGroupAsync(GetConnectionId(), chatId.ToString());
 		}
-		private string GetConnectionId()
-		{
-			return Context.ConnectionId;
-		}
+	}
+
+	private Guid GetUserId()
+	{
+		return Guid.Parse(Context.User.GetId());
+	}
+
+	private string GetConnectionId()
+	{
+		return Context.ConnectionId;
 	}
 }

@@ -10,6 +10,8 @@
             Announces = new HashSet<Announce>();
         }
 
+		public string? ConnectionId { get; set; }
+
         public ICollection<Announce> Announces { get; set; }
 
 	}

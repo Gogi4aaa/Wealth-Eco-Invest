@@ -9,6 +9,11 @@
 	using Web.ViewModels.Messages;
 	using static Common.NotificationMessagesConstants;
 	using static Common.GeneralApplicationConstants;
+	using static Wealth_Eco_Invest.Common.ValidationConstants;
+	using Stripe;
+	using NuGet.Packaging.Signing;
+	using System.Text.RegularExpressions;
+
 	public class ChatController : Controller
 	{
 		private readonly IChatService chatService;
@@ -24,15 +29,63 @@
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> All()
+		public async Task<IActionResult> All(string clickedChatId = "")
 		{
-			var all = await this.chatService.GetAllChatsByUserId(Guid.Parse(this.User.GetId()!));
-			foreach (var chat in all)
+			var allChats = await this.chatService.GetAllChatsByUserId(Guid.Parse(this.User.GetId()!));
+			foreach (var chat in allChats)
 			{
-				chat.Name = await this.userService.GetUserNameByIdAsync(chat.UserTo);
+				chat.Message = await this.messageService.GetLatestMessage(chat.ChatId, chat.UserFrom, chat.UserTo);
+				chat.Name = await this.messageService.GetLatestMessageOwner(chat.ChatId, chat.UserFrom, chat.UserTo);
+
+				if (chat.Name == this.User.Identity.Name)
+				{
+					chat.Name = "You: ";
+				}
+				else
+				{
+					chat.Name += ": ";
+				}
+				if (chat.Message == "" || chat.Name == "")
+				{
+					chat.Name = "";
+					chat.Message = "Все още нямате съобщения с този потребител!";
+				}
+
+				
 			}
 
-			return View(all);
+			var chatId = new Guid();
+			if (clickedChatId == "")
+			{
+				chatId = await this.chatService.GetLatestChatIdAsync(Guid.Parse(this.User.GetId()));
+			}
+			else
+			{
+				chatId = Guid.Parse(clickedChatId);
+			}
+			 
+			var allMessages = await this.messageService.GetAllMessagesByChatIdAsync(chatId);
+			foreach (var messageViewModel in allMessages)
+			{
+				messageViewModel.UserFrom = await this.userService.GetUserIdByUsernameAsync(messageViewModel.Owner);
+				var userChatFrom = await this.userService.GetUserNameByIdAsync(messageViewModel.ChatUserFrom);
+				var userChatTo = await this.userService.GetUserNameByIdAsync(messageViewModel.ChatUserTo);
+				if (messageViewModel.Owner != userChatFrom)
+				{
+					messageViewModel.UserTo = await this.userService.GetUserIdByUsernameAsync(userChatFrom);
+				}
+				else if (messageViewModel.Owner != userChatTo)
+				{
+					messageViewModel.UserTo = await this.userService.GetUserIdByUsernameAsync(userChatTo);
+				}
+			}
+			var allChatsAndMessages = new AllChatsAndMessagesViewModel()
+			{
+				Chats = allChats,
+				Messages = allMessages,
+				ChatId = chatId
+			};
+			return View(allChatsAndMessages);
 		}
 
 		[HttpGet]
@@ -42,6 +95,13 @@
 			{
 				Guid userToId = await this.userService.GetUserIdByUsernameAsync(ownerName);
 				Guid userFromId = Guid.Parse(this.User.GetId()!);
+				var isChatAlreadyExist = await this.chatService.IsChatAlreadyExist(userFromId, userToId);
+				if (isChatAlreadyExist)
+				{
+					TempData[ErrorMessage] = "Вече имате чат с този потребител!";
+					return RedirectToAction("All", "Chat");
+				}
+				
 				await this.chatService.AddChatAsync(userFromId, userToId, announceId);
 			}
 			catch (Exception e)
@@ -54,27 +114,63 @@
 
 		public async Task<IActionResult> Chat(Guid chatId)
 		{
+			
 			var chat = await this.chatService.GetChatByChatIdAsync(chatId);
-			chat.Messages = await this.messageService.GetAllMessagesByChatIdAsync(chatId);
-			chat.MessageInput = "";
+			var all = await this.messageService.GetAllMessagesByChatIdAsync(chatId);
+			foreach (var messageViewModel in all)
+			{
+				messageViewModel.UserFrom = await this.userService.GetUserIdByUsernameAsync(messageViewModel.Owner);
+				var userChatFrom = await this.userService.GetUserNameByIdAsync(messageViewModel.ChatUserFrom);
+				var userChatTo = await this.userService.GetUserNameByIdAsync(messageViewModel.ChatUserTo);
+				if (messageViewModel.Owner != userChatFrom)
+				{
+					messageViewModel.UserTo = await this.userService.GetUserIdByUsernameAsync(userChatFrom);
+				}
+				else if (messageViewModel.Owner != userChatTo)
+				{
+					messageViewModel.UserTo = await this.userService.GetUserIdByUsernameAsync(userChatTo);
+				}
+			}
+
+			chat.Messages = all;
+			
+			
 			return View(chat);
 		}
 
-		[HttpPost]
-		public async Task<IActionResult> SaveData(string message, Guid chatId)
-		{
-			//sprqmo chata Id-to da vzema connectionId-to na UserTo 
-			//await this.chatHubContext.Clients.Client().SendAsync("ReceiveMessage");
-			await this.messageService.SaveMessageAsync(message, chatId);
-			return RedirectToAction("Chat", "Chat", new {chatId = chatId});
-		}
 		[HttpGet]
 		public async Task<IActionResult> MethodCall(string message, string chatId)
 		{
+			
+			string username = this.User.Identity.Name;
+			await this.messageService.SaveMessageAsync(message, Guid.Parse(chatId), username);
+			
+			return RedirectToAction("All", "Chat", new { clickedChatId = chatId});
+		}
+		[HttpGet]
+		public async Task<IActionResult> SendMessage(string message, Guid chatId)
+		{
+			var connectionId = await this.userService.GetConnectionId(Guid.Parse(this.User.GetId()));
+			List<string> ids = new List<string>();
+			string isNotCorrect = "";
+			ids.Add(connectionId);
+			try
+			{
+				bool isItCalled = false;
+				await this.chatHubContext.Clients.GroupExcept(chatId.ToString(), ids).SendAsync("ReceiveMessage", message, chatId);
 
-			//await this.chatHubContext.Clients.All.SendAsync("ReceiveMessage", this.User.Identity.Name, message);
-			await this.messageService.SaveMessageAsync(message, Guid.Parse(chatId));
-			return RedirectToAction("Chat", "Chat", new {chatId = Guid.Parse(chatId)});
+				string username = this.User.Identity.Name;
+
+				await this.messageService.SaveMessageAsync(message, chatId, username);
+
+				return RedirectToAction("All", "Chat", new { clickedChatId = chatId.ToString() });
+			}
+			catch (Exception e)
+			{
+				isNotCorrect = "възникна грешка";
+			}
+			
+			return RedirectToAction("All", "Chat", new { clickedChatId = chatId.ToString()});
 		}
 	}
 }

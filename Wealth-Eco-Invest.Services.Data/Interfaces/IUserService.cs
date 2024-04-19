@@ -7,5 +7,7 @@
 		Task<Guid> GetUserIdByUsernameAsync(string username);
 
 		Task<bool> IsCurrentUserTyping(Guid chatId, Guid userId);
+
+		Task<string> GetConnectionId(Guid userId);
 	}
 }
