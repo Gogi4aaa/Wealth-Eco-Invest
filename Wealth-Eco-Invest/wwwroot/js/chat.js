@@ -10,9 +10,9 @@ connection.on("ReceiveMessage",
 
         var queryString = window.location.search;
         var urlParams = new URLSearchParams(queryString);
-        var currentId = urlParams.get("chatId");
+        var currentId = urlParams.get("clickedChatId");
 
-        if (currentId === chatId) {
+        if (currentId === chatId || currentId == null) {
 
             var p = document.createElement("p");
             var div = document.createElement("div");
@@ -39,6 +39,9 @@ connection.on("ReceiveMessage",
             div.appendChild(div2);
             div2.appendChild(div3);
             div2.appendChild(p);
+
+            var el = document.getElementById("chat-box");
+            el.scrollTop = el.scrollHeight;
         }
     });
 

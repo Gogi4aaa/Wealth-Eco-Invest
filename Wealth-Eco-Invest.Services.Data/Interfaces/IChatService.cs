@@ -11,5 +11,7 @@ namespace Wealth_Eco_Invest.Services.Data.Interfaces
 		Task<ChatViewModel> GetChatByChatIdAsync(Guid chatId);
 
 		Task<bool> IsChatAlreadyExist(Guid currentUserId, Guid ownerId);
+
+		Task<Guid> GetLatestChatIdAsync(Guid userId);
 	}
 }

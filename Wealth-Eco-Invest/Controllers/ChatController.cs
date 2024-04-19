@@ -29,10 +29,10 @@
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> All()
+		public async Task<IActionResult> All(string clickedChatId = "")
 		{
-			var all = await this.chatService.GetAllChatsByUserId(Guid.Parse(this.User.GetId()!));
-			foreach (var chat in all)
+			var allChats = await this.chatService.GetAllChatsByUserId(Guid.Parse(this.User.GetId()!));
+			foreach (var chat in allChats)
 			{
 				chat.Message = await this.messageService.GetLatestMessage(chat.ChatId, chat.UserFrom, chat.UserTo);
 				chat.Name = await this.messageService.GetLatestMessageOwner(chat.ChatId, chat.UserFrom, chat.UserTo);
@@ -53,8 +53,39 @@
 
 				
 			}
-			
-			return View(all);
+
+			var chatId = new Guid();
+			if (clickedChatId == "")
+			{
+				chatId = await this.chatService.GetLatestChatIdAsync(Guid.Parse(this.User.GetId()));
+			}
+			else
+			{
+				chatId = Guid.Parse(clickedChatId);
+			}
+			 
+			var allMessages = await this.messageService.GetAllMessagesByChatIdAsync(chatId);
+			foreach (var messageViewModel in allMessages)
+			{
+				messageViewModel.UserFrom = await this.userService.GetUserIdByUsernameAsync(messageViewModel.Owner);
+				var userChatFrom = await this.userService.GetUserNameByIdAsync(messageViewModel.ChatUserFrom);
+				var userChatTo = await this.userService.GetUserNameByIdAsync(messageViewModel.ChatUserTo);
+				if (messageViewModel.Owner != userChatFrom)
+				{
+					messageViewModel.UserTo = await this.userService.GetUserIdByUsernameAsync(userChatFrom);
+				}
+				else if (messageViewModel.Owner != userChatTo)
+				{
+					messageViewModel.UserTo = await this.userService.GetUserIdByUsernameAsync(userChatTo);
+				}
+			}
+			var allChatsAndMessages = new AllChatsAndMessagesViewModel()
+			{
+				Chats = allChats,
+				Messages = allMessages,
+				ChatId = chatId
+			};
+			return View(allChatsAndMessages);
 		}
 
 		[HttpGet]
@@ -114,7 +145,7 @@
 			string username = this.User.Identity.Name;
 			await this.messageService.SaveMessageAsync(message, Guid.Parse(chatId), username);
 			
-			return RedirectToAction("Chat", "Chat", new {chatId = Guid.Parse(chatId)});
+			return RedirectToAction("All", "Chat", new { clickedChatId = chatId});
 		}
 		[HttpGet]
 		public async Task<IActionResult> SendMessage(string message, Guid chatId)
@@ -132,14 +163,14 @@
 
 				await this.messageService.SaveMessageAsync(message, chatId, username);
 
-				return RedirectToAction("Chat", "Chat", new { chatId = chatId });
+				return RedirectToAction("All", "Chat", new { clickedChatId = chatId.ToString() });
 			}
 			catch (Exception e)
 			{
 				isNotCorrect = "възникна грешка";
 			}
 			
-			return RedirectToAction("Chat", "Chat", new { chatId = chatId});
+			return RedirectToAction("All", "Chat", new { clickedChatId = chatId.ToString()});
 		}
 	}
 }

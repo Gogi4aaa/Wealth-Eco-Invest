@@ -71,5 +71,16 @@
 				.Chats
 				.AnyAsync(x => (x.UserFrom == currentUserId && x.UserTo == ownerId) || (x.UserFrom == ownerId && x.UserTo == currentUserId));
 		}
+
+		public async Task<Guid> GetLatestChatIdAsync(Guid userId)
+		{
+			var chat = await this.dbContext
+				.Chats
+				.Where(x => x.UserFrom == userId || x.UserTo == userId)
+				.OrderBy(x => x.StartedOn)
+				.LastOrDefaultAsync();
+
+			return chat.Id;
+		}
 	}
 }

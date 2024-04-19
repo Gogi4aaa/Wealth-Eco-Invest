@@ -1,5 +1,6 @@
 ﻿@inject IUserService UserService
-@model List<AllChatsViewModel>
+@using System.Text
+@model AllChatsAndMessagesViewModel
 @{
 	var days = new Dictionary<int, string>
 	{
@@ -18,41 +19,122 @@
 	};
 	var date = "";
 }
-<div class="d-flex justify-content-center">
-	<!-- Users box-->
-	<div class="col-5 px-0 shadow">
-		
+<link rel="stylesheet" href="~/css/Chat.css">
+<div class="container py-5 px-4">
+	<div class="row rounded-lg overflow-hidden shadow">
+		<!-- Users box-->
+		<div class="col-12 col-md-5 px-0">
+			<div class="bg-white">
+
 
 			<div class="bg-gray px-4 py-2 bg-light">
 				<p class="h5 mb-0 py-1">Recent</p>
 			</div>
 
-			<div class="messages-box">
-				<div class="list-group rounded-0">
-					@foreach (var chat in Model)
-					{
-						var userToName = Guid.Parse(User.GetId()) == chat.UserTo ? UserService.GetUserNameByIdAsync(chat.UserFrom).Result : UserService.GetUserNameByIdAsync(chat.UserTo).Result;
-						foreach (var (key,value) in days)
+				<div class="messages-box">
+					<div class="list-group rounded-0">
+						@foreach (var chat in Model.Chats)
 						{
-							if (key == chat.StartedOn.Month)
+							string active = chat.ChatId == Model.ChatId ? "active" : "bg-success";
+							var userToName = Guid.Parse(User.GetId()) == chat.UserTo ? UserService.GetUserNameByIdAsync(chat.UserFrom).Result : UserService.GetUserNameByIdAsync(chat.UserTo).Result;
+							foreach (var (key,value) in days)
 							{
-								date = value;
-								break;
+								if (key == chat.StartedOn.Month)
+								{
+									date = value;
+									break;
+								}
 							}
-						}
-						<a asp-action="Chat" asp-controller="Chat" asp-route-chatId="@chat.ChatId" class="list-group-item list-group-item-action active text-white rounded-0 border">
-							<div class="media">
-								<div class="media-body ml-4">
-									<h5 class="fw-bold">@userToName</h5>
-									<div class="d-flex align-items-center justify-content-between mb-1">
-										<h6 class="mb-0">@chat.Name @chat.Message</h6><small class="small font-weight-bold">@chat.StartedOn.Day @date</small>
+							<a asp-action="All" asp-controller="Chat" asp-route-clickedChatId="@chat.ChatId" class="list-group-item @active list-group-item-action text-white rounded-0 border">
+								<div class="media">
+									<div class="media-body ml-4">
+										<h5 class="fw-bold">@userToName</h5>
+										<div class="d-flex align-items-center justify-content-between mb-1">
+											<h6 class="mb-0">@chat.Name @chat.Message</h6><small class="small font-weight-bold">@chat.StartedOn.Day @date</small>
+										</div>
 									</div>
 								</div>
-							</div>
-						</a>
-					}
+							</a>
+						}
+					</div>
 				</div>
 			</div>
-		
+		</div>
+		<div class="col-12 col-md-7 px-0">
+			<div id="chat-box" class="px-4 py-5 chat-box bg-white">
+				@* now user is receiver if i change it user will be sender *@
+				@foreach (var message in Model.Messages)
+				{
+					var fullTime = message.TypedOn.Hour.ToString("00") + ":" + message.TypedOn.Minute.ToString("00");
+					var flexContent = "d-flex align-items-start flex-column";
+					var activeUserClassesIn = "media text-center ml-auto mb-3";
+					var bodyClassIn = "bg-primary";
+					var textEnd = "text-start";
+					var isUserActiveIn = Guid.Parse(User.GetId()) == message.UserFrom;
+					if (isUserActiveIn)
+					{
+						textEnd = "text-end";
+						flexContent = "d-flex align-items-end flex-column";
+						activeUserClassesIn = "media text-center mb-3";
+						bodyClassIn = "bg-light";
+					}
+					foreach (var (key, value) in days)
+					{
+						if (key == message.TypedOn.Month)
+						{
+							date = value;
+							break;
+						}
+					}
+					string reformedMessage = @message.Message;
+					if (message.Message.Length > 10)
+					{
+						StringBuilder sb = new StringBuilder();
+						int j = 0;
+						while (reformedMessage.Length > j)
+						{
+							if (sb.Length % 10 == 0)
+							{
+								sb.Append("\n");
+							}
+							sb.Append(message.Message[j++]);
+						}
+						reformedMessage = sb.ToString();
+					}
+					
+
+					<div class="@flexContent">
+						<div class="@activeUserClassesIn">
+							<div class="media-body ml-3">
+								<div class="@bodyClassIn rounded py-2 px-3 mb-2">
+									@reformedMessage
+								</div>
+								<p class="small text-muted">@fullTime | @message.TypedOn.Day @date</p>
+							</div>
+						</div>
+					</div>
+				}
+				<div id="textDiv" class="d-flex justify-content-start flex-column align-items-start">
+				</div>
+
+			</div>
+			<div class="input-group">
+				<input id="messageInput" type="text" placeholder="Type a message" class="form-control rounded-0 border-0 py-4 bg-light">
+				<input id="chatDiv" value="@Model.ChatId" hidden />
+				<div class="input-group-append">
+					<button id="sendButton" type="submit" class="btn btn-link">
+						<i class="fa fa-paper-plane"></i>
+					</button>
+				</div>
+			</div>
+
+		</div>
 	</div>
 </div>
+@* ///// *@
+<script>
+	var el = document.getElementById("chat-box");
+	el.scrollTop = el.scrollHeight;
+</script>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
