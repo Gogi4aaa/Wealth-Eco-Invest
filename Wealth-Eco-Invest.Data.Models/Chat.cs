@@ -14,7 +14,7 @@
 
 		public Guid UserFrom { get; set; }
 
-		public Guid UserTo { get; set; }
+		public Guid? UserTo { get; set; }
 
 		public DateTime StartedOn { get; set; }
 

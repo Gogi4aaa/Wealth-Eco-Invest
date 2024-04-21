@@ -22,13 +22,15 @@
         private readonly ICategoryService categoryService;
 		private readonly IEmailSender emailSender;
 		private readonly IAdminService adminService;
+		private readonly IChatService chatService;
 		private readonly CloudinarySetUp cloudinarySetUp;
-		public AnnounceController(IAnnounceService announceService, ICategoryService categoryService,IEmailSender emailSender, IAdminService adminService)
+		public AnnounceController(IAnnounceService announceService, ICategoryService categoryService,IEmailSender emailSender, IAdminService adminService, IChatService chatService)
         {
             this.announceService = announceService;
             this.categoryService = categoryService;
 			this.emailSender = emailSender;
 			this.adminService = adminService;
+			this.chatService = chatService;
 			this.cloudinarySetUp = new CloudinarySetUp();
         }
 
@@ -79,7 +81,7 @@
 		public async Task<IActionResult> Add(AnnounceFormModel model)
         {
 	        ModelState.Remove(nameof(model.ImageUrl));
-			if (!ModelState.IsValid)
+	        if (!ModelState.IsValid)
 	        {
 		        model.Categories = await this.categoryService.AllCategoriesAsync();
 				return View(model);
@@ -98,7 +100,9 @@
 		        var correctImageUrl = cloudinarySetUp.GenerateImageUrl(fileName);
 		        model.ImageUrl = correctImageUrl;
 
-				await this.announceService.AddAnnounceAsync(model);
+				var announceId = await this.announceService.AddAnnounceAsync(model);
+
+				await this.chatService.AddChatAsync(Guid.Parse(this.User.GetId()), null, announceId);
 			}
 	        catch (Exception e)
 	        {

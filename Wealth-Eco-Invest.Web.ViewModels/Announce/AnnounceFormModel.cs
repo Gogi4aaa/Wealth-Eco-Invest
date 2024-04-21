@@ -13,6 +13,7 @@
 			this.Categories = new HashSet<AnnounceSelectCategoryFormModel>();
 		}
 
+
 		[Required]
 		[StringLength(TitleMaxLength, MinimumLength = TitleMinLength, ErrorMessage = TitleErrorMessage)]
 		public string Title { get; set; } = null!;

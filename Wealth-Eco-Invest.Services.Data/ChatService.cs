@@ -18,7 +18,7 @@
 		{
 			var all = await this.dbContext
 				.Chats
-				.Where(x => x.UserFrom == userId || x.UserTo == userId)
+				.Where(x => (x.UserFrom == userId && x.UserTo != null) || x.UserTo == userId)
 				.Select(x => new AllChatsViewModel()
 				{
 					UserTo = x.UserTo,
@@ -34,7 +34,7 @@
 			return all;
 		}
 
-		public async Task AddChatAsync(Guid userFrom, Guid userTo, Guid announceId)
+		public async Task AddChatAsync(Guid userFrom, Guid? userTo, Guid announceId)
 		{
 			var chat = new Chat()
 			{
@@ -76,7 +76,7 @@
 		{
 			var chat = await this.dbContext
 				.Chats
-				.Where(x => x.UserFrom == userId || x.UserTo == userId)
+				.Where(x => (x.UserFrom == userId && x.UserTo != null) || x.UserTo == userId)
 				.OrderBy(x => x.StartedOn)
 				.LastOrDefaultAsync();
 

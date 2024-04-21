@@ -52,7 +52,7 @@
 			await this.dbContext.SaveChangesAsync();
 		}
 
-		public async Task<string> GetLatestMessage(Guid chatId, Guid userFromId, Guid userToId)
+		public async Task<string> GetLatestMessage(Guid chatId, Guid userFromId, Guid? userToId)
 		{
 			var message = await this.dbContext.Messages
 				.OrderBy(x => x.TypedOn)
@@ -65,7 +65,7 @@
 			return message.Content;
 		}
 
-		public async Task<string> GetLatestMessageOwner(Guid chatId, Guid userFromId, Guid userToId)
+		public async Task<string> GetLatestMessageOwner(Guid chatId, Guid userFromId, Guid? userToId)
 		{
 			var message = await this.dbContext.Messages
 				.OrderBy(x => x.TypedOn)

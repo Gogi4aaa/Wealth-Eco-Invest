@@ -2,6 +2,7 @@
 
 using Data;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
 using Web.Infrastructure.Extensions;
 
 public class ChatHub : Hub
@@ -35,14 +36,30 @@ public class ChatHub : Hub
 	private async Task AddUserToGroups()
 	{
 		var userId = GetUserId();
-		var chatIdsOfUser = dbContext.Chats
+		var chatIdsOfUser = await dbContext.Chats
 			.Where(x => x.UserFrom == userId || x.UserTo == userId)
 			.Select(x => x.Id)
-			.ToList();
+			.ToListAsync();
+
+		var announce = await dbContext.Announces
+			.FirstOrDefaultAsync(x => x.UserId == userId);
+
+		if (announce != null)
+		{
+			await Groups.AddToGroupAsync(GetConnectionId(), announce.Id.ToString());
+		}
+		var announceIdsOrUser = dbContext.Purchases
+			.Where(x => x.BuyerId == userId)
+			.Select(x => x.AnnounceId);
 
 		foreach (var chatId in chatIdsOfUser)
 		{
 			await Groups.AddToGroupAsync(GetConnectionId(), chatId.ToString());
+		}
+
+		foreach (var announceId in announceIdsOrUser)
+		{
+			await Groups.AddToGroupAsync(GetConnectionId(), announceId.ToString());
 		}
 	}
 

@@ -12,7 +12,7 @@
 
 		public Guid ChatUserFrom { get; set; }
 
-		public Guid ChatUserTo { get; set; }
+		public Guid? ChatUserTo { get; set; }
 
 		public Guid UserFrom { get; set; }
 		public string Owner { get; set; }	

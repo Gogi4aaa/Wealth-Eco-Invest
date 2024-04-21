@@ -2,7 +2,7 @@
 {
 	public interface IUserService
 	{
-		Task<string> GetUserNameByIdAsync(Guid userId);
+		Task<string> GetUserNameByIdAsync(Guid? userId);
 
 		Task<Guid> GetUserIdByUsernameAsync(string username);
 

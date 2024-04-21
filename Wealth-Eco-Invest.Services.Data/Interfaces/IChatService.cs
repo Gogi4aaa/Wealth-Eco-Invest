@@ -6,7 +6,7 @@ namespace Wealth_Eco_Invest.Services.Data.Interfaces
 	{
 		Task<List<AllChatsViewModel>> GetAllChatsByUserId(Guid userId);
 
-		Task AddChatAsync(Guid userFrom, Guid userTo, Guid announceId);
+		Task AddChatAsync(Guid userFrom, Guid? userTo, Guid announceId);
 
 		Task<ChatViewModel> GetChatByChatIdAsync(Guid chatId);
 
