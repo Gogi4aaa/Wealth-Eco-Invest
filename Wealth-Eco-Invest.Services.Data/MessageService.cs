@@ -14,7 +14,7 @@
 			this.dbContext = dbContext;
 		}
 
-		public async Task<List<MessageViewModel>> GetAllMessagesByChatIdAsync(Guid chatId)
+		public async Task<List<MessageViewModel>> GetAllMessagesByChatIdAsync(Guid? chatId)
 		{
 			var all = await this.dbContext
 				.Messages

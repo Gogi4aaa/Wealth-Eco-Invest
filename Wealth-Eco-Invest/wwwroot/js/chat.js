@@ -5,8 +5,7 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 //Disable the send button until connection is established.
 document.getElementById("sendButton").disabled = true;
 
-connection.on("ReceiveMessage",
-    function(message, chatId) {
+connection.on("ReceiveMessage", function(message, chatId, owner) {
 
         var queryString = window.location.search;
         var urlParams = new URLSearchParams(queryString);
@@ -32,7 +31,7 @@ connection.on("ReceiveMessage",
             var dateText = hours + ":" + minutes + " | " + data.getDate() + " " + monthName;
             p.innerText = dateText;
             div3.innerText = message;
-
+            div2.innerText = owner;
 
             var mainDiv = document.getElementById("textDiv");
             mainDiv.appendChild(div);

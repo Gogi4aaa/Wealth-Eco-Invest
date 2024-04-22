@@ -4,7 +4,7 @@
 
 	public interface IMessageService
 	{
-		Task<List<MessageViewModel>> GetAllMessagesByChatIdAsync(Guid chatId);
+		Task<List<MessageViewModel>> GetAllMessagesByChatIdAsync(Guid? chatId);
 
 		Task SaveMessageAsync(string message, Guid chatId, string username);
 

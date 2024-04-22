@@ -154,22 +154,32 @@
 			List<string> ids = new List<string>();
 			string isNotCorrect = "";
 			ids.Add(connectionId);
+			var chat = await this.chatService.GetChatByChatIdAsync(chatId);
 			try
 			{
-				bool isItCalled = false;
-				await this.chatHubContext.Clients.GroupExcept(chatId.ToString(), ids).SendAsync("ReceiveMessage", message, chatId);
-
 				string username = this.User.Identity.Name;
+
+				await this.chatHubContext.Clients.GroupExcept(chatId.ToString(), ids).SendAsync("ReceiveMessage", message, chatId, username);
 
 				await this.messageService.SaveMessageAsync(message, chatId, username);
 
+				if (chat.UserTo == null)
+				{
+					return RedirectToAction("All", "Forum", new { clickedChatId = chatId.ToString() });
+				}
 				return RedirectToAction("All", "Chat", new { clickedChatId = chatId.ToString() });
 			}
 			catch (Exception e)
 			{
 				isNotCorrect = "възникна грешка";
 			}
+
 			
+			if (chat.UserTo == null)
+			{
+				return RedirectToAction("All", "Forum", new { clickedChatId = chatId.ToString() });
+			}
+
 			return RedirectToAction("All", "Chat", new { clickedChatId = chatId.ToString()});
 		}
 	}

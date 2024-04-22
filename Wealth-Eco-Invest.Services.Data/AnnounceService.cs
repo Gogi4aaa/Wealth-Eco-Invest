@@ -201,7 +201,5 @@
 
             return allAnnounces;
         }
-
-        
     }
 }

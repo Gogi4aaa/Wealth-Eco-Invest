@@ -36,7 +36,6 @@
 						@foreach (var chat in Model.Chats)
 						{
 							string active = chat.ChatId == Model.ChatId ? "active" : "bg-success";
-							var userToName = Guid.Parse(User.GetId()) == chat.UserTo ? UserService.GetUserNameByIdAsync(chat.UserFrom).Result : UserService.GetUserNameByIdAsync(chat.UserTo).Result;
 							foreach (var (key, value) in days)
 							{
 								if (key == chat.StartedOn.Month)
@@ -45,10 +44,10 @@
 									break;
 								}
 							}
-							<a asp-action="All" asp-controller="Chat" asp-route-clickedChatId="@chat.ChatId" class="list-group-item @active list-group-item-action text-white rounded-0 border">
+							<a asp-action="All" asp-controller="Forum" asp-route-clickedChatId="@chat.ChatId" class="list-group-item @active list-group-item-action text-white rounded-0 border">
 								<div class="media">
 									<div class="media-body ml-4">
-										<h5 class="fw-bold">@userToName</h5>
+										<h5 class="fw-bold">@chat.AnnounceName</h5>
 										<div class="d-flex align-items-center justify-content-between mb-1">
 											<h6 class="mb-0">@chat.Name @chat.Message</h6><small class="small font-weight-bold">@chat.StartedOn.Day @date</small>
 										</div>
@@ -102,10 +101,10 @@
 						reformedMessage = sb.ToString();
 					}
 
-
 					<div class="@flexContent">
 						<div class="@activeUserClassesIn">
 							<div class="media-body ml-3">
+								@message.Owner
 								<div class="@bodyClassIn rounded py-2 px-3 mb-2">
 									@reformedMessage
 								</div>

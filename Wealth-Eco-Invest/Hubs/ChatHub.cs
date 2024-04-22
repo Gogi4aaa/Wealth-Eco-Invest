@@ -37,29 +37,60 @@ public class ChatHub : Hub
 	{
 		var userId = GetUserId();
 		var chatIdsOfUser = await dbContext.Chats
-			.Where(x => x.UserFrom == userId || x.UserTo == userId)
+			.Where(x => x.UserFrom == userId && x.UserTo != null || x.UserTo == userId)
 			.Select(x => x.Id)
 			.ToListAsync();
 
-		var announce = await dbContext.Announces
-			.FirstOrDefaultAsync(x => x.UserId == userId);
+		var announces = await dbContext.Announces
+			.Where(x => x.UserId == userId)
+			.ToListAsync();
 
-		if (announce != null)
-		{
-			await Groups.AddToGroupAsync(GetConnectionId(), announce.Id.ToString());
-		}
-		var announceIdsOrUser = dbContext.Purchases
+		var announceIdsOrUser = await dbContext.Purchases
 			.Where(x => x.BuyerId == userId)
-			.Select(x => x.AnnounceId);
+			.Select(x => x.AnnounceId)
+			.ToListAsync();
 
+		var chats = await this.dbContext
+			.Chats
+			.Where(x => x.UserFrom == userId && x.UserTo == null || x.UserTo == null)
+			.ToListAsync();
+
+		var correctChats = new List<Guid>();
+		foreach (var ch in chats)
+		{
+			foreach (var guid in announceIdsOrUser)
+			{
+				if (guid == ch.AnnounceId)
+				{
+					correctChats.Add(ch.Id);
+				}
+			}
+		}
+
+		var ownedChats = new List<Guid>();
+		foreach (var chat in chats)
+		{
+			foreach (var announce in announces)
+			{
+				if (chat.AnnounceId == announce.Id)
+				{
+					ownedChats.Add(chat.Id);
+				}
+			}
+		}
+
+		foreach (var ownedChat in ownedChats)
+		{
+			await Groups.AddToGroupAsync(GetConnectionId(), ownedChat.ToString());
+		}
 		foreach (var chatId in chatIdsOfUser)
 		{
 			await Groups.AddToGroupAsync(GetConnectionId(), chatId.ToString());
 		}
 
-		foreach (var announceId in announceIdsOrUser)
+		foreach (var chatId in correctChats)
 		{
-			await Groups.AddToGroupAsync(GetConnectionId(), announceId.ToString());
+			await Groups.AddToGroupAsync(GetConnectionId(), chatId.ToString());
 		}
 	}
 
