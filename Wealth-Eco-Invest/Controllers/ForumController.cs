@@ -56,7 +56,9 @@ namespace Wealth_Eco_Invest.Controllers
 				}
 				else
 				{
-					chatId = await this.forumService.GetLatestForumIdAsync(Guid.Parse(this.User.GetId()));
+					var latest = allChats.OrderByDescending(x => x.StartedOn)
+						.LastOrDefault();
+					chatId = latest.ChatId;
 				}
 				
 			}

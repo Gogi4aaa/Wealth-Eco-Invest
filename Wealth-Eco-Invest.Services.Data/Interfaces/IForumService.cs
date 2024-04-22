@@ -6,6 +6,5 @@
 	{
 		Task<List<AllChatsViewModel>> GetAllForumsByUserIdAsync(Guid userId);
 
-		Task<Guid> GetLatestForumIdAsync(Guid userId);
 	}
 }

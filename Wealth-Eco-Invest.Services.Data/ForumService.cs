@@ -61,39 +61,7 @@
 			}
 			
 
-			return chats;
-		}
-
-		public async Task<Guid> GetLatestForumIdAsync(Guid userId)
-		{
-			var chats = await this.dbContext
-				.Chats
-				.Where(x => (x.UserTo == null))
-				.ToListAsync();
-
-			var allPossibleForums = await this.dbContext
-				.Purchases
-				.Where(x => x.BuyerId == userId)
-				.Select(x => x.AnnounceId)
-				.ToListAsync();
-
-			var allFinal = new List<Chat>();
-			foreach (var guid in allPossibleForums)
-			{
-				foreach (var chat1 in chats)
-				{
-					if (guid == chat1.AnnounceId)
-					{
-						allFinal.Add(chat1);
-					}
-				}
-			}
-
-			var latestForum = allFinal
-				.OrderBy(x => x.StartedOn)
-				.LastOrDefault();
-
-			return latestForum.Id;
+			return chats.OrderByDescending(x => x.StartedOn).ToList();
 		}
 	}
 }
