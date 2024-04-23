@@ -12,11 +12,9 @@
 	public class AdminController : Controller
 	{
 		private readonly IAdminService adminService;
-		private readonly IAnnounceService announceService;
-		public AdminController(IAdminService adminService, IAnnounceService announceService)
+		public AdminController(IAdminService adminService)
 		{
 			this.adminService = adminService;
-			this.announceService = announceService;
 		}
 
 		[HttpGet]

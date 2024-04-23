@@ -64,7 +64,7 @@
 			}
 			catch (Exception)
 			{
-				TempData[ErrorMessage] = "Unexpected message occurred";
+				TempData[ErrorMessage] = CommonErrorMessage;
 			}
 			
 			return View(returnResponse);

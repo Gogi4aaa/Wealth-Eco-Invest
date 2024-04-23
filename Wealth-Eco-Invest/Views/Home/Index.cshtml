@@ -1,9 +1,6 @@
 ﻿@inject UserManager<ApplicationUser> UserManager
 @inject SignInManager<ApplicationUser> SignInManager
 @inject IAdminService AdminService
-@using Wealth_Eco_Invest.Services.Data.Interfaces
-@using Microsoft.AspNetCore.Mvc.Localization
-@using Wealth_Eco_Invest.Controllers
 @model EnvironmentNewsServiceModel
 @{
     ViewData["Title"] = "Home Page";
@@ -48,9 +45,9 @@
 	<table>
 		@*TODO: finish admin page*@
 		<thead>
-			<th>Username</th>
-			<th>Email</th>
-			<th>User Users</th>
+			<th>Име</th>
+			<th>Имейл</th>
+			<th>Обяви на потребителят</th>
 		</thead>
 		<tbody>
 
@@ -114,9 +111,9 @@ else
 						}
 						<div class="card-body pt-2">
 							<h5 class="card-title">@title</h5>
-							<p class="card-text">Author: <span class="fw-bold">@author</span></p>
+							<p class="card-text">Автор: <span class="fw-bold">@author</span></p>
 							<p class="card-text">@body</p>
-							<a href="@article.Url" target="_blank" class="btn btn-warning">More Information</a>
+							<a href="@article.Url" target="_blank" class="btn btn-warning">Повече информация</a>
 						</div>
 					</div>
 				}

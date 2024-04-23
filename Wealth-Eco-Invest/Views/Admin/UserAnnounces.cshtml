@@ -10,13 +10,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="~/css/admin.css">
 	<link rel="stylesheet" href="~/css/site.css">
-	<title>Home</title>
+	<title>Обяви на потребител</title>
 </head>
 <body class="background">
 @if (!Model.Any())
 {
 	<div style="height: 70vh;" class="d-flex justify-content-center align-items-center">
-		<h1 class="text-center">This user has no announces!</h1>
+		<h1 class="text-center">Потребителят няма обяви!</h1>
 	</div>
 }
 else
@@ -24,16 +24,16 @@ else
 	<table class="table table-bordered text-center table-light">
 		<thead>
 		<tr>
-			<th>Title</th>
-			<th>Image</th>
-			<th>Description</th>
-			<th>Price</th>
-			<th>Created On</th>
-			<th>Is Active</th>
-			<th>Start Date</th>
-			<th>Category</th>
-			<th>Edit</th>
-			<th>Delete</th>
+			<th>Име</th>
+			<th>Снимка</th>
+			<th>Описание</th>
+			<th>Цена</th>
+			<th>Създадено</th>
+			<th>Активна ли е</th>
+			<th>Дата на започване</th>
+			<th>Категория</th>
+			<th>Редактирай</th>
+			<th>Изтрий</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -61,12 +61,12 @@ else
 									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 								</div>
 								<div class="modal-body text-center d-flex justify-content-center align-items-center">
-									<p class="m-0 text-danger fs-5">Are you sure you want to delete this item?</p>
+									<p class="m-0 text-danger fs-5">Сигурни ли сте че искате да изтриете тази обява?</p>
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 									<form asp-action="Delete" asp-controller="Announce" asp-route-id="@announce.Id" method="post">
-										<button class="btn btn-danger">Delete</button>
+										<button class="btn btn-danger">Изтрий</button>
 									</form>
 								</div>
 							</div>

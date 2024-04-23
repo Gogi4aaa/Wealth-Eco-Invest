@@ -30,7 +30,7 @@ namespace Wealth_Eco_Invest.Controllers
 
 				if (chat.Name == this.User.Identity.Name)
 				{
-					chat.Name = "You: ";
+					chat.Name = "Ти: ";
 				}
 				else
 				{

@@ -39,7 +39,7 @@
 
 				if (chat.Name == this.User.Identity.Name)
 				{
-					chat.Name = "You: ";
+					chat.Name = "Ти: ";
 				}
 				else
 				{

@@ -10,17 +10,17 @@
     </span>
     <span>
 		<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button type="submit" class="nav-link btn btn-link text-white menu-hover fs-5 nav-border-bottom">Logout</button>
+            <button type="submit" class="nav-link btn btn-link text-white menu-hover fs-5 nav-border-bottom">Изход</button>
         </form>
     </span>
 }
 else
 {
     <span>
-        <a class="nav-link text-white menu-hover fs-5 nav-border-bottom" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        <a class="nav-link text-white menu-hover fs-5 nav-border-bottom" asp-area="Identity" asp-page="/Account/Register">Регистрация</a>
     </span>
     <span>
-        <a class="nav-link text-white menu-hover fs-5 nav-border-bottom" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        <a class="nav-link text-white menu-hover fs-5 nav-border-bottom" asp-area="Identity" asp-page="/Account/Login">Вход</a>
     </span>
 }
 @* </ul> *@

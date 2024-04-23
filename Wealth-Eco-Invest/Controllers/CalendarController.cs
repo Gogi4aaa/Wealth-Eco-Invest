@@ -2,13 +2,10 @@
 
 namespace Wealth_Eco_Invest.Controllers
 {
-	using System.Globalization;
 	using Microsoft.AspNetCore.Authorization;
-	using Newtonsoft.Json;
 	using Services.Data.Interfaces;
 	using Web.Infrastructure.Extensions;
 	using Web.ViewModels.Calendar;
-	using JsonSerializer = System.Text.Json.JsonSerializer;
 
 	[Authorize]
 	public class CalendarController : Controller

@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/e48d166edc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="~/css/login.css">
-    <title>Login Form</title>
+    <title>Вход</title>
 </head>
 <body class="background">
     <div class="Main-container">
@@ -24,10 +24,10 @@
                 </div>
 
 				<form class="login-form" id="account" method="post">
-					<span class="login-form-title">Sign In</span>
+					<span class="login-form-title">Вход</span>
 
 					<div class="wrap-input">
-						<input asp-for="Input.Username" type="text" class="input" placeholder="Username" aria-required="true">
+						<input asp-for="Input.Username" type="text" class="input" placeholder="Потребителско име" aria-required="true">
 						
 						<span class="focus-input"></span>
 						<span class="symbol-input">
@@ -36,7 +36,7 @@
 					</div>
 					<span asp-validation-for="Input.Username" class="text-danger d-flex justify-content-center"></span>
                     <div class="wrap-input">
-						<input asp-for="Input.Password" type="password" class="input" placeholder="Password" aria-required="true">
+						<input asp-for="Input.Password" type="password" class="input" placeholder="Парола" aria-required="true">
 						
 						<span class="focus-input"></span>
 						<span class="symbol-input">
@@ -45,18 +45,17 @@
                     </div>
 					<span asp-validation-for="Input.Password" class="text-danger d-flex justify-content-center"></span>
                     <div class="login-form-btn-container">
-                        <button class="login-form-btn" type="submit">Sign In</button>
+                        <button class="login-form-btn" type="submit">Вход</button>
                     </div>
 
 					<div class="text-center p-t-1">
-						<span class="txt1">Forgot</span>
-						<a asp-page="./ForgotPassword" asp-route-returnUrl="@Model.ReturnUrl" aria-hidden="true" class="txt2"> Password ?</a>
+						<a asp-page="./ForgotPassword" asp-route-returnUrl="@Model.ReturnUrl" aria-hidden="true" class="txt2">Забравена парола ?</a>
 					</div>
 
 					<div asp-validation-summary="ModelOnly" class="text-danger text-center mt-5 list"></div>
 
                     <div class="text-center p-t-2">
-						<a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="txt2" aria-hidden="true">Sign Up <i class="fa fa-long-arrow-right"></i></a>
+						<a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="txt2" aria-hidden="true">Регистрирай се <i class="fa fa-long-arrow-right"></i></a>
                     </div>
 					
                 </form>
