@@ -22,7 +22,7 @@
             category = new Category()
             {
                 Id = 1,
-                Name = "afforestation"
+                Name = "Залесяване"
 			};
 
             categories.Add(category);
@@ -30,15 +30,15 @@
             category = new Category()
             {
                 Id = 2,
-                Name = "recycling"
-            };
+                Name = "Рециклиране"
+			};
             categories.Add(category);
 
             category = new Category()
             {
                 Id = 3,
-                Name = "cleaning"
-            };
+                Name = "Почистване"
+			};
             categories.Add(category);
 
             return categories.ToArray();

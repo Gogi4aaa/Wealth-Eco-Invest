@@ -19,8 +19,8 @@
 
             announce = new Announce()
             {
-                Title = "Air pollution",
-                Description = "This rubbish pollutes the environment.You need to throw it in the trash bins!",
+                Title = "Замърсяване на въздуха",
+                Description = "Тези боклуци замърсяват околната среда. Трябва да ги изхвърлите в кофите за боклук!",
                 Price = 50.00m,
                 StartDate = DateTime.Parse("2023-12-01 12:25:00"),
                 ImageUrl = "https://www.nrdc.org/sites/default/files/styles/medium_16x9_100/public/media-uploads/health4_26_airpollguide_istock_2796602_2400.jpg.jpg?h=c3635fa2&itok=bunvf3B8",
@@ -31,8 +31,8 @@
 
             announce = new Announce()
             {
-                Title = "Clean the rubbish",
-                Description = "The pollution is the worst thing ever.We need to stop it!",
+                Title = "Почистване на боклук",
+                Description = "Замърсяването е най-лошото нещо в света. Трябва да го спрем!",
                 Price = 200.00m,
                 StartDate = DateTime.Parse("2023-12-02 10:30:00"),
 				ImageUrl = "https://www.interplas.com/product_images/trash-bags/sku/8-10-Gallon-Black-24-x-30-Drawstring-Trash-Bags-1000px.jpg?v=1346367336",
@@ -43,8 +43,8 @@
 
             announce = new Announce()
             {
-                Title = "Water pollution",
-                Description = "Water pollution destroy our beaches and oceans.We need to stop it fast!",
+                Title = "Замърсяване на водата",
+                Description = "Замърсяването на водата унищожава нашите плажове и морета. Трябва бързо да го спрем!",
                 Price = 100_000m,
                 StartDate = DateTime.Parse("2023-12-01 15:05:05"),
 				ImageUrl =

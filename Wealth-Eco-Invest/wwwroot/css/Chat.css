@@ -43,7 +43,7 @@ input::placeholder {
 
 @media only screen and (max-width: 768px) {
     .messages-box {
-        height: 300px;
+        height: 150px;
         overflow-y: scroll;
     }
 }

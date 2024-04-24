@@ -55,12 +55,11 @@
 				})
 				.ToListAsync();
 
-			if (userOwnerOfAnnounce.Any())
+			foreach (var ownedForums in userOwnerOfAnnounce)
 			{
-				chats.Add(userOwnerOfAnnounce[0]);
+				chats.Add(ownedForums);
 			}
 			
-
 			return chats.OrderByDescending(x => x.StartedOn).ToList();
 		}
 	}

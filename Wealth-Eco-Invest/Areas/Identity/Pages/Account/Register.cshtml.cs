@@ -18,7 +18,7 @@ namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account
     using Services.Messaging.Templates;
     using static Common.ValidationConstants.User;
     using IEmailSender = Services.Messaging.IEmailSender;
-
+    using static Common.GeneralApplicationConstants;
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -133,8 +133,6 @@ namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Account confirmation",
-                        EmailConfirmationTemplate.Message(callbackUrl!,user.UserName));
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -142,7 +140,12 @@ namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account
                     }
                     else
                     {
-                        await _signInManager.SignInAsync(user, isPersistent: false);
+	                    ApplicationUser userToAdd =
+		                    await _userManager.FindByEmailAsync(Input.Email);
+
+	                    await _userManager.AddToRoleAsync(userToAdd, UserRoleName);
+
+						await _signInManager.SignInAsync(user, isPersistent: false);
                         return LocalRedirect(returnUrl);
                     }
                 }

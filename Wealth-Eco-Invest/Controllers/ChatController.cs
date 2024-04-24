@@ -57,7 +57,16 @@
 			var chatId = new Guid();
 			if (clickedChatId == "")
 			{
-				chatId = await this.chatService.GetLatestChatIdAsync(Guid.Parse(this.User.GetId()));
+				if (allChats.Count == 1)
+				{
+					chatId = allChats[0].ChatId;
+				}
+				else if(allChats.Count > 1)
+				{
+					var latest = allChats.OrderByDescending(x => x.StartedOn)
+						.LastOrDefault();
+					chatId = latest.ChatId;
+				}
 			}
 			else
 			{
