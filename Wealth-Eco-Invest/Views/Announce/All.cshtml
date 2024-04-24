@@ -36,7 +36,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="~/css/site.css">
 	<link rel="stylesheet" href="~/css/announces.css">
-	<title>Users</title>
+	<title>Всички</title>
 </head>
 <body class="all-background">
 <div class="d-flex">
@@ -50,7 +50,7 @@
 		      asp-route-searchTerm="@Model.SearchTerm">
 			<div class="d-flex">
 				<div class="form-group" style="width: 270px;">
-					<input asp-for="SearchTerm" class="form-control" placeholder="Search...">
+					<input asp-for="SearchTerm" class="form-control" placeholder="Търси...">
 				</div>
 				<div class="form-group">
 					<button class="btn btn-dark" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -70,7 +70,7 @@
 					asp-controller="Announce"
 					asp-route-searchTerm="@Model.SearchTerm"
 					asp-route-orderBy="0">
-					Newest
+					Най-ново
 				</a>
 			</li>
 			<li><hr class="dropdown-divider"></li>
@@ -81,7 +81,7 @@
 					asp-controller="Announce"
 					asp-route-searchTerm="@Model.SearchTerm"
 					asp-route-orderBy="1">
-					Oldest
+					Най-старо
 				</a>
 			</li>
 			<li><hr class="dropdown-divider"></li>
@@ -92,7 +92,7 @@
 					asp-controller="Announce"
 					asp-route-searchTerm="@Model.SearchTerm"
 					asp-route-orderBy="2">
-					Price (Ascending)
+					Цена (възходящ)
 				</a>
 			</li>
 			<li><hr class="dropdown-divider"></li>
@@ -103,17 +103,17 @@
 					asp-controller="Announce"
 					asp-route-searchTerm="@Model.SearchTerm"
 					asp-route-orderBy="3">
-					Price (Descending)
+					Цена (низходящ)
 				</a>
 			</li>
 		</ul>
 	</div>
 </div>
-<a asp-action="Add" asp-controller="Announce" class="btn text-white sortingButton-background">Add Announce</a>
+<a asp-action="Add" asp-controller="Announce" class="btn text-white sortingButton-background">Добави обява</a>
 @if (!Model.Announces.Any())
 {
 	<div class="text-center">
-		<h2 class="mt-5">No announces found by the given criteria!</h2>
+		<h2 class="mt-5">Няма намерени обяви по този критерии!</h2>
 	</div>
 }
 @if (Model.Announces.Any())

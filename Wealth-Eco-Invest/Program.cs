@@ -81,7 +81,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHangfireDashboard();
-
+app.UseDefaultFiles();
+app.UseStaticFiles();
 app.MapControllerRoute(
 	name: "default",
 	pattern: "{controller=Home}/{action=Index}/{id?}");

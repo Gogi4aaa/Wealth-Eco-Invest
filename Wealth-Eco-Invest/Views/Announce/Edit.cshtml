@@ -11,12 +11,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="~/css/announces.css">
-	<title>Edit</title>
+	<title>Редактирай</title>
 </head>
 <body class="edit-background">
 <div class="text-center d-flex flex-column justify-content-center align-items-center" style=" width: 100%">
 	<div class="mb-5">
-		<h1 class="text-dark">Create Product</h1>
+		<h1 class="text-dark">Създай продукт</h1>
 	</div>
 	<form asp-action="Edit" asp-controller="Announce" class="w-50" enctype="multipart/form-data" method="post">
 		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -37,7 +37,7 @@
 					<option value="@category.Id">@category.Name</option>
 				}
 			</select>
-			<label for="floatingSelect">Categories</label>
+			<label for="floatingSelect">Категории</label>
 		</div>
 		<div class="form-floating">
 			<input asp-for="StartDate" class="form-control mt-3" type="datetime-local" placeholder="imageUrl" id="floatingDate"/>
@@ -57,7 +57,7 @@
 			<span asp-validation-for="ProductImage" class="text-danger fs-5"></span>
 		</div>
 		<div class="mt-4">
-			<button class="btn btn-primary" style="width: 60%" type="submit">Submit</button>
+			<button class="btn btn-primary" style="width: 60%" type="submit">Редактирай</button>
 		</div>
 	</form>
 </div> 

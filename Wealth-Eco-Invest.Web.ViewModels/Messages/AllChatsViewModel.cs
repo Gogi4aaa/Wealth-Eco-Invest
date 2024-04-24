@@ -6,7 +6,7 @@
 
 		public DateTime StartedOn { get; set; }
 
-		public Guid UserTo { get; set; }
+		public Guid? UserTo { get; set; }
 
 		public Guid UserFrom { get; set; }
 

@@ -12,11 +12,14 @@
 		{
 			this.dbContext = dbContext;
 		}
-		public async Task<string> GetUserNameByIdAsync(Guid userId)
+		public async Task<string> GetUserNameByIdAsync(Guid? userId)
 		{
 			var user = await this.dbContext.Users
 				.FindAsync(userId);
-
+			if (user == null)
+			{
+				return "";
+			}
 			return user.UserName;
 		}
 

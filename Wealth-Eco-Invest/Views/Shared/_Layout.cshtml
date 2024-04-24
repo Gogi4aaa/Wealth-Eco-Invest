@@ -19,16 +19,7 @@
 </head>
 <body>
 <partial name="_NotificationsPartial" />
-	@* onload="loadSpinner();" *@
-	@* TODO: spinner *@
-	<div id="spinner" class="d-none justify-content-center" style="width: 100%; height: 100%;">
-		<div class="spinner-border" role="status">
-			<span class="visually-hidden">Loading...</span>
-		</div>
-	</div>
-@* TODO: spinner *@
-
-	<header>
+<header>
 		<nav class="navbar navbar-expand-lg navbar-light border-bottom box-shadow mb-3" style="background: #34652B; min-height: 70px;">
 			<div class="container-fluid justify-content-between">
 				<div>
@@ -53,20 +44,23 @@
 							<a class="nav-link text-white text-decoration-none menu-hover fs-5" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
 							</li> *@
 								<li class="nav-item me-3 fs-4 nav-border-top nav-border-bottom w-100 text-center">
-									<a class="nav-link text-white text-decoration-none menu-hover fs-5" asp-area="" asp-controller="Chat" asp-action="All">Messages</a>
+									<a class="nav-link text-white text-decoration-none menu-hover fs-5" asp-area="" asp-controller="Forum" asp-action="All">Форуми</a>
 								</li>
 								<li class="nav-item me-3 fs-4 nav-border-top nav-border-bottom w-100 text-center">
-									<a class="nav-link text-white text-decoration-none menu-hover fs-5" asp-area="" asp-controller="Announce" asp-action="All">Announces</a>
+									<a class="nav-link text-white text-decoration-none menu-hover fs-5" asp-area="" asp-controller="Chat" asp-action="All">Съобщения</a>
+								</li>
+								<li class="nav-item me-3 fs-4 nav-border-top nav-border-bottom w-100 text-center">
+									<a class="nav-link text-white text-decoration-none menu-hover fs-5" asp-area="" asp-controller="Announce" asp-action="All">Обяви</a>
 								</li>
 								<li class="nav-item fs-4 text-white nav-border-top nav-border-bottom w-100 text-center">
 									<a class="nav-link text-white cursor-pointer menu-hover" asp-action="EventCalendar" asp-controller="Calendar"><i class="fa-regular fa-calendar-days"></i>
-									<p class="hidden">Calendar</p></a>
+									<p class="hidden">Календар</p></a>
 								</li>
 								<li class="nav-item padding-7px0px fs-4  text-white text-center nav-border-top nav-border-bottom w-100 text-center">
 									<div class="d-flex menu-hover justify-content-center align-items-start">
 										<a class="text-white text-decoration-none cursor-pointer menu-hover" asp-action="All" asp-controller="ShoppingCart"><i class="fa-solid fa-cart-shopping me-sm-3"></i></a>
 										<span class='cart-count-margin-left badge badge-warning' id='lblCartCount'> @ApplicationDbContext.Carts.Count(x => x.BuyerId == Guid.Parse(User.GetId()!)) </span>
-										<a asp-action="All" asp-controller="ShoppingCart" class="text-white text-decoration-none ms-1 hidden cursor-pointer menu-hover">Cart</a>
+										<a asp-action="All" asp-controller="ShoppingCart" class="text-white text-decoration-none ms-1 hidden cursor-pointer menu-hover">Количка</a>
 									</div>
 								</li>
 							}
@@ -79,11 +73,11 @@
 		@* SIDE NAVBAR *@
 		<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
 			<div class="offcanvas-header">
-				<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+				<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"></h5>
 				<button type="button" class="btn-close burger-button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>
 			<div class="offcanvas-body">
-				<p>Try scrolling the rest of the page to see this option in action.</p>
+				<p>Скролни надолу</p>
 			</div>
 		</div>
 		@* SIDE NAVBAR END *@
@@ -95,23 +89,13 @@
     </div>
 
 <footer class="footer text-muted text-center" style="background: #607d43; width: 100%; position: absolute; bottom: 0;">
-		<div class="container">
-			<span class="text-white fs-5">&copy; @DateTime.UtcNow.Year - Wealth Evo Invest - all rights reserved</span>
+	<div class="container">
+		<span class="text-white fs-5">&copy; @DateTime.UtcNow.Year - Wealth Evo Invest - всички права са запазени</span>
 	</div>
 </footer>
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
-<script>
-		function loadSpinner() {
-			setTimeout(function() {
-					$("#spinner").addClass("d-flex");
-				}, 10000);
-			console.log(5);
-			$("#spinner").removeClass("d-none");
-			console.log(10);
-		}
-</script>
-    @await RenderSectionAsync("Scripts", required: false)
+@await RenderSectionAsync("Scripts", required: false)
 
 </body>
 </html>

@@ -13,28 +13,32 @@
 			this.Categories = new HashSet<AnnounceSelectCategoryFormModel>();
 		}
 
+		[Display(Name = "Име")]
 		[Required]
 		[StringLength(TitleMaxLength, MinimumLength = TitleMinLength, ErrorMessage = TitleErrorMessage)]
 		public string Title { get; set; } = null!;
 
+		[Display(Name = "Описание")]
 		[Required]
 		[StringLength(DescriptionMaxLength,MinimumLength = DescriptionMinLength,ErrorMessage = DescriptionErrorMessage)]
 		public string Description { get; set; } = null!;
 
 		public IFormFile ProductImage { get; set; }
 
-		[Display(Name = "Image Link")]
+		[Display(Name = "Снимка")]
 		public string ImageUrl { get; set; } = null!;
 
+		[Display(Name = "Цена")]
 		[Range(PriceMinLength,PriceMaxLength)]
         public decimal Price { get; set; }
 
-		[MyDate(ErrorMessage = "Invalid date")]
+		[MyDate(ErrorMessage = "Невалидна дата")]
+		[Display(Name = "Дата на започване")]
 		public DateTime StartDate { get; set; }
 
         public DateTime OldDate { get; set; }
 
-		[Display(Name = "Category")]
+		[Display(Name = "Категория")]
 		public int CategoryId { get; set; }
 
 		public Guid UserId { get; set; }

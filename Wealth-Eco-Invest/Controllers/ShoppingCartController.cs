@@ -9,6 +9,7 @@
     using Microsoft.JSInterop;
     using Newtonsoft.Json;
     using Web.Infrastructure.Extensions;
+	using static Common.GeneralApplicationConstants;
     using static Common.NotificationMessagesConstants;
     using NuGet.Packaging;
 	using Services.Messaging;
@@ -51,16 +52,16 @@
 			            Guid.Parse(this.User.GetId()!));
 	            if (isAnnounceAlreadyBoughtByUser)
 	            {
-		            TempData[WarningMessage] = "You are already registered for this announce!";
+		            TempData[WarningMessage] = "Вече сте регистриран за тази обява!";
 					return RedirectToAction("All", "Announce");
 				}
                 await this.shoppingCartService.AddAnnounceToUser(id, Guid.Parse(this.User.GetId()!));
                 
-                TempData[SuccessMessage] = "Announce was added to cart!";
+                TempData[SuccessMessage] = "Обявата беше добавена в количката";
             }
             catch (Exception e)
             {
-                TempData[ErrorMessage] = "Unexpected exception occurred";
+                TempData[ErrorMessage] = CommonErrorMessage;
             }
 
             return RedirectToAction("All", "ShoppingCart");
@@ -68,7 +69,15 @@
 
         public async Task<IActionResult> Remove(Guid id)
         {
-	        await this.shoppingCartService.DeleteAnnounceToUser(id, Guid.Parse(this.User.GetId()!));
+	        try
+	        {
+				await this.shoppingCartService.DeleteAnnounceToUser(id, Guid.Parse(this.User.GetId()!));
+				TempData[SuccessMessage] = "Успешно премахнахте обявата от количката си!";
+	        }
+	        catch (Exception e)
+	        {
+		        TempData[ErrorMessage] = CommonErrorMessage;
+	        }
 	        return RedirectToAction("All", "ShoppingCart");
         }
 
@@ -88,7 +97,7 @@
 	        announce.Count-= 1;
 	        if (announce.Count <= 0)
 	        {
-		        TempData[ErrorMessage] = "The minimum quantity is 1!";
+		        TempData[ErrorMessage] = "Минималният брой е 1!";
 	        }
 	        else
 	        {
@@ -145,7 +154,7 @@
 			}
 			catch (Exception)
 			{
-				TempData[ErrorMessage] = "Unexpected exception occurred";
+				TempData[ErrorMessage] = CommonErrorMessage;
 				return View("Failed");
 
 			}
@@ -167,8 +176,8 @@
 			        await this.purchaseService.CheckIsThisAnnounceIsAlreadyBoughtByCurrentUser(id, Guid.Parse(this.User.GetId()!));
 		        if (isAnnounceAlreadyBoughtByUser)
 		        {
-			        TempData[ErrorMessage] = "You have already participate in this announce!";
-					TempData[InformationMessage] = "Check your calendar!";
+			        TempData[ErrorMessage] = "Вие все още участвате в тази обява";
+					TempData[InformationMessage] = "Проверете календара си!";
 
 			        return View();
 		        }
@@ -182,16 +191,16 @@
 
 		        var announce = await this.shoppingCartService.GetAnnounceByAnnounceId(id, Guid.Parse(this.User.GetId()!));
 
-				await this.emailSender.SendEmailAsync(this.User.GetEmail()!, "Announce buying", AnnounceBuyingTemplate.Message(this.User.Identity!.Name!, callbackUrl, announce));
+				await this.emailSender.SendEmailAsync(this.User.GetEmail()!, "Купуване на билет", AnnounceBuyingTemplate.Message(this.User.Identity!.Name!, callbackUrl, announce));
 
 
 				await this.shoppingCartService.DeleteAnnounceToUser(id, Guid.Parse(this.User.GetId()!));
 
-				TempData[InformationMessage] = "Check your calendar for full information!";
+				TempData[InformationMessage] = "Проверете календара си за цялата информация!";
 			}
 	        catch (Exception)
 	        {
-		        TempData[ErrorMessage] = TempData[ErrorMessage] = "Unexpected error occurred";
+		        TempData[ErrorMessage] = TempData[ErrorMessage] = CommonErrorMessage;
 			}
 
 	        return View();

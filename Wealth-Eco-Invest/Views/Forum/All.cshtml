@@ -27,17 +27,16 @@
 			<div class="bg-white">
 
 
-			<div class="bg-gray px-4 py-2 bg-light">
-				<p class="h5 mb-0 py-1">Скорошни</p>
-			</div>
+				<div class="bg-gray px-4 py-2 bg-light">
+					<p class="h5 mb-0 py-1">Скорошни</p>
+				</div>
 
 				<div class="messages-box">
 					<div class="list-group rounded-0">
 						@foreach (var chat in Model.Chats)
 						{
 							string active = chat.ChatId == Model.ChatId ? "active" : "bg-success";
-							var userToName = Guid.Parse(User.GetId()) == chat.UserTo ? UserService.GetUserNameByIdAsync(chat.UserFrom).Result : UserService.GetUserNameByIdAsync(chat.UserTo).Result;
-							foreach (var (key,value) in days)
+							foreach (var (key, value) in days)
 							{
 								if (key == chat.StartedOn.Month)
 								{
@@ -45,10 +44,10 @@
 									break;
 								}
 							}
-							<a asp-action="All" asp-controller="Chat" asp-route-clickedChatId="@chat.ChatId" class="list-group-item @active list-group-item-action text-white rounded-0 border">
+							<a asp-action="All" asp-controller="Forum" asp-route-clickedChatId="@chat.ChatId" class="list-group-item @active list-group-item-action text-white rounded-0 border">
 								<div class="media">
 									<div class="media-body ml-4">
-										<h5 class="fw-bold">@userToName</h5>
+										<h5 class="fw-bold">@chat.AnnounceName</h5>
 										<div class="d-flex align-items-center justify-content-between mb-1">
 											<h6 class="mb-0">@chat.Name @chat.Message</h6><small class="small font-weight-bold">@chat.StartedOn.Day @date</small>
 										</div>
@@ -101,11 +100,11 @@
 						}
 						reformedMessage = sb.ToString();
 					}
-					
 
 					<div class="@flexContent">
 						<div class="@activeUserClassesIn">
 							<div class="media-body ml-3">
+								@message.Owner
 								<div class="@bodyClassIn rounded py-2 px-3 mb-2">
 									@reformedMessage
 								</div>
@@ -119,7 +118,7 @@
 
 			</div>
 			<div class="input-group">
-				<input id="messageInput" type="text" placeholder="Напиши съобщение" class="form-control rounded-0 border-0 py-4 bg-light">
+				<input id="messageInput" type="text" placeholder="Type a message" class="form-control rounded-0 border-0 py-4 bg-light">
 				<input id="chatDiv" value="@Model.ChatId" hidden />
 				<div class="input-group-append">
 					<button id="sendButton" type="submit" class="btn btn-link">

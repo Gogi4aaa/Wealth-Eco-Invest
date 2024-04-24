@@ -1,10 +1,8 @@
 ﻿namespace Wealth_Eco_Invest.Controllers
 {
 	using Microsoft.AspNetCore.Mvc;
-	using Data.Models;
-    using Microsoft.AspNetCore.Authorization;
+	using Microsoft.AspNetCore.Authorization;
 	using Services.Data.Interfaces;
-	using Services.Messaging.Templates;
 	using Services.Models.Announce;
 	using Web.Infrastructure.Extensions;
     using Web.ViewModels.Announce;
@@ -20,15 +18,15 @@
     {
         private readonly IAnnounceService announceService;
         private readonly ICategoryService categoryService;
-		private readonly IEmailSender emailSender;
-		private readonly IAdminService adminService;
+        private readonly IAdminService adminService;
+		private readonly IChatService chatService;
 		private readonly CloudinarySetUp cloudinarySetUp;
-		public AnnounceController(IAnnounceService announceService, ICategoryService categoryService,IEmailSender emailSender, IAdminService adminService)
+		public AnnounceController(IAnnounceService announceService, ICategoryService categoryService, IAdminService adminService, IChatService chatService)
         {
             this.announceService = announceService;
             this.categoryService = categoryService;
-			this.emailSender = emailSender;
-			this.adminService = adminService;
+            this.adminService = adminService;
+			this.chatService = chatService;
 			this.cloudinarySetUp = new CloudinarySetUp();
         }
 
@@ -61,7 +59,7 @@
 	        }
 	        catch (Exception)
 	        {
-				TempData[ErrorMessage] = "Unexpected error occurred";
+				TempData[ErrorMessage] = CommonErrorMessage;
 			}
 	        
             return this.View(queryViewModel);
@@ -79,7 +77,7 @@
 		public async Task<IActionResult> Add(AnnounceFormModel model)
         {
 	        ModelState.Remove(nameof(model.ImageUrl));
-			if (!ModelState.IsValid)
+	        if (!ModelState.IsValid)
 	        {
 		        model.Categories = await this.categoryService.AllCategoriesAsync();
 				return View(model);
@@ -98,7 +96,9 @@
 		        var correctImageUrl = cloudinarySetUp.GenerateImageUrl(fileName);
 		        model.ImageUrl = correctImageUrl;
 
-				await this.announceService.AddAnnounceAsync(model);
+				var announceId = await this.announceService.AddAnnounceAsync(model);
+
+				await this.chatService.AddChatAsync(Guid.Parse(this.User.GetId()), null, announceId);
 			}
 	        catch (Exception e)
 	        {
@@ -131,11 +131,11 @@
 			{
 				await this.announceService.DeleteAnnounceByIdAsync(id);
 
-				TempData[SuccessMessage] = "You successfully delete your announce!";
+				TempData[SuccessMessage] = "Вие успешно изтрихте това съобщение!";
 			}
 			catch (Exception)
 			{
-				TempData[ErrorMessage] = "Unexpected error occurred";
+				TempData[ErrorMessage] = CommonErrorMessage;
 			}
 
 			if (await this.adminService.IsUserAdmin(Guid.Parse(this.User.GetId()!)))

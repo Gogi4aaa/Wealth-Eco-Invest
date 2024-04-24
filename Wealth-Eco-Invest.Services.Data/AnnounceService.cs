@@ -77,7 +77,7 @@
 
         }
 
-        public async Task AddAnnounceAsync(AnnounceFormModel model)
+        public async Task<Guid> AddAnnounceAsync(AnnounceFormModel model)
         {
 	        Announce announce = new Announce()
 	        {
@@ -94,6 +94,12 @@
 
 	        await this.dbContext.AddAsync(announce);
 	        await this.dbContext.SaveChangesAsync();
+
+	        var announceForReturn = await this.dbContext
+		        .Announces
+		        .FirstOrDefaultAsync(x => x.Title == model.Title);
+
+	        return announceForReturn.Id;
         }
 
         public async Task<AnnounceDetailsViewModel> GetAnnounceForDetailsByIdAsync(Guid announceId)
@@ -195,7 +201,5 @@
 
             return allAnnounces;
         }
-
-        
     }
 }
