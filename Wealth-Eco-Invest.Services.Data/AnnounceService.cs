@@ -106,7 +106,7 @@
         {
 	        return await this.dbContext
 		        .Announces
-		        .Where(x => x.Id == announceId && x.IsActive)
+		        .Where(x => x.Id == announceId)
 		        .Select(model => new AnnounceDetailsViewModel()
 		        {
 					Id = model.Id,
@@ -140,7 +140,6 @@
         {
 	        Announce announce = await this.dbContext
 		        .Announces
-		        .Where(a => a.IsActive)
 		        .FirstAsync(x => x.Id == announceId);
 
 			announce.Title = model.Title;
@@ -174,7 +173,6 @@
         {
 	        Announce announce = await this.dbContext
 		        .Announces
-		        .Where(x=> x.IsActive)
 		        .FirstAsync(x => x.Id == announceId);
 
 	        var user = await this.dbContext.Users.FindAsync(announce!.UserId);
@@ -200,6 +198,19 @@
                 .ToArrayAsync();
 
             return allAnnounces;
+        }
+
+        public async Task<bool> IsCurrentUserOwnedAnnounceAsync(Guid announceId, Guid userId)
+        {
+	        var announce = await this.dbContext
+		        .Announces
+		        .FindAsync(announceId);
+	        if (announce.UserId == userId)
+	        {
+		        return true;
+	        }
+
+	        return false;
         }
     }
 }

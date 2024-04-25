@@ -45,12 +45,31 @@
 									break;
 								}
 							}
+							string message = chat.Message; 
+							if (chat.Message.Length > 38)
+							{
+								message = "";
+							
+								foreach (var character in chat.Message)
+								{
+									if (message.Length < 35)
+									{
+										message += character;
+									}
+									else
+									{
+										message += "...";
+										break;
+									}
+								}
+
+							}
 							<a asp-action="All" asp-controller="Chat" asp-route-clickedChatId="@chat.ChatId" class="list-group-item @active list-group-item-action text-white rounded-0 border">
 								<div class="media">
 									<div class="media-body ml-4">
 										<h5 class="fw-bold">@userToName</h5>
 										<div class="d-flex align-items-center justify-content-between mb-1">
-											<h6 class="mb-0">@chat.Name @chat.Message</h6><small class="small font-weight-bold">@chat.StartedOn.Day @date</small>
+											<h6 class="mb-0">@chat.Name @message</h6><small class="small font-weight-bold">@chat.StartedOn.Day @date</small>
 										</div>
 									</div>
 								</div>
@@ -68,7 +87,7 @@
 					var fullTime = message.TypedOn.Hour.ToString("00") + ":" + message.TypedOn.Minute.ToString("00");
 					var flexContent = "d-flex align-items-start flex-column";
 					var activeUserClassesIn = "media text-center ml-auto mb-3";
-					var bodyClassIn = "bg-primary";
+					var bodyClassIn = "bg-success";
 					var textEnd = "text-start";
 					var isUserActiveIn = Guid.Parse(User.GetId()) == message.UserFrom;
 					if (isUserActiveIn)
@@ -86,7 +105,7 @@
 							break;
 						}
 					}
-					string reformedMessage = @message.Message;
+					@* string reformedMessage = @message.Message;
 					if (message.Message.Length > 10)
 					{
 						StringBuilder sb = new StringBuilder();
@@ -100,14 +119,14 @@
 							sb.Append(message.Message[j++]);
 						}
 						reformedMessage = sb.ToString();
-					}
+					} *@
 					
 
 					<div class="@flexContent">
 						<div class="@activeUserClassesIn">
 							<div class="media-body ml-3">
 								<div class="@bodyClassIn rounded py-2 px-3 mb-2">
-									@reformedMessage
+									@message.Message
 								</div>
 								<p class="small text-muted">@fullTime | @message.TypedOn.Day @date</p>
 							</div>

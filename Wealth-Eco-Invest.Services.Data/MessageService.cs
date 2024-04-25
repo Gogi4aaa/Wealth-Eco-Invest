@@ -37,7 +37,7 @@
 		{
 			var messageToAdd = new Message()
 			{
-				TypedOn = DateTime.Now,
+				TypedOn = DateTime.UtcNow,
 				Content = message,
 				ChatId = chatId,
 				OwnerUsername = username

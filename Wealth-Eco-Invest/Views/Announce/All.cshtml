@@ -1,4 +1,5 @@
-﻿@model AnnounceQueryViewModel
+﻿@using Wealth_Eco_Invest.Web.ViewModels.Announce.Enums
+@model AnnounceQueryViewModel
 @{
 	ViewData["Title"] = "Users";
 	int announceSortingNumber = (int)Model.AnnounceSorting;
@@ -27,6 +28,19 @@
 
 	bool shouldNextPageBeDisabled = Model.CurrentPage == maxPage ||
 	                                !Model.Announces.Any();
+	string newest = "Най-нови";
+	if (Model.AnnounceSorting == AnnounceSorting.Oldest)
+	{
+		newest = "Най-стари";
+	}
+	else if (Model.AnnounceSorting == AnnounceSorting.PriceAscending)
+	{
+		newest = "Цена (възходящ)";
+	}
+	else if (Model.AnnounceSorting == AnnounceSorting.PriceDescending)
+	{
+		newest = "Цена (възходящ)";
+	}
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +74,7 @@
 	</div>
 	<div class="btn-group">
 		<button type="button" class="btn text-white sortingButton-background dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-			@Model.AnnounceSorting
+			@newest
 		</button>
 		<ul class="dropdown-menu">
 			<li>
@@ -70,7 +84,7 @@
 					asp-controller="Announce"
 					asp-route-searchTerm="@Model.SearchTerm"
 					asp-route-orderBy="0">
-					Най-ново
+					Най-нови
 				</a>
 			</li>
 			<li><hr class="dropdown-divider"></li>
@@ -81,7 +95,7 @@
 					asp-controller="Announce"
 					asp-route-searchTerm="@Model.SearchTerm"
 					asp-route-orderBy="1">
-					Най-старо
+					Най-стари
 				</a>
 			</li>
 			<li><hr class="dropdown-divider"></li>

@@ -23,5 +23,7 @@
 
         Task<IEnumerable<AllAnnouncesViewModel>> GetAllByUserIdAsync(Guid userId);
 
+        Task<bool> IsCurrentUserOwnedAnnounceAsync(Guid announceId, Guid userId);
+
     }
 }

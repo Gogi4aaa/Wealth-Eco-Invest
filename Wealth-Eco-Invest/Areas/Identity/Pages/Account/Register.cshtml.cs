@@ -7,6 +7,7 @@ namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account
     using System.ComponentModel.DataAnnotations;
     using System.Text;
     using System.Text.Encodings.Web;
+    using Data;
     using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Identity.UI.Services;
@@ -18,7 +19,7 @@ namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account
     using Services.Messaging.Templates;
     using static Common.ValidationConstants.User;
     using IEmailSender = Services.Messaging.IEmailSender;
-
+    using static Common.GeneralApplicationConstants;
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -114,7 +115,23 @@ namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = CreateUser();
+	            ApplicationUser userEmailCheck = _userManager.FindByEmailAsync(Input.Email).Result;
+	            ApplicationUser userUsernameCheck = _userManager.FindByNameAsync(Input.Username).Result;
+
+	            if (userEmailCheck != null)
+	            {
+		            ModelState.AddModelError(String.Empty, "Потребител с такъв имейл вече съществува!");
+	            }
+	            if (userUsernameCheck != null)
+	            {
+		            ModelState.AddModelError(String.Empty, "Потребител с такова име вече съществува!");
+	            }
+	            if (userEmailCheck != null || userUsernameCheck != null)
+	            {
+		            return Page();
+	            }
+
+				var user = CreateUser();
                 
                 await _userStore.SetUserNameAsync(user, Input.Username, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
@@ -133,8 +150,6 @@ namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Account confirmation",
-                        EmailConfirmationTemplate.Message(callbackUrl!,user.UserName));
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -142,17 +157,22 @@ namespace Wealth_Eco_Invest.Areas.Identity.Pages.Account
                     }
                     else
                     {
-                        await _signInManager.SignInAsync(user, isPersistent: false);
+	                    await _userManager.AddToRoleAsync(user, UserRoleName);
+
+						await _signInManager.SignInAsync(user, isPersistent: false);
+
                         return LocalRedirect(returnUrl);
                     }
                 }
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
-            }
+				else
+				{
+                    ModelState.AddModelError("", "Паролата трябва да включва: голяма буква, малка буква, символ и число");
+					ModelState.AddModelError("Input.Password", "Неправилнa парола");
+					ModelState.AddModelError("Input.ConfirmPassword", "Неправилнa парола");
+					return Page();
+				}
+			}
 
-            // If we got this far, something failed, redisplay form
             return Page();
         }
 

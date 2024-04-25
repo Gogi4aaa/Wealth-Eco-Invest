@@ -21,14 +21,14 @@
 				<img src="@Model.ImageUrl" style="border-radius: 5px" class="img-fluid h-100" />
 			</div>
 			<p class="card-text mt-3">
-				<span class="fw-bold fs-5">Description:</span>
+				<span class="fw-bold fs-5">Описание:</span>
 				@Model.Description
 			</p>
 			<div class="row">
 				<div class="col-7 col-md-6">
 					<p class="card-text">
 						<span class="fw-bold text-black fs-5">
-							Start Date:
+							Дата на започване:
 						</span>@Model.StartDate
 					</p>
 				</div>
@@ -36,9 +36,6 @@
 					<p class="card-text text-success fs-3 fw-bold">
 						@Model.Price lv.
 					</p>
-						<p class="card-text text-success fs-3 fw-bold">
-							Присъедини се към групата!
-						</p>
 					@* <p class="card-text text-success fs-3 fw-bold">
 						<span class="fw-bold text-black fs-4">
 							Start Date:
@@ -48,7 +45,7 @@
 				<div class="col-7 col-md-6">
 					<p class="card-text">
 						<span class="fw-bold text-black fs-5">
-							Owner:
+							Създател:
 						</span>@Model.Owner
 					</p>
 					<a class="card-text btn btn-success" asp-action="Add" asp-controller="Chat" asp-route-ownerName="@Model.Owner" asp-route-announceId="@Model.Id">

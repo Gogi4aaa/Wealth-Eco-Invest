@@ -19,10 +19,10 @@ namespace Wealth_Eco_Invest.Common
         public const int MaxAnnouncesPerPage = 8;
 
         //emailSending
-        public const string EmailFrom = "wealthecoinvest.contacts@gmail.com";
-        public const string SmtpMail = "georgi-07@abv.bg";
-        public const string SmtpPassword = "g2dRHcIj9rB8DAS0";
-        public const string SmtpHost = "smtp-relay.sendinblue.com";
+        public const string EmailFrom = "georgi-07@abv.bg";
+        public const string SmtpMail = "wealthecoinvest.contacts@gmail.com";
+        public const string SmtpPassword = "random-Password1";
+        public const string SmtpHost = "in-v3.mailjet.com";
         public const int SmtpPort = 587;
 
         //newsURL
