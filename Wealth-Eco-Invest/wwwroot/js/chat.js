@@ -26,7 +26,7 @@ connection.on("ReceiveMessage", function(message, chatId, owner) {
             var minutes = data.getMinutes();
             div.className = "media mb-3 text-center";
             div2.className = "media-body ml-3";
-            div3.className = "rounded py-2 px-3 mb-2 bg-primary";
+            div3.className = "rounded py-2 px-3 mb-2 bg-success";
             p.className = "small text-muted";
             var dateText = hours + ":" + minutes + " | " + data.getDate() + " " + monthName;
             p.innerText = dateText;

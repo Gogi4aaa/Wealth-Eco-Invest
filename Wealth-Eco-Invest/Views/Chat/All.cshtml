@@ -87,7 +87,7 @@
 					var fullTime = message.TypedOn.Hour.ToString("00") + ":" + message.TypedOn.Minute.ToString("00");
 					var flexContent = "d-flex align-items-start flex-column";
 					var activeUserClassesIn = "media text-center ml-auto mb-3";
-					var bodyClassIn = "bg-primary";
+					var bodyClassIn = "bg-success";
 					var textEnd = "text-start";
 					var isUserActiveIn = Guid.Parse(User.GetId()) == message.UserFrom;
 					if (isUserActiveIn)

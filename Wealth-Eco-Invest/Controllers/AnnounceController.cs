@@ -162,6 +162,8 @@
 		{
 			ModelState.Remove(nameof(model.ImageUrl));
 			ModelState.Remove(nameof(model.ProductImage));
+			ModelState.Remove(nameof(model.StartDate));
+			var announce = await this.announceService.GetAnnounceForEditAsync(id);
 			if (!ModelState.IsValid)
 			{
 				model.Categories = await this.categoryService.AllCategoriesAsync();
