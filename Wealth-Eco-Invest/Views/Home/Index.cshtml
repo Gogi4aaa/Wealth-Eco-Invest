@@ -64,7 +64,7 @@ else
 					var body = article.Description;
 					var title = article.Title;
 					var author = "";
-					if (article.Author != null && article.Author != string.Empty)
+					if (!string.IsNullOrEmpty(article.Author))
 					{
 						author = article.Author;
 						if (article.Author.Length > 15)
@@ -78,28 +78,32 @@ else
 							author += "...";
 						}
 					}
-					if (article.Description.Length > 55)
+					if (!string.IsNullOrEmpty(article.Description))
 					{
-						body = "";
-						var i = 0;
-						while (i < 55)
+						if (article.Description.Length > 55)
 						{
-							body += article.Description[i++];
+							body = "";
+							var i = 0;
+							while (i < 55)
+							{
+								body += article.Description[i++];
+							}
+							body += "...";
 						}
-						body += "...";
 					}
-					if (article.Title.Length > 41)
+					if (!string.IsNullOrEmpty(article.Title))
 					{
-						title = "";
-						var i = 0;
-						while (i < 41)
+						if (article.Title.Length > 41)
 						{
-							title += article.Title[i++];
+							title = "";
+							var i = 0;
+							while (i < 41)
+							{
+								title += article.Title[i++];
+							}
+							title += "...";
 						}
-						title += "...";
 					}
-
-
 					<div class="col-sm-6 card ms-2 me-2 mt-2 w-18 card-background">
 						@if (string.IsNullOrEmpty(@article.UrlToImage))
 						{
