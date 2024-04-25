@@ -47,7 +47,14 @@
         {
             try
             {
-	            bool isAnnounceAlreadyBoughtByUser =
+	            var IsAnnounceOwnedByUser = await 
+		            this.announceService.IsCurrentUserOwnedAnnounceAsync(id, Guid.Parse(this.User.GetId()!));
+	            if (IsAnnounceOwnedByUser)
+	            {
+		            TempData[WarningMessage] = "Не можете да закупувате билети за събития създадени от вас!";
+		            return RedirectToAction("All", "Announce");
+				}
+				bool isAnnounceAlreadyBoughtByUser =
 		            await this.purchaseService.CheckIsThisAnnounceIsAlreadyBoughtByCurrentUser(id,
 			            Guid.Parse(this.User.GetId()!));
 	            if (isAnnounceAlreadyBoughtByUser)
@@ -107,9 +114,41 @@
 			return RedirectToAction("All", "ShoppingCart");
 		}
 
-        public async Task<IActionResult> Buy(Guid id)
+        public async Task<IActionResult> Buy()
         {
-	        AllAnnouncesViewModel announce = await this.shoppingCartService.GetAnnounceByAnnounceId(id, Guid.Parse(this.User.GetId()!));
+	        ShoppingCartViewModel announces = await this.shoppingCartService.GetAllAnnouncesForUser(Guid.Parse(this.User.GetId()!));
+
+	        List<SessionLineItemOptions> sessionList = new List<SessionLineItemOptions>();
+	        foreach (var announce in announces.Announces)
+	        {
+				var stringPrice = announce.Price.ToString();
+				if (stringPrice.Contains("."))
+				{
+					stringPrice = stringPrice.Replace(".", "");
+				}
+				else if (stringPrice.Contains(","))
+				{
+					stringPrice = stringPrice.Replace(",", "");
+				}
+				var price = decimal.Parse(stringPrice);
+
+				var sessionItem = new SessionLineItemOptions()
+				{
+					PriceData = new SessionLineItemPriceDataOptions()
+					{
+						UnitAmountDecimal = price,
+						Currency = "BGN",
+						ProductData = new SessionLineItemPriceDataProductDataOptions
+						{
+							Name = announce.Title,
+							Images = new List<string> { announce.ImageUrl }
+						}
+					},
+					Quantity = announce.Count,
+
+				};
+				sessionList.Add(sessionItem);
+			}
 
 			var location = new Uri($"{Request.Scheme}://{Request.Host}{Request.Path}{Request.QueryString}");
 
@@ -118,30 +157,13 @@
 
 	        var options = new SessionCreateOptions
 			{
-				SuccessUrl = $"{url}/ShoppingCart/Success/{announce.Id}",
+				SuccessUrl = $"{url}/ShoppingCart/Success",
 				CancelUrl = $"{url}/ShoppingCart/Failed",
 				PaymentMethodTypes = new List<string> 
 				{
 					"card"
 				},
-				LineItems = new List<SessionLineItemOptions>
-				{
-					new SessionLineItemOptions
-					{
-						PriceData = new SessionLineItemPriceDataOptions
-						{
-							UnitAmountDecimal = decimal.Parse(announce.Price.ToString().Replace(".", "")),
-							Currency = "BGN",
-							ProductData = new SessionLineItemPriceDataProductDataOptions
-							{
-								Name = announce.Title,
-								Description = announce.Description,
-								Images = new List<string> { announce.ImageUrl }
-							}
-						},
-						Quantity = announce.Count,
-					},
-				},
+				LineItems = sessionList,
 				Mode = "payment",
 				CustomerEmail = this.User.GetEmail(),
 			};
@@ -162,7 +184,7 @@
 			return Redirect(session.Url);
         }
 
-        public async Task<IActionResult> Success(Guid id)
+        public async Task<IActionResult> Success()
         {
 	        var callbackUrl = Url.Page(
 				"/",
@@ -171,36 +193,51 @@
 				protocol: Request.Scheme);
 
 			try
-	        {
-		        bool isAnnounceAlreadyBoughtByUser =
-			        await this.purchaseService.CheckIsThisAnnounceIsAlreadyBoughtByCurrentUser(id, Guid.Parse(this.User.GetId()!));
-		        if (isAnnounceAlreadyBoughtByUser)
+			{
+				var allPurchasedAnnounce = await
+					this.shoppingCartService.GetAllAnnouncesForUser(Guid.Parse(this.User.GetId()!));
+				bool isAlreadyBought = false;
+				Guid alredyBoughtAnnounceId = new Guid();
+				foreach (var purchasedAnnounce in allPurchasedAnnounce.Announces)
+				{
+					bool isAnnounceAlreadyBoughtByUser =
+			        await this.purchaseService.CheckIsThisAnnounceIsAlreadyBoughtByCurrentUser(purchasedAnnounce.Id,Guid.Parse(this.User.GetId()!));
+					if (isAnnounceAlreadyBoughtByUser)
+					{
+						isAlreadyBought = true;
+						alredyBoughtAnnounceId = purchasedAnnounce.Id;
+						break;
+					}
+				}
+		       
+		        if (isAlreadyBought)
 		        {
-			        TempData[ErrorMessage] = "Вие все още участвате в тази обява";
+			        var boughtAnnounce = await 
+				        this.shoppingCartService.GetAnnounceByAnnounceId(alredyBoughtAnnounceId,
+					        Guid.Parse(this.User.GetId()!));
+
+			        TempData[ErrorMessage] = $"Вие вече участвате в {boughtAnnounce.Title}";
 					TempData[InformationMessage] = "Проверете календара си!";
 
 			        return View();
 		        }
-				//TODO: email sending timer
-				var announceForTimer = await this.shoppingCartService.GetAnnounceByAnnounceId(id, Guid.Parse(this.User.GetId()!));
 
-				await this.notificationService.SendEmailNotification(announceForTimer, Guid.Parse(this.User.GetId()!));
+		        foreach (var purchasedAnnounce in allPurchasedAnnounce.Announces)
+				{
+					var announceForTimer = await this.shoppingCartService.GetAnnounceByAnnounceId(purchasedAnnounce.Id, Guid.Parse(this.User.GetId()!));
 
+					await this.notificationService.SendEmailNotification(announceForTimer, Guid.Parse(this.User.GetId()!));
 
-				await this.purchaseService.PurchaseAnnounceAsync(id, Guid.Parse(this.User.GetId()!));
+					await this.purchaseService.PurchaseAnnounceAsync(purchasedAnnounce.Id, Guid.Parse(this.User.GetId()!));
 
-		        var announce = await this.shoppingCartService.GetAnnounceByAnnounceId(id, Guid.Parse(this.User.GetId()!));
-
-				await this.emailSender.SendEmailAsync(this.User.GetEmail()!, "Купуване на билет", AnnounceBuyingTemplate.Message(this.User.Identity!.Name!, callbackUrl, announce));
-
-
-				await this.shoppingCartService.DeleteAnnounceToUser(id, Guid.Parse(this.User.GetId()!));
+					await this.shoppingCartService.DeleteAnnounceToUser(purchasedAnnounce.Id, Guid.Parse(this.User.GetId()!));
+				}
 
 				TempData[InformationMessage] = "Проверете календара си за цялата информация!";
 			}
 	        catch (Exception)
 	        {
-		        TempData[ErrorMessage] = TempData[ErrorMessage] = CommonErrorMessage;
+		        TempData[ErrorMessage] = CommonErrorMessage;
 			}
 
 	        return View();

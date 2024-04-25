@@ -201,5 +201,18 @@
 
             return allAnnounces;
         }
+
+        public async Task<bool> IsCurrentUserOwnedAnnounceAsync(Guid announceId, Guid userId)
+        {
+	        var announce = await this.dbContext
+		        .Announces
+		        .FindAsync(announceId);
+	        if (announce.UserId == userId)
+	        {
+		        return true;
+	        }
+
+	        return false;
+        }
     }
 }
