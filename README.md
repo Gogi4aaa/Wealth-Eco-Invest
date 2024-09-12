@@ -17,4 +17,5 @@ Getting Started 🚀 <br />
 1. Clone the repository.  <br />
 2. Install dependencies as outlined in the documentation.  <br />
 3. Follow the setup instructions to start participating in eco-friendly events.  <br />
+ <br />
 Join us in making a positive impact on the environment—every ticket purchased supports a greener, more sustainable future! 🌱
